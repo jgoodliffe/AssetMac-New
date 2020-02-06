@@ -688,7 +688,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="632" y="216" width="480" height="640"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="480" height="640"/>
                         <value key="maxSize" type="size" width="480" height="640"/>
                         <connections>
@@ -701,7 +701,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="1295" y="181"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -723,7 +723,7 @@
                                 <rect key="frame" x="0.0" y="405" width="480" height="5"/>
                             </box>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="w3I-eA-XHo">
-                                <rect key="frame" x="0.0" y="45" width="480" height="5"/>
+                                <rect key="frame" x="0.0" y="44" width="480" height="5"/>
                             </box>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBT-yB-Nfr">
                                 <rect key="frame" x="32" y="234" width="416" height="149"/>
@@ -819,9 +819,6 @@
                                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                                     </allowedInputSourceLocales>
                                                 </secureTextFieldCell>
-                                                <connections>
-                                                    <action selector="LoginClicked:" target="XfG-lQ-9wD" id="acd-4V-DH0"/>
-                                                </connections>
                                             </secureTextField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mdF-GF-r5T">
                                                 <rect key="frame" x="234" y="3" width="152" height="16"/>
@@ -870,7 +867,7 @@
                                 </customSpacing>
                             </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLf-zZ-Vja">
-                                <rect key="frame" x="398" y="6" width="77" height="32"/>
+                                <rect key="frame" x="398" y="6" width="77" height="31"/>
                                 <buttonCell key="cell" type="push" title="Log In" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v0t-vk-ZwM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -880,22 +877,48 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rUx-2u-v2F">
-                                <rect key="frame" x="263" y="6" width="136" height="32"/>
+                                <rect key="frame" x="263" y="6" width="136" height="31"/>
                                 <buttonCell key="cell" type="push" title="Reset Password" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OrM-mR-QSb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="piY-jy-byn">
+                                <rect key="frame" x="30" y="186" width="420" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
+                                    <font key="font" metaFont="message" size="11"/>
+                                    <string key="title">You have not entered one of the above fields correctly. 
+Please correct your input and then attempt login again.</string>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <progressIndicator hidden="YES" wantsLayer="YES" misplaced="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="2Rs-fn-r6N">
+                                <rect key="frame" x="232" y="16" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="4eZ-rJ-M4k"/>
+                                </constraints>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstItem="tLf-zZ-Vja" firstAttribute="leading" secondItem="rUx-2u-v2F" secondAttribute="trailing" constant="11" id="18g-l3-TgJ"/>
                             <constraint firstItem="Fh0-fU-QiP" firstAttribute="top" secondItem="2ki-As-EOf" secondAttribute="bottom" constant="14" id="4oD-xH-nUk"/>
                             <constraint firstItem="rUx-2u-v2F" firstAttribute="baseline" secondItem="tLf-zZ-Vja" secondAttribute="baseline" id="DbM-z2-5R6"/>
+                            <constraint firstItem="2Rs-fn-r6N" firstAttribute="centerY" secondItem="rUx-2u-v2F" secondAttribute="centerY" id="Fjq-9s-V4T"/>
+                            <constraint firstItem="2Rs-fn-r6N" firstAttribute="centerY" secondItem="tLf-zZ-Vja" secondAttribute="centerY" id="Hnm-fi-GZp"/>
                             <constraint firstAttribute="trailing" secondItem="Fh0-fU-QiP" secondAttribute="trailing" id="ILj-rr-419"/>
+                            <constraint firstItem="piY-jy-byn" firstAttribute="trailing" secondItem="KBT-yB-Nfr" secondAttribute="trailing" id="RqJ-vg-oNk"/>
                             <constraint firstItem="2ki-As-EOf" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="SNb-M3-wAM"/>
                             <constraint firstItem="Fh0-fU-QiP" firstAttribute="centerX" secondItem="KBT-yB-Nfr" secondAttribute="centerX" id="Sw5-T7-pQM"/>
+                            <constraint firstItem="piY-jy-byn" firstAttribute="leading" secondItem="KBT-yB-Nfr" secondAttribute="leading" id="YaY-Fv-taZ"/>
                             <constraint firstAttribute="bottom" secondItem="rUx-2u-v2F" secondAttribute="bottom" constant="13" id="ZzJ-LV-Nfr"/>
                             <constraint firstItem="KBT-yB-Nfr" firstAttribute="top" secondItem="Fh0-fU-QiP" secondAttribute="bottom" constant="24" id="c2u-NX-ahA"/>
+                            <constraint firstItem="2Rs-fn-r6N" firstAttribute="centerX" secondItem="w3I-eA-XHo" secondAttribute="centerX" id="fDu-nf-TGH"/>
+                            <constraint firstItem="2Rs-fn-r6N" firstAttribute="top" secondItem="w3I-eA-XHo" secondAttribute="bottom" constant="15" id="ghA-tY-GAP"/>
+                            <constraint firstItem="piY-jy-byn" firstAttribute="top" secondItem="KBT-yB-Nfr" secondAttribute="bottom" constant="16" id="irl-5G-KUW"/>
                             <constraint firstItem="KBT-yB-Nfr" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="32" id="lcr-2w-Do2"/>
                             <constraint firstItem="Fh0-fU-QiP" firstAttribute="trailing" secondItem="w3I-eA-XHo" secondAttribute="trailing" id="odn-1T-IT5"/>
                             <constraint firstItem="2ki-As-EOf" firstAttribute="centerX" secondItem="Fh0-fU-QiP" secondAttribute="centerX" id="rcL-oG-XIT"/>
@@ -907,6 +930,9 @@
                     </view>
                     <connections>
                         <outlet property="host" destination="69e-Ei-c6n" id="qhR-WB-kNZ"/>
+                        <outlet property="labelError" destination="piY-jy-byn" id="Bno-xc-t9Z"/>
+                        <outlet property="passwordField" destination="NuH-TS-tNa" id="4QT-tY-wUA"/>
+                        <outlet property="progressIndicator" destination="2Rs-fn-r6N" id="9J6-rg-cZf"/>
                         <outlet property="username" destination="1c4-19-Gez" id="BKg-01-FCJ"/>
                     </connections>
                 </viewController>
