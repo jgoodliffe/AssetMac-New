@@ -12,33 +12,42 @@ import SwiftyJSON
 
 class LoginViewController: NSViewController {
 
-    //Always make sure IBOutlet Connections are valid!
+    ///Always make sure IBOutlet Connections are valid!
     @IBOutlet weak var passwordField: NSSecureTextField!
     @IBOutlet weak var username: NSTextField!
     @IBOutlet weak var host: NSTextField!
     @IBOutlet weak var labelError: NSTextField!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    @IBOutlet weak var btnLogin: NSButton!
     let auth = Authentication()
-    
+    var loggingIn = false
+    lazy var loginInProgress: [IndexPath: Operation] = [:]
+    lazy var loginQueue: OperationQueue = {
+      var loginQueue = OperationQueue()
+      loginQueue.name = "Download queue"
+      loginQueue.maxConcurrentOperationCount = 1
+      return loginQueue
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         labelError.isHidden = true
+        btnLogin.title = "Log In"
         progressIndicator.isHidden = true
         
-        // Do any additional setup after loading the view.
+        /// Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+        /// Update the view, if already loaded.
         }
     }
     
     func validateURLFormat(inputURL: String)-> Bool{
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         if let match = detector.firstMatch(in: inputURL, options: [], range: NSRange(location: 0, length: inputURL.utf16.count)) {
-            // it is a link, if the match covers the whole string
+            /// it is a link, if the match covers the whole string
             return match.range.length == inputURL.utf16.count
         } else {
             return false
@@ -46,8 +55,17 @@ class LoginViewController: NSViewController {
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
-        //debugPrint("Click triggered!")
-        //Check for Null values.
+        
+        if loggingIn{
+            loggingIn = false
+            btnLogin.title = "Log In"
+            self.progressIndicator.isHidden = true;
+            self.progressIndicator.stopAnimation(self)
+            loginQueue.cancelAllOperations() ///Cancel login.
+            return;
+        }
+        loggingIn = true
+        ///Check for Null values.
         labelError.isHidden = true
         if passwordField.stringValue.isEmpty || username.stringValue.isEmpty || host.stringValue.isEmpty {
             labelError.isHidden = false
@@ -61,38 +79,41 @@ class LoginViewController: NSViewController {
                 debugPrint("Attempting login -  Host: "+host.stringValue+" Username: "+username.stringValue+" Password: "+passwordField.stringValue)
                 
                 ;
-                //Attempt Login - DispatchQueue
+                ///Attempt Login - DispatchQueue
                 
                 let hostName = host.stringValue
                 let uName = username.stringValue
                 let pword = passwordField.stringValue
-                //Execute CompletionHandler task in background..
-                DispatchQueue.global(qos: .userInitiated).async {
-                    [weak self] in
-                    guard let self = self else{
-                        return
+                btnLogin.title = "Abort"
+                
+                ///Check if another operation is already running before we attempt to start another.
+                if loginQueue.operationCount<1{
+                        loginQueue.addOperation{
+                        self.auth.login(hostName: hostName, username: uName, password: pword, success: { (response) -> Void in
+                            // When download completes,control flow goes here.
+                            if response {
+                                print("Success!")
+                                ///Update UI in Main thread...
+                                DispatchQueue.main.async { [weak self] in
+                                    self?.progressIndicator.stopAnimation(self)
+                                    self?.progressIndicator.isHidden = true
+                                    self?.btnLogin.title = "Log In"
+                                    self?.loggingIn = false;
+                                }
+                                ///Trigger Seague..
+                            }
+                        }, failure: { (error) -> Void in
+                            DispatchQueue.main.async { [weak self] in
+                                self?.progressIndicator.stopAnimation(self)
+                                self?.progressIndicator.isHidden = true
+                                self?.labelError.isHidden = false
+                                self?.labelError.stringValue = error
+                                self?.btnLogin.title = "Log In"
+                                self?.loggingIn = false;
+                            }
+                        })
                     }
-                    self.auth.login(hostName: hostName,username: uName, password: pword, completion: { (success) -> Void in
-                        // When download completes,control flow goes here.
-                        if success {
-                            print("Success!")
-                            //Update UI in Main thread...
-                            DispatchQueue.main.async { [weak self] in
-                                self?.progressIndicator.stopAnimation(self)
-                                self?.progressIndicator.isHidden = true
-                            }
-                            //Trigger Seague..
-                        } else {
-                            print("No Success!")
-                            DispatchQueue.main.async { [weak self] in
-                                self?.progressIndicator.stopAnimation(self)
-                                self?.progressIndicator.isHidden = true
-                            }
-                        }
-                    })
                 }
-
-            
                 //auth.login(host: host.stringValue, username: username.stringValue, password: passwordField.stringValue)
             } else{
                 labelError.isHidden = false;

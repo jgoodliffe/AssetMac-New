@@ -889,7 +889,7 @@
                                     <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="label" size="11"/>
                                     <string key="title">You have not entered one of the above fields correctly. 
 Please correct your input and then attempt login again.</string>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -929,6 +929,7 @@ Please correct your input and then attempt login again.</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnLogin" destination="tLf-zZ-Vja" id="YH1-XW-45X"/>
                         <outlet property="host" destination="69e-Ei-c6n" id="qhR-WB-kNZ"/>
                         <outlet property="labelError" destination="piY-jy-byn" id="Bno-xc-t9Z"/>
                         <outlet property="passwordField" destination="NuH-TS-tNa" id="4QT-tY-wUA"/>
