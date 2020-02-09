@@ -30,8 +30,8 @@
             filePath = "AssetClient/Authentication.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "login(hostName:username:password:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
