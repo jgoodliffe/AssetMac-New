@@ -9,6 +9,7 @@
 import Cocoa
 import Alamofire
 import SwiftyJSON
+import AppKit
 
 class LoginViewController: NSViewController {
 
@@ -28,6 +29,8 @@ class LoginViewController: NSViewController {
       loginQueue.maxConcurrentOperationCount = 1
       return loginQueue
     }()
+    
+    let appDelegate = NSApp.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +102,24 @@ class LoginViewController: NSViewController {
                                     self?.progressIndicator.isHidden = true
                                     self?.btnLogin.title = "Log In"
                                     self?.loggingIn = false;
+                                    
+                                    /* - Printing out Received token.
+                                    let context = self?.appDelegate?.persistentContainer.viewContext
+                                    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AuthStore")
+                                    var token:String = "nil"
+                                    do{
+                                        let tokenObject = try context?.fetch(fetchRequest)
+                                        for entry in tokenObject as! [NSManagedObject]{
+                                            token = entry.value(forKey: "token") as! String
+                                        }
+                                    } catch{
+                                        print("Failed to retrieve key")
+                                    }
+                                    
+                                    let alert = NSAlert()
+                                    alert.messageText = "Successful login. Token: " + token
+                                    alert.runModal()
+                                    */
                                 }
                                 ///Trigger Seague..
                             }

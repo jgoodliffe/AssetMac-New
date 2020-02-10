@@ -16,6 +16,9 @@
 		7D7A87DA23E9E02800B9B4B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7A87D823E9E02800B9B4B0 /* Main.storyboard */; };
 		7D7A87E623E9E02800B9B4B0 /* AssetClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A87E523E9E02800B9B4B0 /* AssetClientTests.swift */; };
 		7D7A87F123E9E02800B9B4B0 /* AssetClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A87F023E9E02800B9B4B0 /* AssetClientUITests.swift */; };
+		7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F1E23F07BB8000AE10F /* AssetClient.xcdatamodeld */; };
+		7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */; };
+		7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		7D7A87EC23E9E02800B9B4B0 /* AssetClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssetClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7A87F023E9E02800B9B4B0 /* AssetClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetClientUITests.swift; sourceTree = "<group>"; };
 		7D7A87F223E9E02800B9B4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D909F1F23F07BB8000AE10F /* AssetClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AssetClient.xcdatamodel; sourceTree = "<group>"; };
+		7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B19978E295FE123B01171AFD /* Pods-AssetClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.debug.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +121,8 @@
 		7D7A87D123E9E02600B9B4B0 /* AssetClient */ = {
 			isa = PBXGroup;
 			children = (
+				7D909F2223F07C45000AE10F /* Data */,
+				7D909F1D23F07B96000AE10F /* Resources */,
 				7D7A87D223E9E02600B9B4B0 /* AppDelegate.swift */,
 				7D7A87D423E9E02600B9B4B0 /* LoginViewController.swift */,
 				7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */,
@@ -143,6 +151,23 @@
 				7D7A87F223E9E02800B9B4B0 /* Info.plist */,
 			);
 			path = AssetClientUITests;
+			sourceTree = "<group>";
+		};
+		7D909F1D23F07B96000AE10F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7D909F1E23F07BB8000AE10F /* AssetClient.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7D909F2223F07C45000AE10F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */,
+				7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		FEC16D337F291E2F5A79C893 /* Pods */ = {
@@ -330,7 +355,10 @@
 			files = (
 				7D7A87D523E9E02600B9B4B0 /* LoginViewController.swift in Sources */,
 				7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */,
+				7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */,
 				7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */,
+				7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */,
+				7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */,
 				7D742B2723EA384100D0B53E /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,6 +687,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7D909F1E23F07BB8000AE10F /* AssetClient.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7D909F1F23F07BB8000AE10F /* AssetClient.xcdatamodel */,
+			);
+			currentVersion = 7D909F1F23F07BB8000AE10F /* AssetClient.xcdatamodel */;
+			path = AssetClient.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7D7A87C723E9E02600B9B4B0 /* Project object */;
 }

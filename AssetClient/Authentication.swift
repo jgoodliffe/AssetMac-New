@@ -9,6 +9,8 @@
 import Cocoa
 import SwiftyJSON
 import Alamofire
+import AppKit
+import CoreData
 
 class Authentication: NSObject {
     
@@ -20,36 +22,46 @@ class Authentication: NSObject {
     let password: String = ""
     var manager = Alamofire.Session.default
     let configuration = URLSessionConfiguration.default
-
     
+    
+    private let appDelegate = NSApp.delegate as! AppDelegate
+    private let context = (NSApp.delegate as! AppDelegate).persistentContainer.viewContext
+    private var tokenStore:[NSManagedObject] = []
+    
+    //private var tokenStore:NSManagedObject = [Auth]
     
     func login(hostName: String,username: String, password:String, success: @escaping (_ response: Bool) -> Void, failure: @escaping (_ error: String) -> Void) {
-        //sleep(5)
-        
-        
-        //manager.session.configuration.timeoutIntervalForRequest = 5
-        //manager.session.configuration.timeoutIntervalForResource = 5
         configuration.timeoutIntervalForResource = 5
         configuration.timeoutIntervalForRequest = 5
+        
+        //Attempt to get Token Store
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthStore")
+        do{
+            tokenStore = try context.fetch(request) as! [NSManagedObject]
+            debugPrint("TokenStore Count: "+String(tokenStore.count))
+            if tokenStore.count>0{
+                for object in tokenStore{
+                    context.delete(object) //Remove all invalid tokens.
+                }
+            }
+        } catch{
+            print("Failed to pull CoreData")
+        }
+
+        
         self.manager = Alamofire.Session(configuration:configuration)
-    
+            
         let hostAddress:String = hostName + ":" + String(port) + "/login/"
         let parameters: Parameters = ["username":username, "password":password]
         
         let authString: String = username + ":" + password
-        //print(authString)
         let authStringUTF8 = authString.data(using: .utf8) //Encode to UTF-8
-        //print(authStringUTF8)
-        
-        
         let authStringB64 = authStringUTF8?.base64EncodedString()
-        print(authStringB64)
         
         let headers: HTTPHeaders = [
             "auth": authStringB64 ?? ""]
         
         //TODO: >Unwrap optional value
-        //      >Send as POST
         //      >Set up SSL
 
         
@@ -57,7 +69,6 @@ class Authentication: NSObject {
         manager.request(hostAddress,method: .post, parameters: parameters, headers: headers).responseJSON { response in
             //Attempt to decode response
             switch response.result{
-            
                 ///Successfully decoded JSON
                 case.success(let jsonResponse):
                     //Map response into Array and check response code.
@@ -66,8 +77,27 @@ class Authentication: NSObject {
                         debugPrint("Response code: "+String(status))
                         
                         if(status==200){
-                            success(true)
-                            print(JSON)
+                            
+                            let token = JSON["auth-token"]
+                            let userLevel = JSON["user-level"]
+                            
+                            let authStoreEntity = NSEntityDescription.entity(forEntityName: "AuthStore",  in: self.context)
+                
+                            //Store received authentication token.
+                            let newToken = NSManagedObject(entity: authStoreEntity!, insertInto: self.context)
+                            newToken.setValue(username, forKey: "username")
+                            newToken.setValue(token, forKey: "token")
+                            newToken.setValue(userLevel, forKey: "userLevel")
+
+                            do{
+                                try self.context.save()
+                                success(true)
+                            } catch{
+                                debugPrint("Failed to save token.")
+                                failure("Unable to Save Authentication Token.")
+                            }
+                            
+    
                         } else{
                             let errorMessage:String = "Error Logging In.\n Error Code: "+String(status)+" "+String(JSON["error-type"] as! String)
                             failure(errorMessage)
