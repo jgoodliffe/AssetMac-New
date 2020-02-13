@@ -58,7 +58,13 @@ class LoginViewController: NSViewController {
     }
     
     @IBAction func LoginClicked(_ sender: Any) {
-        
+        login()
+    }
+    @IBAction func enterPressed(_ sender: Any) {
+        login()
+    }
+    
+    func login(){
         if loggingIn{
             loggingIn = false
             btnLogin.title = "Log In"
@@ -95,7 +101,7 @@ class LoginViewController: NSViewController {
                         self.auth.login(hostName: hostName, username: uName, password: pword, success: { (response) -> Void in
                             // When download completes,control flow goes here.
                             if response {
-                                print("Success!")
+                                debugPrint("Login completed.")
                                 ///Update UI in Main thread...
                                 DispatchQueue.main.async { [weak self] in
                                     self?.progressIndicator.stopAnimation(self)
@@ -141,8 +147,5 @@ class LoginViewController: NSViewController {
             }
         }
     }
-    
-
-
 }
 

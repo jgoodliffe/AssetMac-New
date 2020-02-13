@@ -41,6 +41,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
     }
 
+    /**
+     Show the current ViewController
+     */
+    @IBAction func showWindow(_ sender: Any) {
+        for win in NSApp.windows{
+            if win.isMiniaturized{
+                win.deminiaturize(self)
+            }
+        }
+    }
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }

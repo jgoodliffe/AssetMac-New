@@ -45,7 +45,7 @@ class Authentication: NSObject {
                 }
             }
         } catch{
-            print("Failed to pull CoreData")
+            debugPrint("Failed to pull CoreData")
         }
 
         
@@ -81,6 +81,7 @@ class Authentication: NSObject {
                             let token = JSON["auth-token"]
                             let userLevel = JSON["user-level"]
                             
+                            debugPrint("Received Token! " + (token as! String))
                             let authStoreEntity = NSEntityDescription.entity(forEntityName: "AuthStore",  in: self.context)
                 
                             //Store received authentication token.

@@ -640,6 +640,11 @@
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Show" keyEquivalent="0" id="1GX-Cv-Rh1">
+                                            <connections>
+                                                <action selector="showWindow:" target="Voe-Tx-rLC" id="2IN-Fv-pm6"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Zoom" id="R4o-n2-Eq4">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -685,7 +690,7 @@
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Asset Manager - Log In" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="632" y="216" width="480" height="640"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -741,7 +746,7 @@
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="69e-Ei-c6n">
                                                 <rect key="frame" x="0.0" y="0.0" width="228" height="21"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" placeholderString="8.8.8.8" drawsBackground="YES" id="zK8-ya-LSL">
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" placeholderString="hostname" drawsBackground="YES" id="zK8-ya-LSL">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -811,7 +816,7 @@
                                         <subviews>
                                             <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NuH-TS-tNa">
                                                 <rect key="frame" x="0.0" y="0.0" width="228" height="21"/>
-                                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" usesSingleLineMode="YES" id="i8b-ps-dSi">
+                                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" usesSingleLineMode="YES" id="i8b-ps-dSi">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -819,6 +824,9 @@
                                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                                     </allowedInputSourceLocales>
                                                 </secureTextFieldCell>
+                                                <connections>
+                                                    <action selector="enterPressed:" target="XfG-lQ-9wD" id="0Gl-uD-Jfc"/>
+                                                </connections>
                                             </secureTextField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mdF-GF-r5T">
                                                 <rect key="frame" x="234" y="3" width="152" height="16"/>
