@@ -106,10 +106,10 @@ class LoginViewController: NSViewController {
                                 DispatchQueue.main.async { [weak self] in
                                     self?.progressIndicator.stopAnimation(self)
                                     self?.progressIndicator.isHidden = true
-                                    self?.btnLogin.title = "Reset Password"
                                     self?.labelError.stringValue = "Successfully reset password. \n Please check your email for the new password."
                                     self?.labelError.isHidden = false
                                     self?.labelError.textColor = NSColor.green
+                                    self?.btnReset.title = "Reset Password"
                                     self?.resettingPassword = false
                                     
                                 }
@@ -174,24 +174,7 @@ class LoginViewController: NSViewController {
                                     self?.progressIndicator.isHidden = true
                                     self?.btnLogin.title = "Log In"
                                     self?.loggingIn = false;
-                                    
-                                    /* - Printing out Received token.
-                                    let context = self?.appDelegate?.persistentContainer.viewContext
-                                    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AuthStore")
-                                    var token:String = "nil"
-                                    do{
-                                        let tokenObject = try context?.fetch(fetchRequest)
-                                        for entry in tokenObject as! [NSManagedObject]{
-                                            token = entry.value(forKey: "token") as! String
-                                        }
-                                    } catch{
-                                        print("Failed to retrieve key")
-                                    }
-                                    
-                                    let alert = NSAlert()
-                                    alert.messageText = "Successful login. Token: " + token
-                                    alert.runModal()
-                                    */
+                                    self?.performSegue(withIdentifier: "transtionToDashboard", sender: nil)
                                 }
                                 ///Trigger Seague..
                             }

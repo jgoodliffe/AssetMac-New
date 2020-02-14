@@ -706,7 +706,42 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1295" y="181"/>
+            <point key="canvasLocation" x="1259" y="-710"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="ZFM-6Z-GGs">
+            <objects>
+                <windowController id="x12-YR-Vcm" sceneMemberID="viewController">
+                    <window key="window" title="Asset Manager - Dashboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" frameAutosaveName="" animationBehavior="default" id="8Yu-ko-EzG">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <rect key="contentRect" x="646" y="395" width="1280" height="720"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="1280" height="720"/>
+                        <value key="minFullScreenContentSize" type="size" width="1280" height="720"/>
+                        <connections>
+                            <outlet property="delegate" destination="x12-YR-Vcm" id="c5r-7S-jsU"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="9z8-m1-rNN" kind="relationship" relationship="window.shadowedContentViewController" id="CJb-lo-qdn"/>
+                    </connections>
+                </windowController>
+                <customObject id="sWQ-RI-Td3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2210" y="-750"/>
+        </scene>
+        <!--Dashboard View Controller-->
+        <scene sceneID="Jgd-aZ-Swz">
+            <objects>
+                <viewController id="9z8-m1-rNN" customClass="DashboardViewController" customModule="AssetClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" appearanceType="darkAqua" id="CZt-hX-3xH">
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <customObject id="w2b-eq-u9v" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2210" y="206"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -900,7 +935,7 @@
                                     <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
-                                    <font key="font" metaFont="label" size="11"/>
+                                    <font key="font" metaFont="controlContent" size="11"/>
                                     <string key="title">You have not entered one of the above fields correctly. 
 Please correct your input and then attempt login again.</string>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -947,11 +982,15 @@ Please correct your input and then attempt login again.</string>
                         <outlet property="passwordField" destination="NuH-TS-tNa" id="4QT-tY-wUA"/>
                         <outlet property="progressIndicator" destination="2Rs-fn-r6N" id="9J6-rg-cZf"/>
                         <outlet property="username" destination="1c4-19-Gez" id="BKg-01-FCJ"/>
+                        <segue destination="9z8-m1-rNN" kind="show" identifier="transitionToDashboard" id="wAo-0q-Ozb"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="238"/>
+            <point key="canvasLocation" x="1259" y="84"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wAo-0q-Ozb"/>
+    </inferredMetricsTieBreakers>
 </document>
