@@ -20,8 +20,10 @@ class LoginViewController: NSViewController {
     @IBOutlet weak var labelError: NSTextField!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var btnLogin: NSButton!
+    @IBOutlet weak var btnReset: NSButton!
     let auth = Authentication()
     var loggingIn = false
+    var resettingPassword = false
     lazy var loginInProgress: [IndexPath: Operation] = [:]
     lazy var loginQueue: OperationQueue = {
       var loginQueue = OperationQueue()
@@ -63,6 +65,71 @@ class LoginViewController: NSViewController {
     @IBAction func enterPressed(_ sender: Any) {
         login()
     }
+    @IBAction func resetPasswordPressed(_ sender: Any) {
+        resetPassword()
+    }
+    
+    func resetPassword(){
+        if resettingPassword{
+            resettingPassword = false
+            btnReset.title = "Reset Password"
+            self.progressIndicator.isHidden = true
+            self.progressIndicator.stopAnimation(self)
+            loginQueue.cancelAllOperations()
+            labelError.textColor = NSColor.red
+            return
+        }
+        resettingPassword = true
+        labelError.isHidden = true
+        
+        //Check for Null username.
+        if username.stringValue.isEmpty || host.stringValue.isEmpty{
+            labelError.isHidden = false
+        } else{
+            if(!host.stringValue.contains("http://")){
+                host.stringValue = "http://" + host.stringValue
+            }
+            if(validateURLFormat(inputURL: host.stringValue)){
+                progressIndicator.isHidden = false
+                progressIndicator.startAnimation(self)
+                
+                let hostName = host.stringValue
+                let uName = username.stringValue
+                btnReset.title = "Abort"
+                
+                //Attempt to Reset Password
+                if loginQueue.operationCount<1{
+                    loginQueue.addOperation {
+                        self.auth.resetPassword(hostName: hostName, username: uName, success: {(response)-> Void in
+                            if response{
+                                debugPrint("Password reset complete.")
+                                DispatchQueue.main.async { [weak self] in
+                                    self?.progressIndicator.stopAnimation(self)
+                                    self?.progressIndicator.isHidden = true
+                                    self?.btnLogin.title = "Reset Password"
+                                    self?.labelError.stringValue = "Successfully reset password. \n Please check your email for the new password."
+                                    self?.labelError.isHidden = false
+                                    self?.labelError.textColor = NSColor.green
+                                    self?.resettingPassword = false
+                                    
+                                }
+                            }
+                        }, failure: {(error)-> Void in
+                            DispatchQueue.main.async { [weak self] in
+                                self?.progressIndicator.stopAnimation(self)
+                                self?.progressIndicator.isHidden = true
+                                self?.labelError.isHidden = false
+                                self?.labelError.stringValue = error
+                                self?.btnReset.title = "Reset Password"
+                                self?.resettingPassword = false;
+                            }
+                        })
+                    }
+                }
+                
+            }
+        }
+    }
     
     func login(){
         if loggingIn{
@@ -70,6 +137,7 @@ class LoginViewController: NSViewController {
             btnLogin.title = "Log In"
             self.progressIndicator.isHidden = true;
             self.progressIndicator.stopAnimation(self)
+            labelError.textColor = NSColor.red
             loginQueue.cancelAllOperations() ///Cancel login.
             return;
         }
@@ -86,8 +154,6 @@ class LoginViewController: NSViewController {
                 progressIndicator.isHidden = false
                 progressIndicator.startAnimation(self)
                 debugPrint("Attempting login -  Host: "+host.stringValue+" Username: "+username.stringValue+" Password: "+passwordField.stringValue)
-                
-                ;
                 ///Attempt Login - DispatchQueue
                 
                 let hostName = host.stringValue

@@ -30,6 +30,44 @@ class Authentication: NSObject {
     
     //private var tokenStore:NSManagedObject = [Auth]
     
+    func resetPassword(hostName: String, username: String, success: @escaping (_ response: Bool)-> Void, failure: @escaping (_ error: String) -> Void){
+        configuration.timeoutIntervalForResource = 5
+        configuration.timeoutIntervalForRequest = 5
+        
+        self.manager = Alamofire.Session(configuration:configuration)
+        
+        let hostAddress:String = hostName + ":" + String(port) + "/login/"
+        let parameters:Parameters = ["loginType":"changePassword"]
+        
+        let authString: String = username
+        let authStringUTF8 = authString.data(using: .utf8) //Encode to UTF-8
+        let authStringB64 = authStringUTF8?.base64EncodedString()
+        let headers: HTTPHeaders = [
+            "auth": authStringB64 ?? "" ]
+        
+        
+        manager.request(hostAddress, method: .post, parameters: parameters, headers: headers).responseJSON { response in
+            switch response.result{
+            case.success(let jsonResponse):
+                if let JSON = jsonResponse as? [String:Any]{
+                    let status = JSON["response-code"] as! Int
+                    debugPrint("Response code: "+String(status))
+                    if(status==200){
+                        success(true)
+                    } else{
+                        let errorMessage:String = "Error Logging In.\n Error Code: "+String(status)+" "+String(JSON["error-type"] as! String)
+                        failure(errorMessage)
+                    }
+            }
+            case.failure(let error):
+                let errorCode:Int = error.responseCode ?? 0
+                let errorMessage:String = error.localizedDescription
+                failure(errorMessage)
+            }
+        }
+    }
+    
+    
     func login(hostName: String,username: String, password:String, success: @escaping (_ response: Bool) -> Void, failure: @escaping (_ error: String) -> Void) {
         configuration.timeoutIntervalForResource = 5
         configuration.timeoutIntervalForRequest = 5
@@ -52,7 +90,7 @@ class Authentication: NSObject {
         self.manager = Alamofire.Session(configuration:configuration)
             
         let hostAddress:String = hostName + ":" + String(port) + "/login/"
-        let parameters: Parameters = ["username":username, "password":password]
+        let parameters: Parameters = ["loginType":"login"]
         
         let authString: String = username + ":" + password
         let authStringUTF8 = authString.data(using: .utf8) //Encode to UTF-8

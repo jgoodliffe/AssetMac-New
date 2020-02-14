@@ -890,6 +890,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="resetPasswordPressed:" target="XfG-lQ-9wD" id="PYC-lc-Dl3"/>
+                                </connections>
                             </button>
                             <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="piY-jy-byn">
                                 <rect key="frame" x="30" y="186" width="420" height="32"/>
@@ -938,6 +941,7 @@ Please correct your input and then attempt login again.</string>
                     </view>
                     <connections>
                         <outlet property="btnLogin" destination="tLf-zZ-Vja" id="YH1-XW-45X"/>
+                        <outlet property="btnReset" destination="rUx-2u-v2F" id="kSZ-fs-ZlM"/>
                         <outlet property="host" destination="69e-Ei-c6n" id="qhR-WB-kNZ"/>
                         <outlet property="labelError" destination="piY-jy-byn" id="Bno-xc-t9Z"/>
                         <outlet property="passwordField" destination="NuH-TS-tNa" id="4QT-tY-wUA"/>
