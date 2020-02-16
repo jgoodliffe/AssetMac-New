@@ -34,6 +34,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return container
     }()
     
+    func newDashboardWindow() -> NSWindow{
+        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController))
+        let customToolbar = NSToolbar()
+        newWindow.titleVisibility = .hidden
+        newWindow.styleMask.insert(.texturedBackground)
+        newWindow.styleMask.insert(.fullSizeContentView)
+        newWindow.titlebarAppearsTransparent = true
+        newWindow.contentView?.wantsLayer = true
+        newWindow.toolbar = customToolbar
+        newWindow.appearance = NSAppearance(named: .darkAqua)
+        return newWindow
+    }
+    
     func disableMainMenuButtons(){
         tabMenuItem.isEnabled = false
         closeWindow.isEnabled = false
@@ -62,7 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        // Connect to Server
     }
 
     /**
@@ -74,15 +87,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if currentVC?.identifier?.rawValue=="dashboardController"{
             //Create new Tab
             let currentWindow = AppDelegate.getCurrentWindow()
-            let currentWindowCtrl = AppDelegate.getCurrentWindowController()
-            let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController))
-            let customToolbar = NSToolbar()
-            newWindow.titleVisibility = .hidden
-            newWindow.styleMask.insert(.texturedBackground)
-            newWindow.styleMask.insert(.fullSizeContentView)
-            newWindow.titlebarAppearsTransparent = true
-            newWindow.contentView?.wantsLayer = true
-            newWindow.toolbar = customToolbar
+            //let currentWindowCtrl = AppDelegate.getCurrentWindowController()
+            let newWindow = newDashboardWindow()
             currentWindow?.addTabbedWindow(newWindow, ordered: .above)
         }
     }
@@ -95,18 +101,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if currentVC?.identifier?.rawValue=="dashboardController"{
             //Create new Window
             let currentWindow = AppDelegate.getCurrentWindow()
-            let currentWindowCtrl = AppDelegate.getCurrentWindowController()
-            let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController))
+            let newWindow = newDashboardWindow()
             currentWindow?.addChildWindow(newWindow, ordered: .above)
-            let customToolbar = NSToolbar()
-            newWindow.titleVisibility = .hidden
-            newWindow.styleMask.insert(.texturedBackground)
-            newWindow.styleMask.insert(.fullSizeContentView)
-            newWindow.titlebarAppearsTransparent = true
-            newWindow.contentView?.wantsLayer = true
-            newWindow.toolbar = customToolbar
             newWindow.makeKey()
-
         }
     }
     

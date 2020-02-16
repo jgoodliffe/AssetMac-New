@@ -440,7 +440,7 @@
                                     <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
-                                    <font key="font" metaFont="menu" size="11"/>
+                                    <font key="font" metaFont="label" size="11"/>
                                     <string key="title">You have not entered one of the above fields correctly. 
 Please correct your input and then attempt login again.</string>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -531,7 +531,7 @@ Please correct your input and then attempt login again.</string>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="KoW-6y-wLc">
                                         <rect key="frame" x="0.0" y="0.0" width="1001" height="77"/>
                                         <subviews>
-                                            <stackView distribution="fillEqually" orientation="horizontal" alignment="firstBaseline" spacing="80" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="No5-tC-l4T">
+                                            <stackView wantsLayer="YES" distribution="fillEqually" orientation="horizontal" alignment="firstBaseline" spacing="80" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="No5-tC-l4T">
                                                 <rect key="frame" x="20" y="23" width="955" height="31"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MW0-Vc-RBP">
@@ -540,6 +540,9 @@ Please correct your input and then attempt login again.</string>
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="btnAssetsClicked:" target="EFz-cg-PGy" id="qtZ-6U-uFe"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i6C-yd-O9M">
                                                         <rect key="frame" x="205" y="-3" width="131" height="36"/>
@@ -661,6 +664,14 @@ Please correct your input and then attempt login again.</string>
                     </view>
                     <connections>
                         <outlet property="Sidepanel" destination="FE3-H2-jck" id="8jg-GA-HZg"/>
+                        <outlet property="btnAssets" destination="MW0-Vc-RBP" id="gi5-FS-E7w"/>
+                        <outlet property="btnJobs" destination="i6C-yd-O9M" id="Jtx-hh-2oy"/>
+                        <outlet property="btnLogistics" destination="FHz-8n-OGL" id="6tu-Cz-Ktw"/>
+                        <outlet property="btnMaintenance" destination="SK4-ve-VHi" id="78S-Ay-htB"/>
+                        <outlet property="btnPeople" destination="p8P-Kt-vca" id="9XL-XR-egu"/>
+                        <outlet property="dateText" destination="cJL-cr-kuY" id="TCU-fL-KYm"/>
+                        <outlet property="titleText" destination="dXY-Yi-hxR" id="Aj7-sY-FMu"/>
+                        <outlet property="welcomeText" destination="G6q-MM-TPz" id="4Kk-OU-chY"/>
                     </connections>
                 </viewController>
                 <customObject id="7QB-xP-Ila" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
