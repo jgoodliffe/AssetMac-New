@@ -21,6 +21,7 @@ class LoginViewController: NSViewController {
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var btnLogin: NSButton!
     @IBOutlet weak var btnReset: NSButton!
+    //var dashboardWindowController = DashboardWindowController()
     let auth = Authentication()
     var loggingIn = false
     var resettingPassword = false
@@ -39,8 +40,12 @@ class LoginViewController: NSViewController {
         labelError.isHidden = true
         btnLogin.title = "Log In"
         progressIndicator.isHidden = true
-        
+        appDelegate?.disableMainMenuButtons()
         /// Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        //let second = segue.destinationController as! DashboardViewController
     }
 
     override var representedObject: Any? {
@@ -106,12 +111,11 @@ class LoginViewController: NSViewController {
                                 DispatchQueue.main.async { [weak self] in
                                     self?.progressIndicator.stopAnimation(self)
                                     self?.progressIndicator.isHidden = true
-                                    self?.labelError.stringValue = "Successfully reset password. \n Please check your email for the new password."
+                                    self?.labelError.stringValue = "Successfully reset password.\nPlease check your email for the new password."
                                     self?.labelError.isHidden = false
                                     self?.labelError.textColor = NSColor.green
                                     self?.btnReset.title = "Reset Password"
                                     self?.resettingPassword = false
-                                    
                                 }
                             }
                         }, failure: {(error)-> Void in
@@ -174,9 +178,9 @@ class LoginViewController: NSViewController {
                                     self?.progressIndicator.isHidden = true
                                     self?.btnLogin.title = "Log In"
                                     self?.loggingIn = false;
-                                    self?.performSegue(withIdentifier: "transtionToDashboard", sender: nil)
+                                    self?.performSegue(withIdentifier: "transitionToDash", sender: nil)
+                                    self?.view.window?.close()
                                 }
-                                ///Trigger Seague..
                             }
                         }, failure: { (error) -> Void in
                             DispatchQueue.main.async { [weak self] in

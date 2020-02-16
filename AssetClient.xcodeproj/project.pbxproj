@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A7C64D0442EDA34D6E60988 /* Pods_AssetClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */; };
-		7D5FC3D323F6DEC40026D597 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FC3D223F6DEC40026D597 /* DashboardViewController.swift */; };
+		7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880023F8305E004DE4F3 /* DashboardViewController.swift */; };
+		7D29880323F83AB9004DE4F3 /* DashboardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */; };
 		7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */; };
 		7D742B2723EA384100D0B53E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D742B2623EA384100D0B53E /* Authentication.swift */; };
 		7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A87D223E9E02600B9B4B0 /* AppDelegate.swift */; };
@@ -42,7 +43,8 @@
 /* Begin PBXFileReference section */
 		4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssetClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F6ECFF9EC54A73B009E69B /* Pods-AssetClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.release.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.release.xcconfig"; sourceTree = "<group>"; };
-		7D5FC3D223F6DEC40026D597 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		7D29880023F8305E004DE4F3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWindowController.swift; sourceTree = "<group>"; };
 		7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFunctions.swift; sourceTree = "<group>"; };
 		7D742B2623EA384100D0B53E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		7D7A87CF23E9E02600B9B4B0 /* AssetClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +135,8 @@
 				7D7A87DB23E9E02800B9B4B0 /* Info.plist */,
 				7D7A87DC23E9E02800B9B4B0 /* AssetClient.entitlements */,
 				7D742B2623EA384100D0B53E /* Authentication.swift */,
-				7D5FC3D223F6DEC40026D597 /* DashboardViewController.swift */,
+				7D29880023F8305E004DE4F3 /* DashboardViewController.swift */,
+				7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */,
 			);
 			path = AssetClient;
 			sourceTree = "<group>";
@@ -357,13 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D7A87D523E9E02600B9B4B0 /* LoginViewController.swift in Sources */,
+				7D29880323F83AB9004DE4F3 /* DashboardWindowController.swift in Sources */,
 				7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */,
 				7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */,
 				7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */,
 				7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */,
 				7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */,
 				7D742B2723EA384100D0B53E /* Authentication.swift in Sources */,
-				7D5FC3D323F6DEC40026D597 /* DashboardViewController.swift in Sources */,
+				7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
