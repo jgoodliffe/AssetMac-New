@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A7C64D0442EDA34D6E60988 /* Pods_AssetClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */; };
+		7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */; };
+		7D09310523F9CAE90016390E /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09310323F9CAE90016390E /* ProgressHUD.swift */; };
 		7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880023F8305E004DE4F3 /* DashboardViewController.swift */; };
 		7D29880323F83AB9004DE4F3 /* DashboardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */; };
 		7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssetClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F6ECFF9EC54A73B009E69B /* Pods-AssetClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.release.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.release.xcconfig"; sourceTree = "<group>"; };
+		7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRKSpinningProgressIndicatorLayer.swift; sourceTree = "<group>"; };
+		7D09310323F9CAE90016390E /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		7D29880023F8305E004DE4F3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWindowController.swift; sourceTree = "<group>"; };
 		7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFunctions.swift; sourceTree = "<group>"; };
@@ -100,6 +104,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7D09310123F9CAE90016390E /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */,
+				7D09310323F9CAE90016390E /* ProgressHUD.swift */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		7D7A87C623E9E02600B9B4B0 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +138,7 @@
 		7D7A87D123E9E02600B9B4B0 /* AssetClient */ = {
 			isa = PBXGroup;
 			children = (
+				7D09310123F9CAE90016390E /* ProgressHUD */,
 				7D909F2223F07C45000AE10F /* Data */,
 				7D909F1D23F07B96000AE10F /* Resources */,
 				7D7A87D223E9E02600B9B4B0 /* AppDelegate.swift */,
@@ -364,8 +378,10 @@
 				7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */,
 				7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */,
 				7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */,
+				7D09310523F9CAE90016390E /* ProgressHUD.swift in Sources */,
 				7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */,
 				7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */,
+				7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */,
 				7D742B2723EA384100D0B53E /* Authentication.swift in Sources */,
 				7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */,
 			);

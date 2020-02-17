@@ -8,11 +8,14 @@
 
 import Cocoa
 import AppKit
+import Alamofire
+import SwiftyJSON
 
 class DashboardViewController: NSViewController {
-    
-    let appDelegate = NSApp.delegate as? AppDelegate
+        
     @IBOutlet weak var Sidepanel: NSView!
+    @IBOutlet var mainView: NSView!
+    @IBOutlet weak var leftView: NSVisualEffectView!
     @IBOutlet weak var titleText: NSTextField!
     @IBOutlet weak var dateText: NSTextField!
     @IBOutlet weak var welcomeText: NSTextField!
@@ -22,33 +25,129 @@ class DashboardViewController: NSViewController {
     @IBOutlet weak var btnMaintenance: NSButton!
     @IBOutlet weak var btnPeople: NSButton!
     
+    //Progress Indicator
+    var mainIndicator = ProgressHUD.self
+    
+    //Operation Queue
+    lazy var apiQueue: OperationQueue = {
+      var apiQueue = OperationQueue()
+      apiQueue.name = "Download queue"
+      apiQueue.maxConcurrentOperationCount = 1
+      return apiQueue
+    }()
+    
+    //Data Request Flag
+    var requestingData = false
+    
+    //Alamofire Information
+    let port: Int = 8080
+    var host: String = ""
+    var manager = Alamofire.Session.default
+    let configuration = URLSessionConfiguration.default
+    
+    //Token Stores + App Delegate Declaration
+    let appDelegate = NSApp.delegate as? AppDelegate
+    private let context = (NSApp.delegate as! AppDelegate).persistentContainer.viewContext
+    private var tokenStore:[NSManagedObject] = []
+    private var requestToken = ""
+    
+    //User Information
+    var firstName = ""
+    
     /**
      Load all required content for the window to be useful.
      */
     func loadInitialWindowContents(){
         hideWindowContentsBeforeLoad()
         
+        //Start Progress Indicator
+        mainIndicator.setDefaultStyle(.light)
+        mainIndicator.setContainerView(leftView)
+        mainIndicator.setDefaultMaskType(.clear )
+        mainIndicator.setFont(NSFont.init(name: "SF Pro Display Light", size: 35.0) ?? NSFont.systemFont(ofSize: 35.0))
+        mainIndicator.show(withStatus: "Loading Dashboard")
+        
         self.dateText.stringValue = getDate()
         let greeting = getStartOfGreeting()
         self.welcomeText.stringValue = greeting
         
-        DispatchQueue.main.async {
-            NSAnimationContext.runAnimationGroup({ (context) in
-                //Animation Duration
-                context.duration = 1
+        getDashboardData(hostName: host, authToken: requestToken, success: {(response)-> Void in
+            if response{
+                //Content Fetch Complete
+                DispatchQueue.main.async {
+                    self.mainIndicator.dismiss()
+                    NSAnimationContext.runAnimationGroup({ (context) in
+                        //Animation Duration
+                        context.duration = 1
+                        //What is being animated:
+                        self.titleText.animator().alphaValue = 1
+                        self.dateText.animator().alphaValue = 1
+                        self.welcomeText.animator().alphaValue = 1
+                        self.btnAssets.animator().alphaValue = 1
+                        self.btnJobs.animator().alphaValue = 1
+                        self.btnLogistics.animator().alphaValue = 1
+                        self.btnMaintenance.animator().alphaValue = 1
+                        self.btnPeople.animator().alphaValue = 1
+                    }, completionHandler: {
+                        //Animation complete ¯\_(ツ)_/¯
+                    })
+                }
+            }
+        }, failure: {(error)-> Void in
+            DispatchQueue.main.async {
+                //self.mainIndicator.dismiss()
+                self.mainIndicator.setFont(NSFont.init(name: "SF Pro Display", size: 18.0) ?? NSFont.systemFont(ofSize: 18.0))
+                self.mainIndicator.showErrorWithStatus("There was a problem loading the data.")
+            }
+        })
+    }
+    
+    func getDashboardData(hostName: String, authToken: String, success: @escaping (_ response: Bool)-> Void, failure: @escaping (_ error: String)-> Void){
+        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForResource = 5
+        
+        self.manager = Alamofire.Session(configuration:configuration)
+        
+        let requestURL = hostName + ":8080/dashboard/"
+        print(requestURL)
+        
+        let headers:HTTPHeaders = [
+            "token": authToken]
+        
+        manager.request(requestURL, method: .get, headers: headers).responseJSON {
+            response in
+            switch response.result{
+            case.success(let jsonResponse):
+                if let JSON = jsonResponse as? [String:Any]{
+                    if let firstName = JSON["first-name"] as? String{
+                        self.firstName = firstName
+                        success(true)
+                    }
+                }
+                else{
+                    failure("Unable to parse response. No Error code found.")
+                }
+            case.failure(let error):
+                ///Deciper error before returning.
+                let errorCode:Int = error.responseCode ?? 0
+                let errorMessage:String = error.localizedDescription
+                debugPrint("========Error=======")
+                debugPrint(errorCode)
+                debugPrint(errorMessage)
                 
-                //What is being animated:
-                self.titleText.animator().alphaValue = 1
-                self.dateText.animator().alphaValue = 1
-                self.welcomeText.animator().alphaValue = 1
-                self.btnAssets.animator().alphaValue = 1
-                self.btnJobs.animator().alphaValue = 1
-                self.btnLogistics.animator().alphaValue = 1
-                self.btnMaintenance.animator().alphaValue = 1
-                self.btnPeople.animator().alphaValue = 1
                 
-            }, completionHandler: {
-            })
+                if let data = response.data, let str = String(data: data, encoding: .utf8){
+                    debugPrint("Server Error: "+str)
+                    failure("Invalid response received from server. Check log for more details.")
+                }
+                
+                if let data = response.data, let code = Int?(response.response?.statusCode ?? 0){
+                    debugPrint("Response Status Code: "+String(code))
+                    failure("Invalid response received from server. Check log for more details.")
+                }
+                
+                failure(errorMessage)
+            }
         }
     }
     
@@ -56,7 +155,6 @@ class DashboardViewController: NSViewController {
         var greeting = String()
         let hour = Calendar.current.component(.hour, from: Date())
         
-        print(hour)
         
         switch hour {
         case _ where hour < 12:
@@ -92,11 +190,31 @@ class DashboardViewController: NSViewController {
         btnPeople.alphaValue = 0
     }
     
+    /**
+     Gets the most recent authentication token and host from CoreData.
+     */
+    func retrieveTokenAndHost(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthStore")
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        request.fetchLimit = 1
+        do{
+            tokenStore = try context.fetch(request) as! [NSManagedObject]
+            if let tokens = tokenStore as? [AuthStore] {
+                //Get first array item
+                if let token = tokens.first {
+                    requestToken = token.token ?? "invalidTokenRequest"
+                    host = token.host ?? "http://localhost"
+                }
+            }
+        } catch{
+            debugPrint("Failed to pull CoreData")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello")
         appDelegate?.enableMenuButtons()
-        //hideWindowContentsBeforeLoad()
+        retrieveTokenAndHost()
         loadInitialWindowContents()
     }
     
@@ -108,7 +226,6 @@ class DashboardViewController: NSViewController {
                 self.btnAssets.animator().alphaValue = 0
             }, completionHandler:{
                 self.btnAssets.animator().alphaValue = 1
-
             })
         }
     }

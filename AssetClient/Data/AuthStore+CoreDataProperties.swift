@@ -20,5 +20,7 @@ extension AuthStore {
     @NSManaged public var userLevel: String?
     @NSManaged public var token: String?
     @NSManaged public var username: String?
+    @NSManaged public var host: String?
+    @NSManaged public var date: NSDate?
 
 }

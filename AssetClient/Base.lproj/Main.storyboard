@@ -440,7 +440,7 @@
                                     <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
-                                    <font key="font" metaFont="label" size="11"/>
+                                    <font key="font" metaFont="controlContent" size="11"/>
                                     <string key="title">You have not entered one of the above fields correctly. 
 Please correct your input and then attempt login again.</string>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -670,6 +670,8 @@ Please correct your input and then attempt login again.</string>
                         <outlet property="btnMaintenance" destination="SK4-ve-VHi" id="78S-Ay-htB"/>
                         <outlet property="btnPeople" destination="p8P-Kt-vca" id="9XL-XR-egu"/>
                         <outlet property="dateText" destination="cJL-cr-kuY" id="TCU-fL-KYm"/>
+                        <outlet property="leftView" destination="DNr-25-7kf" id="i6R-2s-DPf"/>
+                        <outlet property="mainView" destination="ZSx-nj-5HF" id="dPx-RX-TjR"/>
                         <outlet property="titleText" destination="dXY-Yi-hxR" id="Aj7-sY-FMu"/>
                         <outlet property="welcomeText" destination="G6q-MM-TPz" id="4Kk-OU-chY"/>
                     </connections>

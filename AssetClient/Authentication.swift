@@ -80,6 +80,7 @@ class Authentication: NSObject {
             if tokenStore.count>0{
                 for object in tokenStore{
                     context.delete(object) //Remove all invalid tokens.
+                    try context.save()
                 }
             }
         } catch{
@@ -127,6 +128,8 @@ class Authentication: NSObject {
                             newToken.setValue(username, forKey: "username")
                             newToken.setValue(token, forKey: "token")
                             newToken.setValue(userLevel, forKey: "userLevel")
+                            newToken.setValue(hostName, forKey: "host")
+                            newToken.setValue(NSDate(), forKey: "date")
 
                             do{
                                 try self.context.save()
