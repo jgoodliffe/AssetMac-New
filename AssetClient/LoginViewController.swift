@@ -107,7 +107,7 @@ class LoginViewController: NSViewController {
                     loginQueue.addOperation {
                         self.auth.resetPassword(hostName: hostName, username: uName, success: {(response)-> Void in
                             if response{
-                                debugPrint("Password reset complete.")
+                                //debugPrint("Password reset complete.")
                                 DispatchQueue.main.async { [weak self] in
                                     self?.progressIndicator.stopAnimation(self)
                                     self?.progressIndicator.isHidden = true
@@ -157,7 +157,7 @@ class LoginViewController: NSViewController {
             if(validateURLFormat(inputURL: host.stringValue)){
                 progressIndicator.isHidden = false
                 progressIndicator.startAnimation(self)
-                debugPrint("Attempting login -  Host: "+host.stringValue+" Username: "+username.stringValue+" Password: "+passwordField.stringValue)
+                //debugPrint("Attempting login -  Host: "+host.stringValue+" Username: "+username.stringValue+" Password: "+passwordField.stringValue)
                 ///Attempt Login - DispatchQueue
                 
                 let hostName = host.stringValue
@@ -171,7 +171,7 @@ class LoginViewController: NSViewController {
                         self.auth.login(hostName: hostName, username: uName, password: pword, success: { (response) -> Void in
                             // When download completes,control flow goes here.
                             if response {
-                                debugPrint("Login completed.")
+                                //debugPrint("Login completed.")
                                 ///Update UI in Main thread...
                                 DispatchQueue.main.async { [weak self] in
                                     self?.progressIndicator.stopAnimation(self)

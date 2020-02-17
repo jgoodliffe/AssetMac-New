@@ -51,17 +51,17 @@
 		7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWindowController.swift; sourceTree = "<group>"; };
 		7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFunctions.swift; sourceTree = "<group>"; };
 		7D742B2623EA384100D0B53E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		7D7A87CF23E9E02600B9B4B0 /* AssetClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D7A87CF23E9E02600B9B4B0 /* Production Manager Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Production Manager Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7A87D223E9E02600B9B4B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D7A87D423E9E02600B9B4B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7D7A87D623E9E02800B9B4B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D7A87D923E9E02800B9B4B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D7A87DB23E9E02800B9B4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D7A87DC23E9E02800B9B4B0 /* AssetClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AssetClient.entitlements; sourceTree = "<group>"; };
-		7D7A87E123E9E02800B9B4B0 /* AssetClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssetClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D7A87E123E9E02800B9B4B0 /* Production Manager ProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Production Manager ProTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7A87E523E9E02800B9B4B0 /* AssetClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetClientTests.swift; sourceTree = "<group>"; };
 		7D7A87E723E9E02800B9B4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D7A87EC23E9E02800B9B4B0 /* AssetClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssetClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D7A87EC23E9E02800B9B4B0 /* Production Manager ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Production Manager ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7A87F023E9E02800B9B4B0 /* AssetClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetClientUITests.swift; sourceTree = "<group>"; };
 		7D7A87F223E9E02800B9B4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D909F1F23F07BB8000AE10F /* AssetClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AssetClient.xcdatamodel; sourceTree = "<group>"; };
@@ -128,9 +128,9 @@
 		7D7A87D023E9E02600B9B4B0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7D7A87CF23E9E02600B9B4B0 /* AssetClient.app */,
-				7D7A87E123E9E02800B9B4B0 /* AssetClientTests.xctest */,
-				7D7A87EC23E9E02800B9B4B0 /* AssetClientUITests.xctest */,
+				7D7A87CF23E9E02600B9B4B0 /* Production Manager Pro.app */,
+				7D7A87E123E9E02800B9B4B0 /* Production Manager ProTests.xctest */,
+				7D7A87EC23E9E02800B9B4B0 /* Production Manager ProUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,9 +202,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7D7A87CE23E9E02600B9B4B0 /* AssetClient */ = {
+		7D7A87CE23E9E02600B9B4B0 /* Production Manager Pro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7D7A87F523E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "AssetClient" */;
+			buildConfigurationList = 7D7A87F523E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "Production Manager Pro" */;
 			buildPhases = (
 				D2D2B99789EC8F1646E56EE6 /* [CP] Check Pods Manifest.lock */,
 				7D7A87CB23E9E02600B9B4B0 /* Sources */,
@@ -216,14 +216,14 @@
 			);
 			dependencies = (
 			);
-			name = AssetClient;
+			name = "Production Manager Pro";
 			productName = AssetClient;
-			productReference = 7D7A87CF23E9E02600B9B4B0 /* AssetClient.app */;
+			productReference = 7D7A87CF23E9E02600B9B4B0 /* Production Manager Pro.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7D7A87E023E9E02800B9B4B0 /* AssetClientTests */ = {
+		7D7A87E023E9E02800B9B4B0 /* Production Manager ProTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7D7A87F823E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "AssetClientTests" */;
+			buildConfigurationList = 7D7A87F823E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "Production Manager ProTests" */;
 			buildPhases = (
 				7D7A87DD23E9E02800B9B4B0 /* Sources */,
 				7D7A87DE23E9E02800B9B4B0 /* Frameworks */,
@@ -234,14 +234,14 @@
 			dependencies = (
 				7D7A87E323E9E02800B9B4B0 /* PBXTargetDependency */,
 			);
-			name = AssetClientTests;
+			name = "Production Manager ProTests";
 			productName = AssetClientTests;
-			productReference = 7D7A87E123E9E02800B9B4B0 /* AssetClientTests.xctest */;
+			productReference = 7D7A87E123E9E02800B9B4B0 /* Production Manager ProTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7D7A87EB23E9E02800B9B4B0 /* AssetClientUITests */ = {
+		7D7A87EB23E9E02800B9B4B0 /* Production Manager ProUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7D7A87FB23E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "AssetClientUITests" */;
+			buildConfigurationList = 7D7A87FB23E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "Production Manager ProUITests" */;
 			buildPhases = (
 				7D7A87E823E9E02800B9B4B0 /* Sources */,
 				7D7A87E923E9E02800B9B4B0 /* Frameworks */,
@@ -252,9 +252,9 @@
 			dependencies = (
 				7D7A87EE23E9E02800B9B4B0 /* PBXTargetDependency */,
 			);
-			name = AssetClientUITests;
+			name = "Production Manager ProUITests";
 			productName = AssetClientUITests;
-			productReference = 7D7A87EC23E9E02800B9B4B0 /* AssetClientUITests.xctest */;
+			productReference = 7D7A87EC23E9E02800B9B4B0 /* Production Manager ProUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -280,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7D7A87CA23E9E02600B9B4B0 /* Build configuration list for PBXProject "AssetClient" */;
+			buildConfigurationList = 7D7A87CA23E9E02600B9B4B0 /* Build configuration list for PBXProject "Production Manager Pro" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -293,9 +293,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7D7A87CE23E9E02600B9B4B0 /* AssetClient */,
-				7D7A87E023E9E02800B9B4B0 /* AssetClientTests */,
-				7D7A87EB23E9E02800B9B4B0 /* AssetClientUITests */,
+				7D7A87CE23E9E02600B9B4B0 /* Production Manager Pro */,
+				7D7A87E023E9E02800B9B4B0 /* Production Manager ProTests */,
+				7D7A87EB23E9E02800B9B4B0 /* Production Manager ProUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -408,12 +408,12 @@
 /* Begin PBXTargetDependency section */
 		7D7A87E323E9E02800B9B4B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7D7A87CE23E9E02600B9B4B0 /* AssetClient */;
+			target = 7D7A87CE23E9E02600B9B4B0 /* Production Manager Pro */;
 			targetProxy = 7D7A87E223E9E02800B9B4B0 /* PBXContainerItemProxy */;
 		};
 		7D7A87EE23E9E02800B9B4B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7D7A87CE23E9E02600B9B4B0 /* AssetClient */;
+			target = 7D7A87CE23E9E02600B9B4B0 /* Production Manager Pro */;
 			targetProxy = 7D7A87ED23E9E02800B9B4B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -559,7 +559,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jamie.AssetClient;
+				MARKETING_VERSION = 0.01;
+				PRODUCT_BUNDLE_IDENTIFIER = jamie.ProdManagerPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -581,7 +582,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jamie.AssetClient;
+				MARKETING_VERSION = 0.01;
+				PRODUCT_BUNDLE_IDENTIFIER = jamie.ProdManagerPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -605,7 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jamie.AssetClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AssetClient.app/Contents/MacOS/AssetClient";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Production Manager Pro.app/Contents/MacOS/Production Manager Pro";
 			};
 			name = Debug;
 		};
@@ -627,7 +629,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jamie.AssetClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AssetClient.app/Contents/MacOS/AssetClient";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Production Manager Pro.app/Contents/MacOS/Production Manager Pro";
 			};
 			name = Release;
 		};
@@ -674,7 +676,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7D7A87CA23E9E02600B9B4B0 /* Build configuration list for PBXProject "AssetClient" */ = {
+		7D7A87CA23E9E02600B9B4B0 /* Build configuration list for PBXProject "Production Manager Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D7A87F323E9E02800B9B4B0 /* Debug */,
@@ -683,7 +685,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7D7A87F523E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "AssetClient" */ = {
+		7D7A87F523E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "Production Manager Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D7A87F623E9E02800B9B4B0 /* Debug */,
@@ -692,7 +694,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7D7A87F823E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "AssetClientTests" */ = {
+		7D7A87F823E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "Production Manager ProTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D7A87F923E9E02800B9B4B0 /* Debug */,
@@ -701,7 +703,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7D7A87FB23E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "AssetClientUITests" */ = {
+		7D7A87FB23E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "Production Manager ProUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D7A87FC23E9E02800B9B4B0 /* Debug */,

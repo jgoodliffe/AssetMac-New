@@ -40,8 +40,9 @@ class DashboardViewController: NSViewController {
     var requestingData = false
     
     //Alamofire Information
-    let port: Int = 8080
+    let port: String = "8080"
     var host: String = ""
+    var userID: String = ""
     var manager = Alamofire.Session.default
     let configuration = URLSessionConfiguration.default
     
@@ -68,17 +69,17 @@ class DashboardViewController: NSViewController {
         mainIndicator.show(withStatus: "Loading Dashboard")
         
         self.dateText.stringValue = getDate()
-        let greeting = getStartOfGreeting()
-        self.welcomeText.stringValue = greeting
         
         getDashboardData(hostName: host, authToken: requestToken, success: {(response)-> Void in
             if response{
                 //Content Fetch Complete
                 DispatchQueue.main.async {
-                    self.mainIndicator.dismiss()
+                    self.mainIndicator.dismiss(delay: 0.25)
+                    let greeting = self.getStartOfGreeting() + self.firstName + "!"
+                    self.welcomeText.stringValue = greeting
                     NSAnimationContext.runAnimationGroup({ (context) in
                         //Animation Duration
-                        context.duration = 1
+                        context.duration = 1.5
                         //What is being animated:
                         self.titleText.animator().alphaValue = 1
                         self.dateText.animator().alphaValue = 1
@@ -102,30 +103,22 @@ class DashboardViewController: NSViewController {
         })
     }
     
-    func getDashboardData(hostName: String, authToken: String, success: @escaping (_ response: Bool)-> Void, failure: @escaping (_ error: String)-> Void){
-        configuration.timeoutIntervalForRequest = 5
-        configuration.timeoutIntervalForResource = 5
-        
-        self.manager = Alamofire.Session(configuration:configuration)
-        
-        let requestURL = hostName + ":8080/dashboard/"
-        print(requestURL)
-        
-        let headers:HTTPHeaders = [
-            "token": authToken]
-        
-        manager.request(requestURL, method: .get, headers: headers).responseJSON {
-            response in
+    func getName(hostName: String, headers:HTTPHeaders, success: @escaping (_ response: Bool)-> Void, failure: @escaping (_ error: String) -> Void){
+        let requestURL = hostName + ":" + port + "/person/" + userID
+        manager.request(requestURL, method: .get, headers: headers).responseJSON { response in
             switch response.result{
             case.success(let jsonResponse):
                 if let JSON = jsonResponse as? [String:Any]{
-                    if let firstName = JSON["first-name"] as? String{
+                    if let firstName = JSON["firstname"] as? String{
                         self.firstName = firstName
                         success(true)
                     }
+                    else{
+                        failure("Could not get a first name.")
+                    }
                 }
                 else{
-                    failure("Unable to parse response. No Error code found.")
+                    failure("Fail")
                 }
             case.failure(let error):
                 ///Deciper error before returning.
@@ -134,21 +127,42 @@ class DashboardViewController: NSViewController {
                 debugPrint("========Error=======")
                 debugPrint(errorCode)
                 debugPrint(errorMessage)
-                
-                
                 if let data = response.data, let str = String(data: data, encoding: .utf8){
                     debugPrint("Server Error: "+str)
-                    failure("Invalid response received from server. Check log for more details.")
+                    failure("Server Error")
                 }
-                
                 if let data = response.data, let code = Int?(response.response?.statusCode ?? 0){
                     debugPrint("Response Status Code: "+String(code))
-                    failure("Invalid response received from server. Check log for more details.")
+                    failure("Invalid Response")
                 }
-                
-                failure(errorMessage)
             }
         }
+    }
+    
+    func getDashboardData(hostName: String, authToken: String, success: @escaping (_ response: Bool)-> Void, failure: @escaping (_ error: String)-> Void){
+        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForResource = 5
+        
+        self.manager = Alamofire.Session(configuration:configuration)
+        
+        let headers:HTTPHeaders = [
+            "token": authToken]
+        
+        let downloadOperation = BlockOperation{
+            //When All operations complete, call success case.
+        }
+        downloadOperation.addExecutionBlock {
+            self.getName(hostName: hostName, headers: headers, success: {(response)-> Void in
+                if response{
+                    //Run next Operation.
+                    success(true)
+                    return
+                }
+            },failure: {(error)-> Void in
+                failure("Failed to complete Name Fetch operation")
+            })
+        }
+        apiQueue.addOperation(downloadOperation)
     }
     
     func getStartOfGreeting() -> String{
@@ -204,6 +218,7 @@ class DashboardViewController: NSViewController {
                 if let token = tokens.first {
                     requestToken = token.token ?? "invalidTokenRequest"
                     host = token.host ?? "http://localhost"
+                    userID = token.userID ?? "0"
                 }
             }
         } catch{
@@ -217,13 +232,57 @@ class DashboardViewController: NSViewController {
         retrieveTokenAndHost()
         loadInitialWindowContents()
     }
+    @IBAction func btnPeopleClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = 0.25
+              // Use the value you want to animate to (NOT the starting value)
+                self.btnPeople.animator().alphaValue = 0.75
+            }, completionHandler:{
+                self.btnPeople.animator().alphaValue = 1
+            })
+        }
+    }
+    @IBAction func btnMaintenanceClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = 0.25
+              // Use the value you want to animate to (NOT the starting value)
+                self.btnMaintenance.animator().alphaValue = 0.75
+            }, completionHandler:{
+                self.btnMaintenance.animator().alphaValue = 1
+            })
+        }
+    }
+    @IBAction func btnLogisticsClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = 0.25
+              // Use the value you want to animate to (NOT the starting value)
+                self.btnMaintenance.animator().alphaValue = 0.75
+            }, completionHandler:{
+                self.btnMaintenance.animator().alphaValue = 1
+            })
+        }
+    }
+    @IBAction func btnJobsClicked(_ sender: Any) {
+        DispatchQueue.main.async {
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = 0.25
+              // Use the value you want to animate to (NOT the starting value)
+                self.btnJobs.animator().alphaValue = 0.75
+            }, completionHandler:{
+                self.btnJobs.animator().alphaValue = 1
+            })
+        }
+    }
     
     @IBAction func btnAssetsClicked(_ sender: Any) {
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = 0.5
+                context.duration = 0.25
               // Use the value you want to animate to (NOT the starting value)
-                self.btnAssets.animator().alphaValue = 0
+                self.btnAssets.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnAssets.animator().alphaValue = 1
             })

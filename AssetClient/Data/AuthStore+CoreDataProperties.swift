@@ -22,5 +22,6 @@ extension AuthStore {
     @NSManaged public var username: String?
     @NSManaged public var host: String?
     @NSManaged public var date: NSDate?
+    @NSManaged public var userID: String?
 
 }

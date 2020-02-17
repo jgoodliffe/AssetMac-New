@@ -51,7 +51,7 @@ class Authentication: NSObject {
             case.success(let jsonResponse):
                 if let JSON = jsonResponse as? [String:Any]{
                     let status = JSON["response-code"] as! Int
-                    debugPrint("Response code: "+String(status))
+                    //debugPrint("Response code: "+String(status))
                     if(status==200){
                         success(true)
                     } else{
@@ -76,7 +76,7 @@ class Authentication: NSObject {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthStore")
         do{
             tokenStore = try context.fetch(request) as! [NSManagedObject]
-            debugPrint("TokenStore Count: "+String(tokenStore.count))
+            //debugPrint("TokenStore Count: "+String(tokenStore.count))
             if tokenStore.count>0{
                 for object in tokenStore{
                     context.delete(object) //Remove all invalid tokens.
@@ -113,14 +113,17 @@ class Authentication: NSObject {
                     //Map response into Array and check response code.
                     if let JSON = jsonResponse as? [String:Any]{
                         let status = JSON["response-code"] as! Int
-                        debugPrint("Response code: "+String(status))
+                        //debugPrint("Response code: "+String(status))
                         
                         if(status==200){
                             
                             let token = JSON["auth-token"]
                             let userLevel = JSON["user-level"]
+                            let userID = JSON["person-id"]
                             
-                            debugPrint("Received Token! " + (token as! String))
+                            //debugPrint("Received Token! " + (token as! String))
+                            //debugPrint("Received UserID " + (userID as! String))
+
                             let authStoreEntity = NSEntityDescription.entity(forEntityName: "AuthStore",  in: self.context)
                 
                             //Store received authentication token.
@@ -130,6 +133,7 @@ class Authentication: NSObject {
                             newToken.setValue(userLevel, forKey: "userLevel")
                             newToken.setValue(hostName, forKey: "host")
                             newToken.setValue(NSDate(), forKey: "date")
+                            newToken.setValue(userID, forKey: "userID")
 
                             do{
                                 try self.context.save()

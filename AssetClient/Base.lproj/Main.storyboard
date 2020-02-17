@@ -11,11 +11,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" autoenablesItems="NO" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Asset Manager" id="1Xt-HY-uBw">
+                            <menuItem title="Production Manager Pro" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Asset Manager" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Production Manager Pro" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About AssetClient" id="5kV-Vb-QxS">
+                                        <menuItem title="About Production Manager Pro" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -29,7 +29,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide AssetClient" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Production Manager Pro" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -47,7 +47,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit AssetClient" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Production Manager Pro" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -195,7 +195,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="AssetClient Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Production Manager Pro Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -209,7 +209,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="AssetClient" customModuleProvider="target">
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Production_Manager_Pro" customModuleProvider="target">
                     <connections>
                         <outlet property="closeWindow" destination="41H-FH-C65" id="vPw-Hb-xxI"/>
                         <outlet property="mainMenu" destination="AYu-sK-qS6" id="aUH-CI-tVP"/>
@@ -226,7 +226,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Asset Manager - Log In" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Production Manager Pro - Log In" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="632" y="216" width="480" height="640"/>
@@ -248,14 +248,14 @@
         <!--Login View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="LoginViewController" customModule="AssetClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="LoginViewController" customModule="Production_Manager_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" appearanceType="darkAqua" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ki-As-EOf">
-                                <rect key="frame" x="71" y="422" width="338" height="38"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Asset Manager - Log In" id="nOf-Ui-h9A">
+                                <rect key="frame" x="194" y="422" width="92" height="38"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Log In" id="nOf-Ui-h9A">
                                     <font key="font" size="32" name="SFProDisplay-Bold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -440,7 +440,7 @@
                                     <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
-                                    <font key="font" metaFont="controlContent" size="11"/>
+                                    <font key="font" metaFont="message" size="11"/>
                                     <string key="title">You have not entered one of the above fields correctly. 
 Please correct your input and then attempt login again.</string>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -496,7 +496,7 @@ Please correct your input and then attempt login again.</string>
         <!--Dashboard-->
         <scene sceneID="bT8-Dt-UOm">
             <objects>
-                <viewController title="Dashboard" identifier="dashboardController" storyboardIdentifier="dashTab" id="EFz-cg-PGy" customClass="DashboardViewController" customModule="AssetClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Dashboard" identifier="dashboardController" storyboardIdentifier="dashTab" id="EFz-cg-PGy" customClass="DashboardViewController" customModule="Production_Manager_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" identifier="DashTab" appearanceType="darkAqua" id="ZSx-nj-5HF">
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -550,6 +550,9 @@ Please correct your input and then attempt login again.</string>
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="btnJobsClicked:" target="EFz-cg-PGy" id="wCp-Cs-ZVm"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FHz-8n-OGL">
                                                         <rect key="frame" x="412" y="-3" width="131" height="36"/>
@@ -557,6 +560,9 @@ Please correct your input and then attempt login again.</string>
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="btnLogisticsClicked:" target="EFz-cg-PGy" id="aSm-Dj-hSE"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SK4-ve-VHi">
                                                         <rect key="frame" x="619" y="-3" width="131" height="36"/>
@@ -564,6 +570,9 @@ Please correct your input and then attempt login again.</string>
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="btnMaintenanceClicked:" target="EFz-cg-PGy" id="W7I-ou-6vq"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p8P-Kt-vca">
                                                         <rect key="frame" x="826" y="-3" width="131" height="36"/>
@@ -571,6 +580,9 @@ Please correct your input and then attempt login again.</string>
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="btnPeopleClicked:" target="EFz-cg-PGy" id="cBq-ir-eaK"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <visibilityPriorities>
@@ -683,47 +695,13 @@ Please correct your input and then attempt login again.</string>
         <!--Window Controller-->
         <scene sceneID="avf-v2-gnO">
             <objects>
-                <windowController storyboardIdentifier="dashTabWindow" id="w5D-qt-LkH" customClass="DashboardWindowController" customModule="AssetClient" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="dashTabWindow" id="w5D-qt-LkH" customClass="DashboardWindowController" customModule="Production_Manager_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Dashboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" tabbingMode="preferred" id="rPw-1I-lgE">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="632" y="216" width="1280" height="721"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="1280" height="720"/>
                         <value key="minFullScreenContentSize" type="size" width="1280" height="720"/>
-                        <toolbar key="toolbar" implicitIdentifier="BDE92908-68AC-4E27-ABBB-256CF6EC0121" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="eBH-GL-agX">
-                            <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="005D4F3B-CF05-4306-AAA5-579363040D42" explicitItemIdentifier="toolbarManageUsers" label="Users" paletteLabel="Users" tag="-1" image="NSEveryone" id="ITU-0q-K0P">
-                                    <size key="minSize" width="32" height="32"/>
-                                    <size key="maxSize" width="32" height="32"/>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="E1BA5221-5C26-4EEA-A58E-B3B0562DFF7A" explicitItemIdentifier="toolbarChangeUsers" label="Change Users" paletteLabel="Change Users" tag="-1" image="NSUserGroup" id="dxT-zA-olq">
-                                    <size key="minSize" width="32" height="32"/>
-                                    <size key="maxSize" width="32" height="32"/>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="C00D2C40-5F96-43A0-84D4-55AC936870F7" label="Log Out" paletteLabel="Log Out" tag="-1" image="NSFollowLinkFreestandingTemplate" id="F95-Sm-CL8">
-                                    <size key="minSize" width="14" height="14"/>
-                                    <size key="maxSize" width="14" height="14"/>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="551831BD-67EC-44A1-8C24-AF9E93933D8D" explicitItemIdentifier="toolbarNewEvent" label="New Event" paletteLabel="New Event" tag="-1" image="NSAddTemplate" id="c7c-tK-zcZ">
-                                    <size key="minSize" width="11" height="11"/>
-                                    <size key="maxSize" width="11" height="11"/>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="43AF8BD7-E6BB-4BF8-B9A0-F366828B4D89" explicitItemIdentifier="toolbarSettings" label="Settings" paletteLabel="Settings" tag="-1" image="NSAdvanced" id="gNI-mR-PcF">
-                                    <size key="minSize" width="32" height="32"/>
-                                    <size key="maxSize" width="32" height="32"/>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="ZOZ-EE-RDq"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="1cf-Us-hWA"/>
-                            </allowedToolbarItems>
-                            <defaultToolbarItems>
-                                <toolbarItem reference="ITU-0q-K0P"/>
-                                <toolbarItem reference="c7c-tK-zcZ"/>
-                                <toolbarItem reference="1cf-Us-hWA"/>
-                                <toolbarItem reference="gNI-mR-PcF"/>
-                                <toolbarItem reference="F95-Sm-CL8"/>
-                                <toolbarItem reference="dxT-zA-olq"/>
-                            </defaultToolbarItems>
-                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="w5D-qt-LkH" id="kl7-Nj-hgK"/>
                         </connections>
@@ -737,11 +715,4 @@ Please correct your input and then attempt login again.</string>
             <point key="canvasLocation" x="2260" y="-669.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSAdvanced" width="32" height="32"/>
-        <image name="NSEveryone" width="32" height="32"/>
-        <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
-        <image name="NSUserGroup" width="32" height="32"/>
-    </resources>
 </document>

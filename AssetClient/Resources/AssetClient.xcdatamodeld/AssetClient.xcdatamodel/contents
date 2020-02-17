@@ -4,10 +4,11 @@
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="603570120" usesScalarValueType="NO"/>
         <attribute name="host" optional="YES" attributeType="String"/>
         <attribute name="token" attributeType="String"/>
+        <attribute name="userID" optional="YES" attributeType="String"/>
         <attribute name="userLevel" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
     </entity>
     <elements>
-        <element name="AuthStore" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="AuthStore" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>
