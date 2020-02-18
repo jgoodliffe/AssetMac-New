@@ -13,6 +13,8 @@ import SwiftyJSON
 
 extension Notification.Name {
     static let changedUserPassword = Notification.Name("changedUserPassword")
+    static let hideDashboard = Notification.Name("hideDashboard")
+    static let showDashboard = Notification.Name("showDashboard")
 }
 
 class PasswordChangeViewController: NSViewController {
@@ -50,11 +52,13 @@ class PasswordChangeViewController: NSViewController {
         super.viewDidLoad()
         progressIndicator.isHidden = true
         authenticationInfo = coreDataFuncs.retrieveTokenAndHost()
+        NotificationCenter.default.post(Notification(name: .hideDashboard))
     }
     
     @IBAction func btnDismissClicked(_ sender: Any) {
         changingPassword = false
         changePasswordQueue.cancelAllOperations()
+        NotificationCenter.default.post(Notification(name: .showDashboard))
         self.dismiss(self)
     }
     
@@ -65,6 +69,7 @@ class PasswordChangeViewController: NSViewController {
             progressIndicator.startAnimation(self)
             changePassword()
         } else{
+            NotificationCenter.default.post(Notification(name: .showDashboard))
             dismiss(self)
         }
     }

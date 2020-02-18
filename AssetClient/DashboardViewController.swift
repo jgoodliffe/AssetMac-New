@@ -234,14 +234,66 @@ class DashboardViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.callPasswordChangeSegue(_:)), name: .changePasswordPressed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.closeWindow(_:)), name: .changedUserPassword, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.logOut(_:)), name: .logOut, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.animateIn(_:)), name: .showDashboard, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.animateOut(_:)), name: .hideDashboard, object: nil)
 
     }
     
+    /**
+        Reduces the visibility of objects and animates them out
+     */
+    @objc func animateOut(_ notification: Notification)->Void{
+        DispatchQueue.main.async {
+            NSAnimationContext.runAnimationGroup({ (context) in
+                //Animation Duration
+                context.duration = 1.5
+                //What is being animated:
+                self.titleText.animator().alphaValue = 0.2
+                self.dateText.animator().alphaValue = 0.2
+                self.welcomeText.animator().alphaValue = 0.2
+                self.btnAssets.animator().alphaValue = 0.2
+                self.btnJobs.animator().alphaValue = 0.2
+                self.btnLogistics.animator().alphaValue = 0.2
+                self.btnMaintenance.animator().alphaValue = 0.2
+                self.btnPeople.animator().alphaValue = 0.2
+            }, completionHandler: {
+                //Animation complete ¯\_(ツ)_/¯
+            })
+        }
+    }
+    
+    /**
+        Improves the visibility of objects and animates them in
+     */
+    @objc func animateIn(_ notification: Notification)->Void{
+        DispatchQueue.main.async {
+            NSAnimationContext.runAnimationGroup({ (context) in
+                //Animation Duration
+                context.duration = 1.5
+                //What is being animated:
+                self.titleText.animator().alphaValue = 1
+                self.dateText.animator().alphaValue = 1
+                self.welcomeText.animator().alphaValue = 1
+                self.btnAssets.animator().alphaValue = 1
+                self.btnJobs.animator().alphaValue = 1
+                self.btnLogistics.animator().alphaValue = 1
+                self.btnMaintenance.animator().alphaValue = 1
+                self.btnPeople.animator().alphaValue = 1
+            }, completionHandler: {
+                //Animation complete ¯\_(ツ)_/¯
+            })
+        }
+    }
+    
+    /**
+     Notification Handler for log out function - triggered when the toolbar item is pressed.
+     */
     @objc func logOut(_ notification: Notification){
-        self.view.window?.close()
+        //Order of code execution is important here.
         if(view.window==NSApplication.shared.keyWindow){
             self.performSegue(withIdentifier: "logOut", sender: notification)
         }
+        self.view.window?.close()
     }
     
     @objc func callPasswordChangeSegue(_ notification: Notification){

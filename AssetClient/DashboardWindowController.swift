@@ -23,8 +23,6 @@ class DashboardWindowController: NSWindowController, NSToolbarDelegate {
 
         appDelegate?.enableMenuButtons()
         
-        //let addPerson = NSToolbarItem()
-        //addPerson.label = "Add Person"
         let mainToolbar = NSToolbar(identifier: "mainToolbar")
         let mainToolbarDelegate = MainToolbar()
         mainToolbar.delegate = mainToolbarDelegate
