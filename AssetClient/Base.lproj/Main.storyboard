@@ -440,7 +440,7 @@
                                     <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
-                                    <font key="font" metaFont="controlContent" size="11"/>
+                                    <font key="font" metaFont="label" size="11"/>
                                     <string key="title">You have not entered one of the above fields correctly. 
 Please correct your input and then attempt login again.</string>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -687,6 +687,7 @@ Please correct your input and then attempt login again.</string>
                         <outlet property="titleText" destination="dXY-Yi-hxR" id="Aj7-sY-FMu"/>
                         <outlet property="welcomeText" destination="G6q-MM-TPz" id="4Kk-OU-chY"/>
                         <segue destination="IJj-Vj-noH" kind="sheet" identifier="showChangePassword" id="pca-2o-1Y2"/>
+                        <segue destination="B8D-0N-5wS" kind="show" identifier="logOut" id="SVw-is-jR5"/>
                     </connections>
                 </viewController>
                 <customObject id="7QB-xP-Ila" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -747,7 +748,7 @@ Please correct your input and then attempt login again.</string>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4a2-xb-L5A">
                                         <rect key="frame" x="-2" y="135" width="347" height="14"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Enter your existing password, followed by your desired password." id="a58-DZ-E4E">
-                                            <font key="font" metaFont="controlContent" size="11"/>
+                                            <font key="font" metaFont="label" size="11"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -951,4 +952,7 @@ Please correct your input and then attempt login again.</string>
             <point key="canvasLocation" x="2273" y="-796"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="SVw-is-jR5"/>
+    </inferredMetricsTieBreakers>
 </document>

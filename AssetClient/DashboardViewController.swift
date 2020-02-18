@@ -233,12 +233,21 @@ class DashboardViewController: NSViewController {
         loadInitialWindowContents()
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.callPasswordChangeSegue(_:)), name: .changePasswordPressed, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.closeWindow(_:)), name: .changedUserPassword, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.logOut(_:)), name: .logOut, object: nil)
+
+    }
+    
+    @objc func logOut(_ notification: Notification){
+        self.view.window?.close()
+        if(view.window==NSApplication.shared.keyWindow){
+            self.performSegue(withIdentifier: "logOut", sender: notification)
+        }
     }
     
     @objc func callPasswordChangeSegue(_ notification: Notification){
         //Only open Dialogue if window is key (active)!
         if(view.window==NSApplication.shared.keyWindow){
-            self.performSegue(withIdentifier: "showChangePassword", sender: nil)
+            self.performSegue(withIdentifier: "showChangePassword", sender: notification)
         }
     }
     

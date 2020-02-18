@@ -11,6 +11,7 @@ import AppKit
 
 extension Notification.Name {
     static let changePasswordPressed = Notification.Name("changePassword")
+    static let logOut = Notification.Name("logOut")
 }
 
 class DashboardWindowController: NSWindowController, NSToolbarDelegate {
@@ -94,7 +95,7 @@ class DashboardWindowController: NSWindowController, NSToolbarDelegate {
     }
     
     @objc func LogoutToolbarItem(){
-        //print("received8")
+        NotificationCenter.default.post(Notification(name: .logOut))
     }
     
     @objc func SettingsToolbarItem(){
