@@ -232,10 +232,18 @@ class DashboardViewController: NSViewController {
         retrieveTokenAndHost()
         loadInitialWindowContents()
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.callPasswordChangeSegue(_:)), name: .changePasswordPressed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.closeWindow(_:)), name: .changedUserPassword, object: nil)
     }
     
     @objc func callPasswordChangeSegue(_ notification: Notification){
-        self.performSegue(withIdentifier: "showChangePassword", sender: nil)
+        //Only open Dialogue if window is key (active)!
+        if(view.window==NSApplication.shared.keyWindow){
+            self.performSegue(withIdentifier: "showChangePassword", sender: nil)
+        }
+    }
+    
+    @objc func closeWindow(_ notification: Notification){
+        self.view.window?.close()
     }
     
     @IBAction func btnPeopleClicked(_ sender: Any) {
@@ -265,9 +273,9 @@ class DashboardViewController: NSViewController {
             NSAnimationContext.runAnimationGroup({ (context) in
                 context.duration = 0.25
               // Use the value you want to animate to (NOT the starting value)
-                self.btnMaintenance.animator().alphaValue = 0.75
+                self.btnLogistics.animator().alphaValue = 0.75
             }, completionHandler:{
-                self.btnMaintenance.animator().alphaValue = 1
+                self.btnLogistics.animator().alphaValue = 1
             })
         }
     }

@@ -11,7 +11,6 @@ import AppKit
 
 extension Notification.Name {
     static let changePasswordPressed = Notification.Name("changePassword")
-    //static let rowDeselected = Notification.Name("turnOff")
 }
 
 class DashboardWindowController: NSWindowController, NSToolbarDelegate {
@@ -34,7 +33,7 @@ class DashboardWindowController: NSWindowController, NSToolbarDelegate {
         window?.titlebarAppearsTransparent = true
         window?.contentView?.wantsLayer = true
         window?.toolbar = mainToolbar
-        
+                
         for item in mainToolbar.items{
             switch item.itemIdentifier.rawValue{
             case "BackToolbarItem":
