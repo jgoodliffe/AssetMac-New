@@ -37,6 +37,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func newDashboardWindow() -> NSWindow{
         let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController))
         let customToolbar = NSToolbar()
+        let toolbarDelegate = MainToolbar()
+        customToolbar.delegate = toolbarDelegate
         newWindow.titleVisibility = .hidden
         newWindow.styleMask.insert(.texturedBackground)
         newWindow.styleMask.insert(.fullSizeContentView)
@@ -90,6 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //let currentWindowCtrl = AppDelegate.getCurrentWindowController()
             let newWindow = newDashboardWindow()
             currentWindow?.addTabbedWindow(newWindow, ordered: .above)
+            newWindow.makeKey()
         }
     }
     

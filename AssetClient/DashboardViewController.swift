@@ -231,7 +231,13 @@ class DashboardViewController: NSViewController {
         appDelegate?.enableMenuButtons()
         retrieveTokenAndHost()
         loadInitialWindowContents()
+        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.callPasswordChangeSegue(_:)), name: .changePasswordPressed, object: nil)
     }
+    
+    @objc func callPasswordChangeSegue(_ notification: Notification){
+        self.performSegue(withIdentifier: "showChangePassword", sender: nil)
+    }
+    
     @IBAction func btnPeopleClicked(_ sender: Any) {
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in

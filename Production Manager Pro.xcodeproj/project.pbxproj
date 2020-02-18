@@ -10,8 +10,18 @@
 		5A7C64D0442EDA34D6E60988 /* Pods_AssetClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */; };
 		7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */; };
 		7D09310523F9CAE90016390E /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09310323F9CAE90016390E /* ProgressHUD.swift */; };
+		7D09B55923FB7853002697B6 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09B55823FB7853002697B6 /* PasswordChangeViewController.swift */; };
 		7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880023F8305E004DE4F3 /* DashboardViewController.swift */; };
 		7D29880323F83AB9004DE4F3 /* DashboardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */; };
+		7D3813D823FB04EE00602954 /* MainToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3813D723FB04EE00602954 /* MainToolbar.swift */; };
+		7D38140223FB318200602954 /* inventory.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FA23FB318200602954 /* inventory.png */; };
+		7D38140323FB318200602954 /* dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FB23FB318200602954 /* dashboard.png */; };
+		7D38140423FB318200602954 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FC23FB318200602954 /* logout.png */; };
+		7D38140523FB318200602954 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FD23FB318200602954 /* calendar.png */; };
+		7D38140623FB318200602954 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FE23FB318200602954 /* user.png */; };
+		7D38140723FB318200602954 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FF23FB318200602954 /* settings.png */; };
+		7D38140823FB318200602954 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D38140023FB318200602954 /* back.png */; };
+		7D38140923FB318200602954 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D38140123FB318200602954 /* key.png */; };
 		7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */; };
 		7D742B2723EA384100D0B53E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D742B2623EA384100D0B53E /* Authentication.swift */; };
 		7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A87D223E9E02600B9B4B0 /* AppDelegate.swift */; };
@@ -47,8 +57,18 @@
 		62F6ECFF9EC54A73B009E69B /* Pods-AssetClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.release.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.release.xcconfig"; sourceTree = "<group>"; };
 		7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRKSpinningProgressIndicatorLayer.swift; sourceTree = "<group>"; };
 		7D09310323F9CAE90016390E /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		7D09B55823FB7853002697B6 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
 		7D29880023F8305E004DE4F3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWindowController.swift; sourceTree = "<group>"; };
+		7D3813D723FB04EE00602954 /* MainToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainToolbar.swift; sourceTree = "<group>"; };
+		7D3813FA23FB318200602954 /* inventory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventory.png; sourceTree = "<group>"; };
+		7D3813FB23FB318200602954 /* dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard.png; sourceTree = "<group>"; };
+		7D3813FC23FB318200602954 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		7D3813FD23FB318200602954 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		7D3813FE23FB318200602954 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		7D3813FF23FB318200602954 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		7D38140023FB318200602954 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		7D38140123FB318200602954 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFunctions.swift; sourceTree = "<group>"; };
 		7D742B2623EA384100D0B53E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		7D7A87CF23E9E02600B9B4B0 /* Production Manager Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Production Manager Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +133,29 @@
 			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
+		7D3813D623FB04BC00602954 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				7D3813D723FB04EE00602954 /* MainToolbar.swift */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		7D3813D923FB0C7F00602954 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7D38140023FB318200602954 /* back.png */,
+				7D3813FD23FB318200602954 /* calendar.png */,
+				7D3813FB23FB318200602954 /* dashboard.png */,
+				7D3813FA23FB318200602954 /* inventory.png */,
+				7D38140123FB318200602954 /* key.png */,
+				7D3813FC23FB318200602954 /* logout.png */,
+				7D3813FF23FB318200602954 /* settings.png */,
+				7D3813FE23FB318200602954 /* user.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		7D7A87C623E9E02600B9B4B0 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +181,8 @@
 		7D7A87D123E9E02600B9B4B0 /* AssetClient */ = {
 			isa = PBXGroup;
 			children = (
+				7D3813D923FB0C7F00602954 /* Images */,
+				7D3813D623FB04BC00602954 /* Toolbar */,
 				7D09310123F9CAE90016390E /* ProgressHUD */,
 				7D909F2223F07C45000AE10F /* Data */,
 				7D909F1D23F07B96000AE10F /* Resources */,
@@ -151,6 +196,7 @@
 				7D742B2623EA384100D0B53E /* Authentication.swift */,
 				7D29880023F8305E004DE4F3 /* DashboardViewController.swift */,
 				7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */,
+				7D09B55823FB7853002697B6 /* PasswordChangeViewController.swift */,
 			);
 			path = AssetClient;
 			sourceTree = "<group>";
@@ -305,8 +351,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D38140723FB318200602954 /* settings.png in Resources */,
+				7D38140323FB318200602954 /* dashboard.png in Resources */,
+				7D38140823FB318200602954 /* back.png in Resources */,
+				7D38140523FB318200602954 /* calendar.png in Resources */,
 				7D7A87D723E9E02800B9B4B0 /* Assets.xcassets in Resources */,
+				7D38140923FB318200602954 /* key.png in Resources */,
 				7D7A87DA23E9E02800B9B4B0 /* Main.storyboard in Resources */,
+				7D38140623FB318200602954 /* user.png in Resources */,
+				7D38140223FB318200602954 /* inventory.png in Resources */,
+				7D38140423FB318200602954 /* logout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D09B55923FB7853002697B6 /* PasswordChangeViewController.swift in Sources */,
 				7D7A87D523E9E02600B9B4B0 /* LoginViewController.swift in Sources */,
 				7D29880323F83AB9004DE4F3 /* DashboardWindowController.swift in Sources */,
 				7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */,
@@ -381,6 +436,7 @@
 				7D09310523F9CAE90016390E /* ProgressHUD.swift in Sources */,
 				7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */,
 				7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */,
+				7D3813D823FB04EE00602954 /* MainToolbar.swift in Sources */,
 				7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */,
 				7D742B2723EA384100D0B53E /* Authentication.swift in Sources */,
 				7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */,
