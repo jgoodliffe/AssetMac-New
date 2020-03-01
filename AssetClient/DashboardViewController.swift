@@ -55,6 +55,9 @@ class DashboardViewController: NSViewController {
     //User Information
     var firstName = ""
     
+    //Window Functions
+    var windowFunctions = WindowFunctions()
+    
     /**
      Load all required content for the window to be useful.
      */
@@ -315,6 +318,7 @@ class DashboardViewController: NSViewController {
                 self.btnPeople.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnPeople.animator().alphaValue = 1
+                self.windowFunctions.showPeople()
             })
         }
     }
@@ -326,6 +330,7 @@ class DashboardViewController: NSViewController {
                 self.btnMaintenance.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnMaintenance.animator().alphaValue = 1
+                self.windowFunctions.showMaintenance()
             })
         }
     }
@@ -337,6 +342,7 @@ class DashboardViewController: NSViewController {
                 self.btnLogistics.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnLogistics.animator().alphaValue = 1
+                self.windowFunctions.showLogistics()
             })
         }
     }
@@ -348,6 +354,7 @@ class DashboardViewController: NSViewController {
                 self.btnJobs.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnJobs.animator().alphaValue = 1
+                self.windowFunctions.showJobs()
             })
         }
     }
@@ -360,6 +367,7 @@ class DashboardViewController: NSViewController {
                 self.btnAssets.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnAssets.animator().alphaValue = 1
+                self.windowFunctions.showAssets()
             })
         }
     }

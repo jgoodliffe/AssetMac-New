@@ -92,12 +92,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             //let currentWindowCtrl = AppDelegate.getCurrentWindowController()
             let newWindow = newDashboardWindow()
             currentWindow?.addTabbedWindow(newWindow, ordered: .above)
-            newWindow.makeKey()
+            newWindow.makeKeyAndOrderFront(currentWindow)
         }
     }
     
     
     @IBAction func actionNewWindow(_ sender: Any) {
+        //TODO: Check if no windows are present and create new non-child window
         let currentVC = AppDelegate.getCurrentViewController()
         //Check current Window
         print(currentVC?.identifier?.rawValue)

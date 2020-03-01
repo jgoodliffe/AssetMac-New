@@ -21,6 +21,7 @@ class LoginViewController: NSViewController {
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var btnLogin: NSButton!
     @IBOutlet weak var btnReset: NSButton!
+    @IBOutlet weak var logo: NSImageView!
     //var dashboardWindowController = DashboardWindowController()
     let auth = Authentication()
     var loggingIn = false
@@ -41,7 +42,16 @@ class LoginViewController: NSViewController {
         btnLogin.title = "Log In"
         progressIndicator.isHidden = true
         appDelegate?.disableMainMenuButtons()
+        loadImage()
         /// Do any additional setup after loading the view.
+    }
+    
+    func loadImage(){
+        if let image = NSImage(named: "IconBanner"){
+            let imageResizer = ImageResizer()
+            
+            logo.image = imageResizer.resize(image: image, w: Int(logo.frame.size.width), h: Int(logo.frame.size.height))
+        }
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
