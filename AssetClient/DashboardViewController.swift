@@ -56,7 +56,7 @@ class DashboardViewController: NSViewController {
     var firstName = ""
     
     //Window Functions
-    var windowFunctions = WindowFunctions()
+    //var windowFunctions = WindowFunctions()
     
     /**
      Load all required content for the window to be useful.
@@ -118,6 +118,13 @@ class DashboardViewController: NSViewController {
                     }
                     else{
                         failure("Could not get a first name.")
+                        let alert = NSAlert()
+                        alert.messageText = "Session Timed Out"
+                        alert.informativeText = "Your token has expired. You will be returned to the login screen."
+                        alert.alertStyle = .informational
+                        alert.addButton(withTitle: "OK")
+                        alert.runModal()
+                        NotificationCenter.default.post(Notification(name: .logOut))
                     }
                 }
                 else{
@@ -234,12 +241,15 @@ class DashboardViewController: NSViewController {
         appDelegate?.enableMenuButtons()
         retrieveTokenAndHost()
         loadInitialWindowContents()
-        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.callPasswordChangeSegue(_:)), name: .changePasswordPressed, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.closeWindow(_:)), name: .changedUserPassword, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.logOut(_:)), name: .logOut, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.callPasswordChangeSegue(_:)), name: .changePasswordPressed, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.closeWindow(_:)), name: .changedUserPassword, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.logOut(_:)), name: .logOut, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.animateIn(_:)), name: .showDashboard, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DashboardViewController.animateOut(_:)), name: .hideDashboard, object: nil)
-
+    }
+    
+    override func viewDidAppear() {
+        loadInitialWindowContents()
     }
     
     /**
@@ -288,73 +298,57 @@ class DashboardViewController: NSViewController {
         }
     }
     
-    /**
-     Notification Handler for log out function - triggered when the toolbar item is pressed.
-     */
-    @objc func logOut(_ notification: Notification){
-        //Order of code execution is important here.
-        if(view.window==NSApplication.shared.keyWindow){
-            self.performSegue(withIdentifier: "logOut", sender: notification)
-        }
-        self.view.window?.close()
-    }
-    
-    @objc func callPasswordChangeSegue(_ notification: Notification){
-        //Only open Dialogue if window is key (active)!
-        if(view.window==NSApplication.shared.keyWindow){
-            self.performSegue(withIdentifier: "showChangePassword", sender: notification)
-        }
-    }
-    
-    @objc func closeWindow(_ notification: Notification){
-        self.view.window?.close()
-    }
+
     
     @IBAction func btnPeopleClicked(_ sender: Any) {
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = 0.25
+                context.duration = 0.1
               // Use the value you want to animate to (NOT the starting value)
                 self.btnPeople.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnPeople.animator().alphaValue = 1
-                self.windowFunctions.showPeople()
+//                self.windowFunctions.showPeople()
+                NotificationCenter.default.post(Notification(name: .peopleTab))
             })
         }
     }
     @IBAction func btnMaintenanceClicked(_ sender: Any) {
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = 0.25
+                context.duration = 0.1
               // Use the value you want to animate to (NOT the starting value)
                 self.btnMaintenance.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnMaintenance.animator().alphaValue = 1
-                self.windowFunctions.showMaintenance()
+//                self.windowFunctions.showMaintenance()
+                NotificationCenter.default.post(Notification(name: .maintenanceTab))
             })
         }
     }
     @IBAction func btnLogisticsClicked(_ sender: Any) {
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = 0.25
+                context.duration = 0.1
               // Use the value you want to animate to (NOT the starting value)
                 self.btnLogistics.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnLogistics.animator().alphaValue = 1
-                self.windowFunctions.showLogistics()
+                NotificationCenter.default.post(Notification(name: .logisticsTab))
+//                self.windowFunctions.showLogistics()
             })
         }
     }
     @IBAction func btnJobsClicked(_ sender: Any) {
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = 0.25
+                context.duration = 0.1
               // Use the value you want to animate to (NOT the starting value)
                 self.btnJobs.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnJobs.animator().alphaValue = 1
-                self.windowFunctions.showJobs()
+//                self.windowFunctions.showJobs()
+                NotificationCenter.default.post(Notification(name: .jobsTab))
             })
         }
     }
@@ -362,12 +356,12 @@ class DashboardViewController: NSViewController {
     @IBAction func btnAssetsClicked(_ sender: Any) {
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = 0.25
+                context.duration = 0.1
               // Use the value you want to animate to (NOT the starting value)
                 self.btnAssets.animator().alphaValue = 0.75
             }, completionHandler:{
                 self.btnAssets.animator().alphaValue = 1
-                self.windowFunctions.showAssets()
+//                self.windowFunctions.showAssets()
             })
         }
     }

@@ -14,11 +14,13 @@ extension Notification.Name {
     static let logOut = Notification.Name("logOut")
 }
 
-class DashboardWindowController: NSWindowController, NSToolbarDelegate {
+class MasterWindowController: NSWindowController, NSToolbarDelegate {
     
     let appDelegate = NSApp.delegate as? AppDelegate
+    var subview: MasterWindowController?
     
     override func windowDidLoad() {
+        print("loaded")
         super.windowDidLoad()
 
         appDelegate?.enableMenuButtons()
@@ -59,12 +61,13 @@ class DashboardWindowController: NSWindowController, NSToolbarDelegate {
         }
     }
     
+    
     @objc func toolbarAction(){
         print("Defualt")
     }
     
     @objc func BackToolbarItem(){
-        //print("received1")
+        print("received1")
         
     }
     
@@ -73,7 +76,7 @@ class DashboardWindowController: NSWindowController, NSToolbarDelegate {
     }
     
     @objc func DashboardToolbarItem(){
-        //print("received3")
+        NotificationCenter.default.post(Notification(name: .dashboardTab))
     }
     
     @objc func InventoryToolbarItem(){

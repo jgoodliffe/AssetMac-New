@@ -226,8 +226,8 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Production Manager Pro - Log In" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
+                    <window key="window" title="Production Manager Pro - Log In" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="632" y="216" width="480" height="640"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -243,7 +243,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="-710"/>
+            <point key="canvasLocation" x="1158" y="-2392"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -253,14 +253,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView blendingMode="behindWindow" material="dark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="CjA-VA-yRD">
+                            <visualEffectView blendingMode="behindWindow" material="sheet" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="CjA-VA-yRD">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                                 <subviews>
                                     <box identifier="topLine" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Fh0-fU-QiP">
                                         <rect key="frame" x="0.0" y="402" width="480" height="5"/>
                                     </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ki-As-EOf">
-                                        <rect key="frame" x="194" y="422" width="92" height="38"/>
+                                        <rect key="frame" x="194" y="410" width="92" height="38"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Log In" id="nOf-Ui-h9A">
                                             <font key="font" size="32" name="SFProDisplay-Bold"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -420,7 +420,7 @@
                                             <constraint firstAttribute="height" constant="32" id="UQj-jk-tNn"/>
                                         </constraints>
                                         <textFieldCell key="cell" selectable="YES" alignment="left" id="WHM-KI-Mhg">
-                                            <font key="font" metaFont="controlContent" size="11"/>
+                                            <font key="font" metaFont="menu" size="11"/>
                                             <string key="title">You have not entered one of the above fields correctly. 
 Please correct your input and then attempt login again.</string>
                                             <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -468,7 +468,7 @@ Please correct your input and then attempt login again.</string>
                                     <constraint firstItem="Fh0-fU-QiP" firstAttribute="leading" secondItem="CjA-VA-yRD" secondAttribute="leading" id="793-sH-4tQ"/>
                                     <constraint firstItem="piY-jy-byn" firstAttribute="leading" secondItem="KBT-yB-Nfr" secondAttribute="leading" id="86v-Cy-XVS"/>
                                     <constraint firstItem="piY-jy-byn" firstAttribute="centerX" secondItem="Fh0-fU-QiP" secondAttribute="centerX" id="9aq-3a-fEn"/>
-                                    <constraint firstItem="2ki-As-EOf" firstAttribute="top" secondItem="CjA-VA-yRD" secondAttribute="top" constant="20" symbolic="YES" id="JTF-X9-qaV"/>
+                                    <constraint firstItem="2ki-As-EOf" firstAttribute="top" secondItem="CjA-VA-yRD" secondAttribute="top" constant="32" id="JTF-X9-qaV"/>
                                     <constraint firstItem="2Rs-fn-r6N" firstAttribute="top" secondItem="w3I-eA-XHo" secondAttribute="bottom" constant="15" id="NR8-e0-7ux"/>
                                     <constraint firstItem="R6e-4r-na2" firstAttribute="centerX" secondItem="w3I-eA-XHo" secondAttribute="centerX" id="Oky-Ru-sZF"/>
                                     <constraint firstAttribute="trailing" secondItem="KBT-yB-Nfr" secondAttribute="trailing" constant="32" id="a6M-uV-cSR"/>
@@ -508,7 +508,7 @@ Please correct your input and then attempt login again.</string>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="84"/>
+            <point key="canvasLocation" x="1158" y="-1678"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="bT8-Dt-UOm">
@@ -703,8 +703,6 @@ Please correct your input and then attempt login again.</string>
                         <outlet property="mainView" destination="ZSx-nj-5HF" id="dPx-RX-TjR"/>
                         <outlet property="titleText" destination="dXY-Yi-hxR" id="Aj7-sY-FMu"/>
                         <outlet property="welcomeText" destination="G6q-MM-TPz" id="4Kk-OU-chY"/>
-                        <segue destination="IJj-Vj-noH" kind="sheet" identifier="showChangePassword" id="pca-2o-1Y2"/>
-                        <segue destination="B8D-0N-5wS" kind="show" identifier="logOut" id="SVw-is-jR5"/>
                         <segue destination="crn-eW-4pO" kind="sheet" identifier="transitionToAssets" id="Lx0-5U-ddS"/>
                         <segue destination="4xl-br-qjB" kind="sheet" identifier="transitionToJobs" id="ErS-9B-KSH"/>
                         <segue destination="h4f-ho-Oa3" kind="custom" identifier="transitionToMaintenance" id="R6K-uY-AOs"/>
@@ -714,7 +712,7 @@ Please correct your input and then attempt login again.</string>
                 </viewController>
                 <customObject id="7QB-xP-Ila" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2198" y="169"/>
+            <point key="canvasLocation" x="2239" y="-1402"/>
         </scene>
         <!--Password Change View Controller-->
         <scene sceneID="FpG-LJ-oMZ">
@@ -770,7 +768,7 @@ Please correct your input and then attempt login again.</string>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4a2-xb-L5A">
                                         <rect key="frame" x="-2" y="135" width="347" height="14"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Enter your existing password, followed by your desired password." id="a58-DZ-E4E">
-                                            <font key="font" metaFont="controlContent" size="11"/>
+                                            <font key="font" metaFont="menu" size="11"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -949,13 +947,13 @@ Please correct your input and then attempt login again.</string>
                 </viewController>
                 <customObject id="Srs-fD-ZCi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3222" y="-1390"/>
+            <point key="canvasLocation" x="3209" y="-2545"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="avf-v2-gnO">
             <objects>
-                <windowController storyboardIdentifier="dashTabWindow" id="w5D-qt-LkH" customClass="DashboardWindowController" customModule="Production_Manager_Pro" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Dashboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" tabbingMode="preferred" id="rPw-1I-lgE">
+                <windowController storyboardIdentifier="masterWindowController" id="w5D-qt-LkH" customClass="MasterWindowController" customModule="Production_Manager_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" identifier="masterWindow" title="Dashboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" tabbingMode="preferred" id="rPw-1I-lgE">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="632" y="216" width="1280" height="720"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -966,12 +964,33 @@ Please correct your input and then attempt login again.</string>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="EFz-cg-PGy" kind="relationship" relationship="window.shadowedContentViewController" id="D14-Di-s2X"/>
+                        <segue destination="rPx-lc-F99" kind="relationship" relationship="window.shadowedContentViewController" id="JrD-3e-2G5"/>
                     </connections>
                 </windowController>
                 <customObject id="p2I-8o-zIE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2273" y="-796"/>
+            <point key="canvasLocation" x="2263" y="-3357"/>
+        </scene>
+        <!--Master-->
+        <scene sceneID="LWP-hq-613">
+            <objects>
+                <customObject id="xdD-1d-Eae" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController title="Master" storyboardIdentifier="masterViewController" id="rPx-lc-F99" customClass="MasterViewController" customModule="Production_Manager_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <containerView key="view" appearanceType="darkAqua" id="KE7-F7-84I">
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <segue destination="EFz-cg-PGy" kind="embed" id="mjh-dV-D2C"/>
+                        </connections>
+                    </containerView>
+                    <connections>
+                        <outlet property="container" destination="KE7-F7-84I" id="bN5-KW-zxQ"/>
+                        <segue destination="IJj-Vj-noH" kind="sheet" identifier="showChangePassword" id="I6r-7D-OWb"/>
+                        <segue destination="B8D-0N-5wS" kind="show" identifier="logOut" id="RkY-9i-6wB"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2263" y="-2392"/>
         </scene>
         <!--Assets-->
         <scene sceneID="d4x-Dk-PbB">
@@ -1009,28 +1028,12 @@ Please correct your input and then attempt login again.</string>
                                         <rect key="frame" x="0.0" y="74" width="1001" height="5"/>
                                     </box>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fud-xS-ctF">
-                                        <rect key="frame" x="20" y="517" width="273" height="126"/>
+                                        <rect key="frame" x="20" y="595" width="248" height="48"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYD-si-QbZ">
-                                                <rect key="frame" x="-2" y="78" width="252" height="48"/>
+                                                <rect key="frame" x="-2" y="0.0" width="252" height="48"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Your Assets" id="9HB-RI-j0n">
                                                     <font key="font" size="40" name="SFProText-Heavy"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LxA-pI-Ff8">
-                                                <rect key="frame" x="-2" y="36" width="277" height="30"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Monday 1 January 2020" id="NDO-jG-0JZ">
-                                                    <font key="font" size="25" name="SFProText-Thin"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HSA-ru-eN4">
-                                                <rect key="frame" x="-2" y="0.0" width="203" height="24"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Good Morning, name!" id="Vgh-nX-OSj">
-                                                    <font key="font" size="20" name="SFProText-Thin"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -1038,12 +1041,8 @@ Please correct your input and then attempt login again.</string>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
@@ -1060,7 +1059,7 @@ Please correct your input and then attempt login again.</string>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnAssetsClicked:" target="crn-eW-4pO" id="i5a-bT-H45"/>
+                                                            <action selector="assetsClicked:" target="crn-eW-4pO" id="rmy-ie-tsC"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-li-K6G">
@@ -1070,7 +1069,7 @@ Please correct your input and then attempt login again.</string>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnJobsClicked:" target="crn-eW-4pO" id="I5Y-Pg-s1X"/>
+                                                            <action selector="jobsClicked:" target="crn-eW-4pO" id="Z0b-f7-Pg2"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5KX-NQ-tDt">
@@ -1080,7 +1079,7 @@ Please correct your input and then attempt login again.</string>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnLogisticsClicked:" target="crn-eW-4pO" id="LjS-DA-xTR"/>
+                                                            <action selector="logisticsClicked:" target="crn-eW-4pO" id="3pp-Xw-Nxj"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sxc-4h-RMW">
@@ -1090,7 +1089,7 @@ Please correct your input and then attempt login again.</string>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnMaintenanceClicked:" target="crn-eW-4pO" id="dqE-dd-81E"/>
+                                                            <action selector="maintenanceClicked:" target="crn-eW-4pO" id="1Ey-wt-8jH"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tq4-bs-ftJ">
@@ -1100,7 +1099,7 @@ Please correct your input and then attempt login again.</string>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnPeopleClicked:" target="crn-eW-4pO" id="BNY-J0-9cy"/>
+                                                            <action selector="peopleClicked:" target="crn-eW-4pO" id="FXj-dI-F9o"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1155,17 +1154,9 @@ Please correct your input and then attempt login again.</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Sidepanel" destination="Csi-wX-8so" id="1jc-t7-tih"/>
-                        <outlet property="btnAssets" destination="YIq-GJ-XTh" id="7eC-2l-DAI"/>
-                        <outlet property="btnJobs" destination="yVa-li-K6G" id="HV1-sx-plg"/>
-                        <outlet property="btnLogistics" destination="5KX-NQ-tDt" id="Ovk-bh-618"/>
-                        <outlet property="btnMaintenance" destination="sxc-4h-RMW" id="CzW-mF-bLU"/>
-                        <outlet property="btnPeople" destination="tq4-bs-ftJ" id="jqr-Gt-nD6"/>
-                        <outlet property="dateText" destination="LxA-pI-Ff8" id="tof-xq-dcp"/>
-                        <outlet property="leftView" destination="OCA-6p-C39" id="edD-0g-13t"/>
+                        <outlet property="lblTitle" destination="wYD-si-QbZ" id="hjK-rJ-ftb"/>
                         <outlet property="mainView" destination="Gmn-dk-Tck" id="nyz-BN-yim"/>
                         <outlet property="titleText" destination="wYD-si-QbZ" id="3Q6-a5-tWD"/>
-                        <outlet property="welcomeText" destination="HSA-ru-eN4" id="HJ6-gZ-mdm"/>
                     </connections>
                 </viewController>
                 <customObject id="eW4-jg-QdB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1176,81 +1167,156 @@ Please correct your input and then attempt login again.</string>
         <scene sceneID="EKc-hz-R1Y">
             <objects>
                 <viewController title="Jobs" identifier="jobsTabController" storyboardIdentifier="jobsTab" id="4xl-br-qjB" customClass="JobsViewController" customModule="Production_Manager_Pro" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" identifier="DashTab" appearanceType="darkAqua" id="Jzv-QX-HIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                    <view key="view" identifier="DashTab" appearanceType="darkAqua" misplaced="YES" id="Jzv-QX-HIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="676"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView blendingMode="behindWindow" material="ultraDark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="qUq-dI-3XM">
-                                <rect key="frame" x="0.0" y="654" width="1280" height="66"/>
-                            </visualEffectView>
                             <visualEffectView blendingMode="behindWindow" material="ultraDark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="ciH-l6-rla">
-                                <rect key="frame" x="1002" y="0.0" width="278" height="655"/>
+                                <rect key="frame" x="1105" y="0.0" width="175" height="610"/>
                                 <subviews>
-                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8bm-at-OwZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="655"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="8bm-at-OwZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="610"/>
                                         <subviews>
-                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="THU-vW-fsM">
-                                                <rect key="frame" x="10" y="340" width="257" height="0.0"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="THU-vW-fsM">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="610"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Rl-Ie-ier">
+                                                        <rect key="frame" x="39" y="595" width="97" height="15"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="QUICK ACTIONS" id="wpU-Xm-DEK">
+                                                            <font key="font" size="13" name="SFCompactText-Regular"/>
+                                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <stackView wantsLayer="YES" distribution="fill" orientation="vertical" alignment="firstBaseline" spacing="108" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fl1-5W-ZEK">
+                                                        <rect key="frame" x="24" y="1" width="127" height="587"/>
+                                                        <subviews>
+                                                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1i-NY-3dy">
+                                                                <rect key="frame" x="-2" y="553" width="80" height="36"/>
+                                                                <buttonCell key="cell" type="bevel" title="Assets" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bsg-MY-8SC">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" size="20" name="SFProDisplay-Light"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="showAssetsClicked:" target="4xl-br-qjB" id="jg0-Bb-Pik"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qal-aT-Vg0">
+                                                                <rect key="frame" x="-2" y="414" width="65" height="36"/>
+                                                                <buttonCell key="cell" type="bevel" title="Jobs" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jl8-ax-teW">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" size="20" name="SFProDisplay-Light"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="showJobsClicked:" target="4xl-br-qjB" id="Qcr-fL-7gh"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fTO-96-shk">
+                                                                <rect key="frame" x="32" y="275" width="97" height="36"/>
+                                                                <buttonCell key="cell" type="bevel" title="Logistics" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zJ7-8N-4Re">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" size="20" name="SFProDisplay-Light"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="showLogisticsClicked:" target="4xl-br-qjB" id="oSf-HI-HAg"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gan-A2-joW">
+                                                                <rect key="frame" x="-2" y="136" width="131" height="36"/>
+                                                                <buttonCell key="cell" type="bevel" title="Maintenance" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="arj-DE-Gne">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" size="20" name="SFProDisplay-Light"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="showMaintenanceClicked:" target="4xl-br-qjB" id="qkX-Jv-nIP"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O3q-KE-H4O">
+                                                                <rect key="frame" x="48" y="-3" width="81" height="36"/>
+                                                                <buttonCell key="cell" type="bevel" title="People" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PNo-lV-29u">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" size="20" name="SFProDisplay-Light"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="showPeopleClicked:" target="4xl-br-qjB" id="NeG-RB-MTb"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="THU-vW-fsM" secondAttribute="bottom" id="13Q-qd-1Pk"/>
+                                            <constraint firstItem="THU-vW-fsM" firstAttribute="centerX" secondItem="8bm-at-OwZ" secondAttribute="centerX" id="FQE-0Z-ksa"/>
+                                            <constraint firstItem="THU-vW-fsM" firstAttribute="top" secondItem="8bm-at-OwZ" secondAttribute="top" id="M34-OJ-emd"/>
+                                            <constraint firstAttribute="trailing" secondItem="THU-vW-fsM" secondAttribute="trailing" id="mes-c8-bsw"/>
+                                        </constraints>
                                     </customView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="278" id="dCK-vO-99i"/>
+                                    <constraint firstItem="8bm-at-OwZ" firstAttribute="top" secondItem="ciH-l6-rla" secondAttribute="top" id="BVS-sq-bmg"/>
+                                    <constraint firstAttribute="width" constant="175" id="dCK-vO-99i"/>
+                                    <constraint firstAttribute="bottom" secondItem="8bm-at-OwZ" secondAttribute="bottom" id="iNL-i0-Mkf"/>
+                                    <constraint firstAttribute="trailing" secondItem="8bm-at-OwZ" secondAttribute="trailing" id="oNU-se-x8S"/>
+                                    <constraint firstItem="8bm-at-OwZ" firstAttribute="leading" secondItem="ciH-l6-rla" secondAttribute="leading" id="xWh-D0-hQz"/>
                                 </constraints>
                             </visualEffectView>
                             <visualEffectView blendingMode="behindWindow" material="dark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="PGs-vJ-W6F">
-                                <rect key="frame" x="0.0" y="0.0" width="1001" height="655"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1107" height="610"/>
                                 <subviews>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="pbC-aT-x4Z">
-                                        <rect key="frame" x="0.0" y="74" width="1001" height="5"/>
+                                        <rect key="frame" x="0.0" y="74" width="1107" height="5"/>
                                     </box>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BuH-mj-cq5">
-                                        <rect key="frame" x="20" y="517" width="273" height="126"/>
+                                        <rect key="frame" x="20" y="550" width="206" height="48"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BJv-rO-wmU">
-                                                <rect key="frame" x="-2" y="78" width="210" height="48"/>
+                                                <rect key="frame" x="-2" y="0.0" width="210" height="48"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Your Jobs" id="CKO-ZA-cZv">
                                                     <font key="font" size="40" name="SFProText-Heavy"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-br-Ehe">
-                                                <rect key="frame" x="-2" y="36" width="277" height="30"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Monday 1 January 2020" id="WBk-Kd-Z9z">
-                                                    <font key="font" size="25" name="SFProText-Thin"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7tk-TA-6aK">
-                                                <rect key="frame" x="-2" y="0.0" width="203" height="24"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Good Morning, name!" id="64q-0j-wyy">
-                                                    <font key="font" size="20" name="SFProText-Thin"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
+                                                <connections>
+                                                    <action selector="lblTitle:" target="4xl-br-qjB" id="0Ye-8b-JXB"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="3Wl-rC-Kaw">
-                                        <rect key="frame" x="0.0" y="0.0" width="1007" height="77"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1107" height="77"/>
                                         <subviews>
-                                            <stackView wantsLayer="YES" distribution="fillEqually" orientation="horizontal" alignment="firstBaseline" spacing="80" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUC-O1-9gi">
-                                                <rect key="frame" x="20" y="23" width="955" height="31"/>
+                                            <stackView wantsLayer="YES" distribution="fillEqually" orientation="horizontal" alignment="firstBaseline" spacing="108" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUC-O1-9gi">
+                                                <rect key="frame" x="20" y="23" width="1067" height="31"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3ls-Nb-Y24">
                                                         <rect key="frame" x="-2" y="-3" width="131" height="36"/>
@@ -1259,47 +1325,47 @@ Please correct your input and then attempt login again.</string>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnAssetsClicked:" target="4xl-br-qjB" id="mMf-W7-W9q"/>
+                                                            <action selector="showAssetsClicked:" target="4xl-br-qjB" id="MSQ-c0-POv"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E0N-Z1-r9I">
-                                                        <rect key="frame" x="205" y="-3" width="131" height="36"/>
+                                                        <rect key="frame" x="233" y="-3" width="131" height="36"/>
                                                         <buttonCell key="cell" type="bevel" title="Jobs" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ftf-Zh-NxD">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnJobsClicked:" target="4xl-br-qjB" id="bLi-7G-e1G"/>
+                                                            <action selector="showJobsClicked:" target="4xl-br-qjB" id="vOb-z8-7wI"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4dL-kz-qO3">
-                                                        <rect key="frame" x="412" y="-3" width="131" height="36"/>
+                                                        <rect key="frame" x="468" y="-3" width="131" height="36"/>
                                                         <buttonCell key="cell" type="bevel" title="Logistics" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UWE-mp-eBb">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnLogisticsClicked:" target="4xl-br-qjB" id="jaD-Zh-4l7"/>
+                                                            <action selector="showLogisticsClicked:" target="4xl-br-qjB" id="3fB-af-w59"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bub-A2-IYO">
-                                                        <rect key="frame" x="619" y="-3" width="131" height="36"/>
+                                                        <rect key="frame" x="703" y="-3" width="131" height="36"/>
                                                         <buttonCell key="cell" type="bevel" title="Maintenance" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IRB-MA-cKN">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnMaintenanceClicked:" target="4xl-br-qjB" id="f3V-l5-cWm"/>
+                                                            <action selector="showMaintenanceClicked:" target="4xl-br-qjB" id="6kj-3b-lYF"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RRk-0A-1Xi">
-                                                        <rect key="frame" x="826" y="-3" width="131" height="36"/>
+                                                        <rect key="frame" x="938" y="-3" width="131" height="36"/>
                                                         <buttonCell key="cell" type="bevel" title="People" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gv5-y2-Cst">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" size="20" name="SFProDisplay-Light"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="btnPeopleClicked:" target="4xl-br-qjB" id="eCv-cu-Y5m"/>
+                                                            <action selector="showPeopleClicked:" target="4xl-br-qjB" id="hSA-rZ-8uB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1320,11 +1386,123 @@ Please correct your input and then attempt login again.</string>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="rUC-O1-9gi" firstAttribute="leading" secondItem="3Wl-rC-Kaw" secondAttribute="leading" constant="20" symbolic="YES" id="41O-Dp-1rY"/>
-                                            <constraint firstItem="rUC-O1-9gi" firstAttribute="centerY" secondItem="3Wl-rC-Kaw" secondAttribute="centerY" id="ac2-Hi-BXp"/>
-                                            <constraint firstAttribute="trailing" secondItem="rUC-O1-9gi" secondAttribute="trailing" constant="32" id="qf3-2u-7Bw"/>
+                                            <constraint firstItem="rUC-O1-9gi" firstAttribute="leading" secondItem="3Wl-rC-Kaw" secondAttribute="leading" constant="20" symbolic="YES" id="90d-XF-3gP"/>
+                                            <constraint firstItem="rUC-O1-9gi" firstAttribute="centerY" secondItem="3Wl-rC-Kaw" secondAttribute="centerY" id="J3V-mv-97M"/>
+                                            <constraint firstItem="rUC-O1-9gi" firstAttribute="leading" secondItem="3Wl-rC-Kaw" secondAttribute="leading" constant="20" id="LMA-uE-ckx"/>
+                                            <constraint firstAttribute="trailing" secondItem="rUC-O1-9gi" secondAttribute="trailing" constant="20" id="q9b-qt-hlX"/>
                                         </constraints>
                                     </customView>
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRO-Kj-WLs">
+                                        <rect key="frame" x="20" y="118" width="1067" height="427"/>
+                                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Oto-tQ-0RW">
+                                            <rect key="frame" x="1" y="0.0" width="1065" height="426"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="jXN-aI-sPx" viewBased="YES" id="zlP-G5-YGi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1065" height="401"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn width="116" minWidth="40" maxWidth="1000" id="89w-i5-iCL">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                <font key="font" metaFont="menu" size="11"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="d3p-FU-3Ew">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="oPp-cn-X8o">
+                                                                    <rect key="frame" x="1" y="1" width="116" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="8lO-ed-OIy">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="17" id="fyt-ol-aDB"/>
+                                                                            </constraints>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="1ns-pI-QGq">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="8lO-ed-OIy" firstAttribute="centerY" secondItem="oPp-cn-X8o" secondAttribute="centerY" id="SEV-0B-qN8"/>
+                                                                        <constraint firstItem="8lO-ed-OIy" firstAttribute="leading" secondItem="oPp-cn-X8o" secondAttribute="leading" constant="2" id="YSg-4y-bEv"/>
+                                                                        <constraint firstItem="8lO-ed-OIy" firstAttribute="centerX" secondItem="oPp-cn-X8o" secondAttribute="centerX" id="eXz-tr-wNL"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="8lO-ed-OIy" id="wAj-cC-3ck"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                        <tableColumn width="943" minWidth="40" maxWidth="1000" id="OBA-4J-gFs">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                <font key="font" metaFont="menu" size="11"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="oIM-1j-aUq">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="6hK-bs-1zZ">
+                                                                    <rect key="frame" x="120" y="1" width="943" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="hrG-uN-2bH">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="943" height="17"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="17" id="rdv-HI-JWv"/>
+                                                                            </constraints>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="LBV-bJ-qLA">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="hrG-uN-2bH" firstAttribute="centerY" secondItem="6hK-bs-1zZ" secondAttribute="centerY" id="I74-1l-lt2"/>
+                                                                        <constraint firstItem="hrG-uN-2bH" firstAttribute="centerX" secondItem="6hK-bs-1zZ" secondAttribute="centerX" id="jbu-Qy-kDI"/>
+                                                                        <constraint firstItem="hrG-uN-2bH" firstAttribute="leading" secondItem="6hK-bs-1zZ" secondAttribute="leading" constant="2" id="q3u-Bh-CFR"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="hrG-uN-2bH" id="gRa-XD-zWO"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                </tableView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="v6G-uS-5qQ">
+                                            <rect key="frame" x="1" y="484" width="1065" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="WRA-GF-0gb">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <tableHeaderView key="headerView" id="jXN-aI-sPx">
+                                            <rect key="frame" x="0.0" y="0.0" width="1065" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableHeaderView>
+                                    </scrollView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="3Wl-rC-Kaw" secondAttribute="bottom" id="7PH-bV-pdz"/>
@@ -1334,14 +1512,20 @@ Please correct your input and then attempt login again.</string>
                                     <constraint firstItem="pbC-aT-x4Z" firstAttribute="leading" secondItem="3Wl-rC-Kaw" secondAttribute="leading" id="Omb-Vs-lDm"/>
                                     <constraint firstItem="BuH-mj-cq5" firstAttribute="leading" secondItem="PGs-vJ-W6F" secondAttribute="leading" constant="20" symbolic="YES" id="Ozu-se-8m8"/>
                                     <constraint firstItem="3Wl-rC-Kaw" firstAttribute="top" secondItem="pbC-aT-x4Z" secondAttribute="top" id="Uz1-NR-Kvq"/>
+                                    <constraint firstItem="TRO-Kj-WLs" firstAttribute="leading" secondItem="BuH-mj-cq5" secondAttribute="leading" id="an7-pN-Kkm"/>
                                     <constraint firstItem="pbC-aT-x4Z" firstAttribute="leading" secondItem="PGs-vJ-W6F" secondAttribute="leading" id="idK-WI-WeY"/>
-                                    <constraint firstItem="pbC-aT-x4Z" firstAttribute="trailing" secondItem="3Wl-rC-Kaw" secondAttribute="trailing" constant="-6" id="ww7-6v-q1r"/>
+                                    <constraint firstItem="TRO-Kj-WLs" firstAttribute="top" secondItem="PGs-vJ-W6F" secondAttribute="top" constant="65" id="m9g-ZI-5ln"/>
+                                    <constraint firstAttribute="bottom" secondItem="TRO-Kj-WLs" secondAttribute="bottom" constant="118" id="vSa-HC-gf7"/>
+                                    <constraint firstItem="pbC-aT-x4Z" firstAttribute="trailing" secondItem="3Wl-rC-Kaw" secondAttribute="trailing" id="ww7-6v-q1r"/>
                                 </constraints>
+                            </visualEffectView>
+                            <visualEffectView blendingMode="behindWindow" material="ultraDark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="qUq-dI-3XM">
+                                <rect key="frame" x="0.0" y="654" width="1280" height="21"/>
                             </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ciH-l6-rla" firstAttribute="top" secondItem="PGs-vJ-W6F" secondAttribute="top" id="34g-VY-tV5"/>
-                            <constraint firstItem="ciH-l6-rla" firstAttribute="leading" secondItem="PGs-vJ-W6F" secondAttribute="trailing" constant="1" id="JQV-JV-wAj"/>
+                            <constraint firstItem="ciH-l6-rla" firstAttribute="leading" secondItem="PGs-vJ-W6F" secondAttribute="trailing" constant="-2" id="JQV-JV-wAj"/>
                             <constraint firstAttribute="bottom" secondItem="PGs-vJ-W6F" secondAttribute="bottom" id="Jdc-JU-MWC"/>
                             <constraint firstAttribute="bottom" secondItem="qUq-dI-3XM" secondAttribute="bottom" constant="654" id="QWe-aR-oz6"/>
                             <constraint firstItem="qUq-dI-3XM" firstAttribute="top" secondItem="Jzv-QX-HIZ" secondAttribute="top" id="avz-JJ-Mjj"/>
@@ -1354,17 +1538,8 @@ Please correct your input and then attempt login again.</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Sidepanel" destination="8bm-at-OwZ" id="mhO-3c-eOs"/>
-                        <outlet property="btnAssets" destination="3ls-Nb-Y24" id="3oN-w1-qdo"/>
-                        <outlet property="btnJobs" destination="E0N-Z1-r9I" id="ve6-dZ-EDW"/>
-                        <outlet property="btnLogistics" destination="4dL-kz-qO3" id="ubT-Pt-FW9"/>
-                        <outlet property="btnMaintenance" destination="Bub-A2-IYO" id="y3i-Xr-r9b"/>
-                        <outlet property="btnPeople" destination="RRk-0A-1Xi" id="kic-uq-78K"/>
-                        <outlet property="dateText" destination="gGW-br-Ehe" id="3fs-cb-v2d"/>
-                        <outlet property="leftView" destination="PGs-vJ-W6F" id="bGm-Pl-Moo"/>
-                        <outlet property="mainView" destination="Jzv-QX-HIZ" id="oVD-Dy-g2f"/>
-                        <outlet property="titleText" destination="BJv-rO-wmU" id="b8J-ik-bsn"/>
-                        <outlet property="welcomeText" destination="7tk-TA-6aK" id="h7i-P7-LHL"/>
+                        <outlet property="jobsTable" destination="zlP-G5-YGi" id="X6K-eg-N80"/>
+                        <outlet property="lblTitle" destination="BJv-rO-wmU" id="4dr-GJ-ReR"/>
                     </connections>
                 </viewController>
                 <customObject id="VQV-51-y7x" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1407,28 +1582,12 @@ Please correct your input and then attempt login again.</string>
                                         <rect key="frame" x="0.0" y="74" width="1001" height="5"/>
                                     </box>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHt-P3-ja0">
-                                        <rect key="frame" x="20" y="517" width="273" height="126"/>
+                                        <rect key="frame" x="20" y="595" width="189" height="48"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zaC-gc-HvX">
-                                                <rect key="frame" x="-2" y="78" width="193" height="48"/>
+                                                <rect key="frame" x="-2" y="0.0" width="193" height="48"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Logistics" id="h0q-qw-mrd">
                                                     <font key="font" size="40" name="SFProText-Heavy"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-gI-0AN">
-                                                <rect key="frame" x="-2" y="36" width="277" height="30"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Monday 1 January 2020" id="ow8-Rp-Wfm">
-                                                    <font key="font" size="25" name="SFProText-Thin"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M36-nf-IXp">
-                                                <rect key="frame" x="-2" y="0.0" width="203" height="24"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Good Morning, name!" id="utI-7u-cA3">
-                                                    <font key="font" size="20" name="SFProText-Thin"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -1436,12 +1595,8 @@ Please correct your input and then attempt login again.</string>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
@@ -1553,17 +1708,9 @@ Please correct your input and then attempt login again.</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Sidepanel" destination="wyf-zj-Wjf" id="iFk-RP-1yj"/>
-                        <outlet property="btnAssets" destination="58a-EB-969" id="mG2-7I-civ"/>
-                        <outlet property="btnJobs" destination="9pF-pC-I12" id="wf8-bX-h0T"/>
-                        <outlet property="btnLogistics" destination="6bb-w2-K33" id="mUL-bH-2ux"/>
-                        <outlet property="btnMaintenance" destination="KVW-O7-9uC" id="QtO-hy-ocP"/>
-                        <outlet property="btnPeople" destination="PRS-cj-z6A" id="nnu-bf-aqI"/>
-                        <outlet property="dateText" destination="oc7-gI-0AN" id="fq0-Xp-goe"/>
-                        <outlet property="leftView" destination="FGV-JH-OvJ" id="TnN-Bf-HSN"/>
+                        <outlet property="lblTitle" destination="zaC-gc-HvX" id="dJ4-AP-mVf"/>
                         <outlet property="mainView" destination="q3U-pY-plA" id="nhd-qB-0ra"/>
                         <outlet property="titleText" destination="zaC-gc-HvX" id="P11-ES-lXc"/>
-                        <outlet property="welcomeText" destination="M36-nf-IXp" id="uak-fy-bXx"/>
                     </connections>
                 </viewController>
                 <customObject id="R0a-lT-kU0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1606,28 +1753,12 @@ Please correct your input and then attempt login again.</string>
                                         <rect key="frame" x="0.0" y="74" width="1001" height="5"/>
                                     </box>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pev-m1-jsT">
-                                        <rect key="frame" x="20" y="517" width="273" height="126"/>
+                                        <rect key="frame" x="20" y="595" width="268" height="48"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="knX-sJ-dK5">
-                                                <rect key="frame" x="-2" y="78" width="272" height="48"/>
+                                                <rect key="frame" x="-2" y="0.0" width="272" height="48"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Maintenance" id="qLE-ET-kU5">
                                                     <font key="font" size="40" name="SFProText-Heavy"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bOm-9r-S7Y">
-                                                <rect key="frame" x="-2" y="36" width="277" height="30"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Monday 1 January 2020" id="A3C-AA-qtb">
-                                                    <font key="font" size="25" name="SFProText-Thin"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rqj-Xm-zJn">
-                                                <rect key="frame" x="-2" y="0.0" width="203" height="24"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Good Morning, name!" id="MHv-YK-jjT">
-                                                    <font key="font" size="20" name="SFProText-Thin"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -1635,12 +1766,8 @@ Please correct your input and then attempt login again.</string>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
@@ -1752,17 +1879,9 @@ Please correct your input and then attempt login again.</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Sidepanel" destination="mlU-vQ-vFI" id="iJd-bz-2cl"/>
-                        <outlet property="btnAssets" destination="sEI-le-9ka" id="DkL-NU-Blo"/>
-                        <outlet property="btnJobs" destination="90c-19-Do5" id="Kos-IG-LJY"/>
-                        <outlet property="btnLogistics" destination="4gW-h2-9Wf" id="8oQ-NZ-UGT"/>
-                        <outlet property="btnMaintenance" destination="2YZ-yU-gnB" id="PP7-67-e0K"/>
-                        <outlet property="btnPeople" destination="8r4-PL-ynw" id="bQ5-2V-JnZ"/>
-                        <outlet property="dateText" destination="bOm-9r-S7Y" id="RhJ-pM-8dt"/>
-                        <outlet property="leftView" destination="VQt-Wp-YBK" id="aXS-Tc-RWK"/>
+                        <outlet property="lblTitle" destination="knX-sJ-dK5" id="GfW-Dj-VWh"/>
                         <outlet property="mainView" destination="7Oh-Rt-gbc" id="edA-hh-03r"/>
                         <outlet property="titleText" destination="knX-sJ-dK5" id="3Sx-op-EKw"/>
-                        <outlet property="welcomeText" destination="rqj-Xm-zJn" id="PJL-iv-8dD"/>
                     </connections>
                 </viewController>
                 <customObject id="NuF-gx-Wjr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1805,28 +1924,12 @@ Please correct your input and then attempt login again.</string>
                                         <rect key="frame" x="0.0" y="74" width="1001" height="5"/>
                                     </box>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MOu-EU-fQq">
-                                        <rect key="frame" x="20" y="517" width="273" height="126"/>
+                                        <rect key="frame" x="20" y="595" width="247" height="48"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v2o-pM-kYR">
-                                                <rect key="frame" x="-2" y="78" width="251" height="48"/>
+                                                <rect key="frame" x="-2" y="0.0" width="251" height="48"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Your People" id="d0O-vn-JeU">
                                                     <font key="font" size="40" name="SFProText-Heavy"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-ZI-StK">
-                                                <rect key="frame" x="-2" y="36" width="277" height="30"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Monday 1 January 2020" id="aPq-wh-Bhx">
-                                                    <font key="font" size="25" name="SFProText-Thin"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WA1-FI-Lud">
-                                                <rect key="frame" x="-2" y="0.0" width="203" height="24"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Good Morning, name!" id="N7u-t8-3Pv">
-                                                    <font key="font" size="20" name="SFProText-Thin"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -1834,12 +1937,8 @@ Please correct your input and then attempt login again.</string>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
@@ -1951,17 +2050,9 @@ Please correct your input and then attempt login again.</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Sidepanel" destination="N6T-K1-uBV" id="oxV-lp-Jjo"/>
-                        <outlet property="btnAssets" destination="CpC-ZI-Sbz" id="Avb-TK-VGp"/>
-                        <outlet property="btnJobs" destination="9Sy-JV-TZ2" id="bfe-GV-aLK"/>
-                        <outlet property="btnLogistics" destination="j8s-Xh-goX" id="pBf-Fy-PY9"/>
-                        <outlet property="btnMaintenance" destination="NaU-gO-hHb" id="wyL-L5-jCe"/>
-                        <outlet property="btnPeople" destination="J0D-Lf-P18" id="VME-qf-xXs"/>
-                        <outlet property="dateText" destination="J8k-ZI-StK" id="nMo-Gk-TtA"/>
-                        <outlet property="leftView" destination="Y61-9T-qEW" id="edb-yj-C57"/>
+                        <outlet property="lblTitle" destination="v2o-pM-kYR" id="jmu-EH-QRI"/>
                         <outlet property="mainView" destination="NND-Qm-NtD" id="gxR-u9-myS"/>
                         <outlet property="titleText" destination="v2o-pM-kYR" id="uKj-mo-yWc"/>
-                        <outlet property="welcomeText" destination="WA1-FI-Lud" id="Wpd-xc-3e8"/>
                     </connections>
                 </viewController>
                 <customObject id="ITu-Rl-PtV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1970,6 +2061,6 @@ Please correct your input and then attempt login again.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SVw-is-jR5"/>
+        <segue reference="RkY-9i-6wB"/>
     </inferredMetricsTieBreakers>
 </document>

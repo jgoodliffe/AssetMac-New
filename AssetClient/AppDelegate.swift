@@ -34,7 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return container
     }()
     
-    func newDashboardWindow() -> NSWindow{
+    //Creates new tabbed window instance
+    func newDashboardTabInstance() -> NSWindow{
         let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController))
         let customToolbar = NSToolbar()
         let toolbarDelegate = MainToolbar()
@@ -46,7 +47,59 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         newWindow.contentView?.wantsLayer = true
         newWindow.toolbar = customToolbar
         newWindow.appearance = NSAppearance(named: .darkAqua)
-        return newWindow
+        let newWC = MasterWindowController(window: newWindow)
+        return newWC.window ?? newWindow
+    }
+    
+    //Creates child window instance
+    func newDashboardWindowInstance(){
+        let currentWindow = AppDelegate.getCurrentWindow()
+        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController))
+        let customToolbar = NSToolbar()
+        let toolbarDelegate = MainToolbar()
+        customToolbar.delegate = toolbarDelegate
+        newWindow.titleVisibility = .hidden
+        newWindow.styleMask.insert(.texturedBackground)
+        newWindow.styleMask.insert(.fullSizeContentView)
+        newWindow.titlebarAppearsTransparent = true
+        newWindow.contentView?.wantsLayer = true
+        newWindow.toolbar = customToolbar
+        newWindow.appearance = NSAppearance(named: .darkAqua)
+        newWindow.makeKeyAndOrderFront(self)
+        currentWindow?.addChildWindow(newWindow, ordered: .above)
+    }
+    
+    //Creates a new Window instance if no VC - if there is a VC then will add a child window.
+    func newDashboardWindow(){
+        let currentVC = AppDelegate.getCurrentViewController()
+        //Check current Window
+        if (currentVC != nil){
+            newDashboardWindowInstance()
+        }
+        if currentVC==nil{
+            let dashboardWC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "masterWindowController") as! MasterWindowController
+            dashboardWC.showWindow(self)
+            if (dashboardWC.window != nil){
+                dashboardWC.window?.makeKeyAndOrderFront(self)
+            }
+        }
+    }
+    
+    //Switches current view to dashboard
+    func showDashboard(){
+        let currentWC = AppDelegate.getCurrentWindowController()
+        currentWC?.contentViewController?.transition(from: AppDelegate.getCurrentViewController()!, to: DashboardViewController(), options: .crossfade)
+    }
+    
+    func newDashboardTab(){
+        let currentVC = AppDelegate.getCurrentViewController()
+        //Check current Window
+        //Create new Tab
+        let currentWindow = AppDelegate.getCurrentWindow()
+        //let currentWindowCtrl = AppDelegate.getCurrentWindowController()
+        let newWindow = newDashboardTabInstance()
+        currentWindow?.addTabbedWindow(newWindow, ordered: .above)
+        newWindow.makeKeyAndOrderFront(currentWindow)
     }
     
     func disableMainMenuButtons(){
@@ -86,29 +139,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func newTab(_ sender: Any) {
         let currentVC = AppDelegate.getCurrentViewController()
         //Check current Window
+        
+        if currentVC==nil{
+            newDashboardWindow()
+        }
+        
         if currentVC?.identifier?.rawValue=="dashboardController"{
             //Create new Tab
             let currentWindow = AppDelegate.getCurrentWindow()
             //let currentWindowCtrl = AppDelegate.getCurrentWindowController()
-            let newWindow = newDashboardWindow()
+            let newWindow = newDashboardTabInstance()
             currentWindow?.addTabbedWindow(newWindow, ordered: .above)
             newWindow.makeKeyAndOrderFront(currentWindow)
         }
+        
+        //Get window instance..
     }
     
     
     @IBAction func actionNewWindow(_ sender: Any) {
-        //TODO: Check if no windows are present and create new non-child window
-        let currentVC = AppDelegate.getCurrentViewController()
-        //Check current Window
-        print(currentVC?.identifier?.rawValue)
-        if currentVC?.identifier?.rawValue=="dashboardController"{
-            //Create new Window
-            let currentWindow = AppDelegate.getCurrentWindow()
-            let newWindow = newDashboardWindow()
-            currentWindow?.addChildWindow(newWindow, ordered: .above)
-            newWindow.makeKey()
-        }
+        newDashboardWindow()
     }
     
     @IBAction func actionCloseWindow(_ sender: Any) {

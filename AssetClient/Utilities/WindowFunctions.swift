@@ -14,107 +14,67 @@ import Cocoa
 
 class WindowFunctions{
     let appDelegate = NSApp.delegate as? AppDelegate
+    var masterVC: MasterViewController
+    var currentView: NSViewController
+    let storyboard = NSStoryboard(name: "Main", bundle: nil)
+    init(masterVC: NSViewController, currentView: NSViewController){
+        self.masterVC = masterVC as! MasterViewController
+        self.currentView = currentView
+    }
     
     func createNewTab(window:NSWindow){
         let currentVC = AppDelegate.getCurrentViewController()
         //Check current Window
-        if currentVC?.identifier?.rawValue=="dashboardController"{
-            //Create new Tab
-            let currentWindow = AppDelegate.getCurrentWindow()
-            //let currentWindowCtrl = AppDelegate.getCurrentWindowController()
-            let newWindow = window
-            currentWindow?.addTabbedWindow(newWindow, ordered: .above)
-            newWindow.makeKeyAndOrderFront(currentWindow)
-        }
+        //Create new Tab
+        let currentWindow = AppDelegate.getCurrentWindowController()?.window
+        let newWindow = window
+        currentWindow?.addTabbedWindow(newWindow, ordered: .above)
+        newWindow.makeKeyAndOrderFront(currentWindow)
+    }
+    
+    func removeChildVC(asChildViewController viewController: NSViewController){
+        // Remove Child View From Superview
+        viewController.view.removeFromSuperview()
+
+        // Notify Child View Controller
+        viewController.removeFromParent()
     }
     
     func showDashboard(){
-        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController))
-        let customToolbar = NSToolbar()
-        let toolbarDelegate = MainToolbar()
-        customToolbar.delegate = toolbarDelegate
-        newWindow.titleVisibility = .hidden
-        newWindow.styleMask.insert(.texturedBackground)
-        newWindow.styleMask.insert(.fullSizeContentView)
-        newWindow.titlebarAppearsTransparent = true
-        newWindow.contentView?.wantsLayer = true
-        newWindow.toolbar = customToolbar
-        newWindow.appearance = NSAppearance(named: .darkAqua)
-        createNewTab(window: newWindow)
+        let newWC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "masterWindowController") as! MasterWindowController
+        newWC.contentViewController = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController)
+        newWC.UsersToolbarItem()
+        createNewTab(window: newWC.window!)
+//        removeChildVC(asChildViewController: currentView)
     }
     
     func showLogistics(){
-        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "logisticsTab") as! LogisticsViewController))
-        let customToolbar = NSToolbar()
-        let toolbarDelegate = MainToolbar()
-        customToolbar.delegate = toolbarDelegate
-        newWindow.titleVisibility = .hidden
-        newWindow.styleMask.insert(.texturedBackground)
-        newWindow.styleMask.insert(.fullSizeContentView)
-        newWindow.titlebarAppearsTransparent = true
-        newWindow.contentView?.wantsLayer = true
-        newWindow.toolbar = customToolbar
-        newWindow.appearance = NSAppearance(named: .darkAqua)
-        createNewTab(window: newWindow)
+        let newWC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "masterWindowController") as! MasterWindowController
+        newWC.contentViewController = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "logisticsTab") as! LogisticsViewController)
+        createNewTab(window: newWC.window!)
     }
     
     func showMaintenance(){
-        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "maintenanceTab") as! MaintenanceViewController))
-        let customToolbar = NSToolbar()
-        let toolbarDelegate = MainToolbar()
-        customToolbar.delegate = toolbarDelegate
-        newWindow.titleVisibility = .hidden
-        newWindow.styleMask.insert(.texturedBackground)
-        newWindow.styleMask.insert(.fullSizeContentView)
-        newWindow.titlebarAppearsTransparent = true
-        newWindow.contentView?.wantsLayer = true
-        newWindow.toolbar = customToolbar
-        newWindow.appearance = NSAppearance(named: .darkAqua)
-        createNewTab(window: newWindow)
+        let newWC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "masterWindowController") as! MasterWindowController
+        newWC.contentViewController = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "maintenanceTab") as! MaintenanceViewController)
+        createNewTab(window: newWC.window!)
     }
     
     func showJobs(){
-        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "jobsTab") as! JobsViewController))
-        let customToolbar = NSToolbar()
-        let toolbarDelegate = MainToolbar()
-        customToolbar.delegate = toolbarDelegate
-        newWindow.titleVisibility = .hidden
-        newWindow.styleMask.insert(.texturedBackground)
-        newWindow.styleMask.insert(.fullSizeContentView)
-        newWindow.titlebarAppearsTransparent = true
-        newWindow.contentView?.wantsLayer = true
-        newWindow.toolbar = customToolbar
-        newWindow.appearance = NSAppearance(named: .darkAqua)
-        createNewTab(window: newWindow)
+        let newWC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "masterWindowController") as! MasterWindowController
+        newWC.contentViewController = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "jobsTab") as! JobsViewController)
+        createNewTab(window: newWC.window!)
     }
     
     func showAssets(){
-        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "assetsTab") as! AssetsViewController))
-        let customToolbar = NSToolbar()
-        let toolbarDelegate = MainToolbar()
-        customToolbar.delegate = toolbarDelegate
-        newWindow.titleVisibility = .hidden
-        newWindow.styleMask.insert(.texturedBackground)
-        newWindow.styleMask.insert(.fullSizeContentView)
-        newWindow.titlebarAppearsTransparent = true
-        newWindow.contentView?.wantsLayer = true
-        newWindow.toolbar = customToolbar
-        newWindow.appearance = NSAppearance(named: .darkAqua)
-        createNewTab(window: newWindow)
+        let newWC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "masterWindowController") as! MasterWindowController
+        newWC.contentViewController = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "assetsTab") as! AssetsViewController)
+        createNewTab(window: newWC.window!)
     }
     
     func showPeople(){
-        let newWindow = NSWindow(contentViewController: (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "peopleTab") as! PeopleViewController))
-        let customToolbar = NSToolbar()
-        let toolbarDelegate = MainToolbar()
-        customToolbar.delegate = toolbarDelegate
-        newWindow.titleVisibility = .hidden
-        newWindow.styleMask.insert(.texturedBackground)
-        newWindow.styleMask.insert(.fullSizeContentView)
-        newWindow.titlebarAppearsTransparent = true
-        newWindow.contentView?.wantsLayer = true
-        newWindow.toolbar = customToolbar
-        newWindow.appearance = NSAppearance(named: .darkAqua)
-        createNewTab(window: newWindow)
+        let newWC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "masterWindowController") as! MasterWindowController
+        newWC.contentViewController = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "peopleTab") as! PeopleViewController)
+        createNewTab(window: newWC.window!)
     }
 }

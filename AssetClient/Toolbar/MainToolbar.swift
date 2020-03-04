@@ -19,6 +19,8 @@ class MainToolbar: NSToolbar, NSToolbarDelegate {
         ["title": "Change Password", "icon": "password", "identifier": "PasswordResetToolbarItem"],
         ["title": "Log Out", "icon": "logout", "identifier": "LogoutToolbarItem"],
         ["title": "Settings", "icon": "settings", "identifier": "SettingsToolbarItem"],
+        ["title": "flex", "icon": "none", "identifier": "flexibleSpace"],
+        ["title": "Search", "icon": "search", "identifier": "SearchToolbarItem"],
     ]
     
     var toolbarTabsIdentifiers: [NSToolbarItem.Identifier] {
@@ -46,11 +48,20 @@ class MainToolbar: NSToolbar, NSToolbarDelegate {
         guard let infoDictionary: [String : String] = toolbarItems.filter({ $0["identifier"] == itemIdentifier.rawValue }).first
             else { return nil }
 
+        if infoDictionary["title"]=="flex"{
+            let toolbarItem: NSToolbarItem
+            toolbarItem = NSToolbarItem(itemIdentifier: .flexibleSpace)
+            return toolbarItem
+        }
         let toolbarItem: NSToolbarItem
         toolbarItem = NSToolbarItem(itemIdentifier: itemIdentifier)
         toolbarItem.label = infoDictionary["title"]!
         toolbarItem.paletteLabel = infoDictionary["title"]!
         toolbarItem.toolTip = infoDictionary["title"]!
+        if infoDictionary["title"]=="Search"{
+            toolbarItem.view = NSSearchField()
+            return toolbarItem
+        }
         let iconImage = resize(image: NSImage(named: infoDictionary["icon"] ?? "")!, w: 16, h: 16)
         let button = NSButton(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
         button.title = ""
@@ -60,9 +71,6 @@ class MainToolbar: NSToolbar, NSToolbarDelegate {
         return toolbarItem
     }
     
-    @objc func toolbarAction(_ sender: Any?){
-        print("Received!")
-    }
 
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
         return self.toolbarTabsIdentifiers;
@@ -77,10 +85,10 @@ class MainToolbar: NSToolbar, NSToolbarDelegate {
     }
 
     func toolbarWillAddItem(_ notification: Notification) {
-        print("toolbarWillAddItem", (notification.userInfo?["item"] as? NSToolbarItem)?.itemIdentifier ?? "")
+        //print("toolbarWillAddItem", (notification.userInfo?["item"] as? NSToolbarItem)?.itemIdentifier ?? "")
     }
 
     func toolbarDidRemoveItem(_ notification: Notification) {
-        print("toolbarDidRemoveItem", (notification.userInfo?["item"] as? NSToolbarItem)?.itemIdentifier ?? "")
+        //print("toolbarDidRemoveItem", (notification.userInfo?["item"] as? NSToolbarItem)?.itemIdentifier ?? "")
     }
 }

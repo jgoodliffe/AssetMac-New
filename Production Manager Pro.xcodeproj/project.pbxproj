@@ -19,7 +19,7 @@
 		7D11DF8B240B4D7A0030850A /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11DF8A240B4D7A0030850A /* AssetsViewController.swift */; };
 		7D11DF8E240B53290030850A /* WindowFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11DF8D240B53290030850A /* WindowFunctions.swift */; };
 		7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880023F8305E004DE4F3 /* DashboardViewController.swift */; };
-		7D29880323F83AB9004DE4F3 /* DashboardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */; };
+		7D29880323F83AB9004DE4F3 /* MasterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D29880223F83AB9004DE4F3 /* MasterWindowController.swift */; };
 		7D3813D823FB04EE00602954 /* MainToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3813D723FB04EE00602954 /* MainToolbar.swift */; };
 		7D38140223FB318200602954 /* inventory.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FA23FB318200602954 /* inventory.png */; };
 		7D38140323FB318200602954 /* dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FB23FB318200602954 /* dashboard.png */; };
@@ -41,6 +41,7 @@
 		7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F1E23F07BB8000AE10F /* AssetClient.xcdatamodeld */; };
 		7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */; };
 		7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */; };
+		7D97D344240FDCA30068DE22 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D97D343240FDCA30068DE22 /* MasterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,7 @@
 		7D11DF8A240B4D7A0030850A /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		7D11DF8D240B53290030850A /* WindowFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowFunctions.swift; sourceTree = "<group>"; };
 		7D29880023F8305E004DE4F3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWindowController.swift; sourceTree = "<group>"; };
+		7D29880223F83AB9004DE4F3 /* MasterWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterWindowController.swift; sourceTree = "<group>"; };
 		7D3813D723FB04EE00602954 /* MainToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainToolbar.swift; sourceTree = "<group>"; };
 		7D3813FA23FB318200602954 /* inventory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventory.png; sourceTree = "<group>"; };
 		7D3813FB23FB318200602954 /* dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard.png; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		7D909F1F23F07BB8000AE10F /* AssetClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AssetClient.xcdatamodel; sourceTree = "<group>"; };
 		7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7D97D343240FDCA30068DE22 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		B19978E295FE123B01171AFD /* Pods-AssetClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.debug.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,9 +234,10 @@
 				7D7A87D823E9E02800B9B4B0 /* Main.storyboard */,
 				7D7A87DB23E9E02800B9B4B0 /* Info.plist */,
 				7D7A87DC23E9E02800B9B4B0 /* AssetClient.entitlements */,
+				7D97D343240FDCA30068DE22 /* MasterViewController.swift */,
 				7D742B2623EA384100D0B53E /* Authentication.swift */,
 				7D29880023F8305E004DE4F3 /* DashboardViewController.swift */,
-				7D29880223F83AB9004DE4F3 /* DashboardWindowController.swift */,
+				7D29880223F83AB9004DE4F3 /* MasterWindowController.swift */,
 				7D09B55823FB7853002697B6 /* PasswordChangeViewController.swift */,
 			);
 			path = AssetClient;
@@ -469,7 +472,8 @@
 			files = (
 				7D09B55923FB7853002697B6 /* PasswordChangeViewController.swift in Sources */,
 				7D7A87D523E9E02600B9B4B0 /* LoginViewController.swift in Sources */,
-				7D29880323F83AB9004DE4F3 /* DashboardWindowController.swift in Sources */,
+				7D97D344240FDCA30068DE22 /* MasterViewController.swift in Sources */,
+				7D29880323F83AB9004DE4F3 /* MasterWindowController.swift in Sources */,
 				7D11DF8B240B4D7A0030850A /* AssetsViewController.swift in Sources */,
 				7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */,
 				7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */,
