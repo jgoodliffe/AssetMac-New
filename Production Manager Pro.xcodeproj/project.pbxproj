@@ -29,6 +29,9 @@
 		7D38140723FB318200602954 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FF23FB318200602954 /* settings.png */; };
 		7D38140823FB318200602954 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D38140023FB318200602954 /* back.png */; };
 		7D38140923FB318200602954 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D38140123FB318200602954 /* key.png */; };
+		7D5DB1A42410700C0029A684 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DB1A32410700C0029A684 /* CreateEventViewController.swift */; };
+		7D5DB1A624107B020029A684 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DB1A524107B020029A684 /* EditEventViewController.swift */; };
+		7D5DB1A924112F740029A684 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DB1A824112F740029A684 /* Events.swift */; };
 		7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */; };
 		7D742B2723EA384100D0B53E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D742B2623EA384100D0B53E /* Authentication.swift */; };
 		7D75AD9323FC12D4006F2FF2 /* CoreDataFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75AD9223FC12D4006F2FF2 /* CoreDataFuncs.swift */; };
@@ -85,6 +88,9 @@
 		7D3813FF23FB318200602954 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		7D38140023FB318200602954 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		7D38140123FB318200602954 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
+		7D5DB1A32410700C0029A684 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		7D5DB1A524107B020029A684 /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
+		7D5DB1A824112F740029A684 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		7D742B2423EA2E3600D0B53E /* JSONFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFunctions.swift; sourceTree = "<group>"; };
 		7D742B2623EA384100D0B53E /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		7D75AD9223FC12D4006F2FF2 /* CoreDataFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFuncs.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 				7D11DF86240B4D3C0030850A /* PeopleViewController.swift */,
 				7D11DF88240B4D5F0030850A /* JobsViewController.swift */,
 				7D11DF8A240B4D7A0030850A /* AssetsViewController.swift */,
+				7D5DB1A32410700C0029A684 /* CreateEventViewController.swift */,
+				7D5DB1A524107B020029A684 /* EditEventViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -195,6 +203,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		7D5DB1A724112F590029A684 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D5DB1A824112F740029A684 /* Events.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7D7A87C623E9E02600B9B4B0 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +236,7 @@
 		7D7A87D123E9E02600B9B4B0 /* AssetClient */ = {
 			isa = PBXGroup;
 			children = (
+				7D5DB1A724112F590029A684 /* Models */,
 				7D11DF8C240B530B0030850A /* Utilities */,
 				7D11DF7F240B4D050030850A /* ViewControllers */,
 				7D3813D923FB0C7F00602954 /* Images */,
@@ -474,6 +491,7 @@
 				7D7A87D523E9E02600B9B4B0 /* LoginViewController.swift in Sources */,
 				7D97D344240FDCA30068DE22 /* MasterViewController.swift in Sources */,
 				7D29880323F83AB9004DE4F3 /* MasterWindowController.swift in Sources */,
+				7D5DB1A924112F740029A684 /* Events.swift in Sources */,
 				7D11DF8B240B4D7A0030850A /* AssetsViewController.swift in Sources */,
 				7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */,
 				7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */,
@@ -485,12 +503,14 @@
 				7D11DF81240B4D240030850A /* LogisticsViewController.swift in Sources */,
 				7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */,
 				7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */,
+				7D5DB1A624107B020029A684 /* EditEventViewController.swift in Sources */,
 				7D11DF7E240B47080030850A /* ImageResizer.swift in Sources */,
 				7D3813D823FB04EE00602954 /* MainToolbar.swift in Sources */,
 				7D11DF8E240B53290030850A /* WindowFunctions.swift in Sources */,
 				7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */,
 				7D742B2723EA384100D0B53E /* Authentication.swift in Sources */,
 				7D11DF89240B4D5F0030850A /* JobsViewController.swift in Sources */,
+				7D5DB1A42410700C0029A684 /* CreateEventViewController.swift in Sources */,
 				7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
