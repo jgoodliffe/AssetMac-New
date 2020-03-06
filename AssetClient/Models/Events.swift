@@ -7,18 +7,24 @@
 //
 
 import Foundation
-struct Events{
+class Events{
     var id: Int
     var name: String
     var startDate: String
     var endDate: String
     var notes: String
+    var type: String
+    var projectManager: String
+    var projectManagerID: Int
     
-    init(id:Int, name: String, startDate: String, endDate: String, notes: String) {
+    init(id:Int, name: String, type: String, startDate: String, endDate: String, projectManager: String, notes: String, projectManagerID: Int) {
         self.id = id
         self.name = name
         self.startDate = startDate
         self.endDate = endDate
         self.notes = notes
+        self.projectManager = projectManager
+        self.type = type
+        self.projectManagerID = projectManagerID
     }
 }

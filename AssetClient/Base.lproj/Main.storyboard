@@ -1803,7 +1803,7 @@ Please correct your input and then attempt login again.</string>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="btnChangePasswordClicked:" target="IJj-Vj-noH" id="80M-PY-LNT"/>
+                                    <action selector="btnCreateEventClicked:" target="sXA-XG-3YX" id="vl3-6v-xNF"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EvE-sk-Dkb">
@@ -1814,10 +1814,10 @@ Please correct your input and then attempt login again.</string>
                                     <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
+                                    <connections>
+                                        <action selector="btnCancelClicked:" target="sXA-XG-3YX" id="e46-YI-HkP"/>
+                                    </connections>
                                 </buttonCell>
-                                <connections>
-                                    <action selector="btnDismissClicked:" target="IJj-Vj-noH" id="MQn-hb-pHE"/>
-                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="5GY-Q2-DLy">
                                 <rect key="frame" x="147" y="549" width="238" height="38"/>
@@ -2146,6 +2146,18 @@ Gw
                             <constraint firstItem="OmK-1s-mxT" firstAttribute="leading" secondItem="EvE-sk-Dkb" secondAttribute="trailing" constant="12" symbolic="YES" id="zUJ-PN-hEk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnCancel" destination="EvE-sk-Dkb" id="gRE-tg-hMP"/>
+                        <outlet property="btnCreateEvent" destination="OmK-1s-mxT" id="XaO-Ld-1cX"/>
+                        <outlet property="comboClient" destination="9f5-cG-Fwz" id="jAG-R1-0K2"/>
+                        <outlet property="comboProjectManager" destination="HkY-gm-tg2" id="82Q-Ld-tDM"/>
+                        <outlet property="lblInfo" destination="L4w-7S-NbY" id="z4a-zU-PAC"/>
+                        <outlet property="progressIndicator" destination="GxI-HD-Xid" id="d7j-G3-aEt"/>
+                        <outlet property="txtEventName" destination="0wW-Qo-b5j" id="LhN-jn-LXx"/>
+                        <outlet property="txtFinishTime" destination="Zg3-M0-cJJ" id="9cd-aE-dms"/>
+                        <outlet property="txtNotes" destination="rCe-tH-ChP" id="8Xs-Ah-dIv"/>
+                        <outlet property="txtStartTime" destination="IOW-g6-42C" id="uxg-XS-TYs"/>
+                    </connections>
                 </viewController>
                 <customObject id="wwH-2Z-mMN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -30,10 +30,12 @@ class JobsViewController: NSViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.animateIn(_:)), name: .showDashboard, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.animateOut(_:)), name: .hideDashboard, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshViewNotif(_:)), name: .refreshJobs, object: nil)
         jobsTable.dataSource = self
         jobsTable.delegate = self
         retrieveTokenAndHost()
-        viewDidAppear()
+        //viewDidAppear()
+        hideAll()
         loadInitialWindowContents()
         
     }
@@ -80,10 +82,31 @@ class JobsViewController: NSViewController {
         performSegue(withIdentifier: "transitionToEditEvent", sender: nil)
     }
     @IBAction func deleteClicked(_ sender: Any) {
+        let alert = NSAlert()
+        alert.messageText = "Delete Event"
+        alert.informativeText = "Are you sure you want to delete the selected event? This action is irreversible."
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: "Cancel")
+        alert.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse: NSApplication.ModalResponse) -> Void in
+            if(modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn){
+                self.removeEvent(id: self.selectedID)
+            }
+        })
     }
     @IBAction func assetsClicked(_ sender: Any) {
     }
     @IBAction func smartMatchClicked(_ sender: Any) {
+    }
+    
+    @objc func refreshViewNotif(_ notification: Notification)-> Void{
+        //Start Progress Indicator
+        mainIndicator.setDefaultStyle(.light)
+        mainIndicator.setContainerView(leftView)
+        mainIndicator.setDefaultMaskType(.clear )
+        mainIndicator.setFont(NSFont.init(name: "SF Pro Display Light", size: 35.0) ?? NSFont.systemFont(ofSize: 35.0))
+        mainIndicator.show(withStatus: "Loading Jobs")
+        refreshView()
     }
     
     //Initial Loading
@@ -97,6 +120,7 @@ class JobsViewController: NSViewController {
     }
     
     @IBAction func switchToggle(_ sender: Any) {
+        disableButtons()
         jobsTable.alphaValue = 0
         if switchShowAll.state == NSControl.StateValue.on{
             //Show All
@@ -114,11 +138,11 @@ class JobsViewController: NSViewController {
                 //Animation Duration
                 context.duration = 1.5
                 //What is being animated:
-                self.lblTitle.animator().alphaValue = 0
-                self.jobsTable.animator().alphaValue = 0
-                self.jobsTableContainer.animator().alphaValue = 0
-                self.toggleActions.animator().alphaValue = 0
-                self.quickActions.animator().alphaValue = 0
+                self.lblTitle.animator().alphaValue = 0.2
+                self.jobsTable.animator().alphaValue = 0.2
+                self.jobsTableContainer.animator().alphaValue = 0.2
+                self.toggleActions.animator().alphaValue = 0.2
+                self.quickActions.animator().alphaValue = 0.2
             }, completionHandler: {
                 //Animation complete ¯\_(ツ)_/¯
             })
@@ -167,7 +191,7 @@ class JobsViewController: NSViewController {
     }
     
     @objc func animateIn(_ notification: Notification)-> Void{
-        hideAll()
+        //hideAll()
         DispatchQueue.main.async {
             NSAnimationContext.runAnimationGroup({ (context) in
                 //Animation Duration
@@ -190,11 +214,11 @@ class JobsViewController: NSViewController {
                 //Animation Duration
                 context.duration = 1.5
                 //What is being animated:
-                self.lblTitle.animator().alphaValue = 0
-                 self.jobsTable.animator().alphaValue = 0
-                 self.jobsTableContainer.animator().alphaValue = 0
-                 self.toggleActions.animator().alphaValue = 0
-                 self.quickActions.animator().alphaValue = 0
+                self.lblTitle.animator().alphaValue = 0.2
+                self.jobsTable.animator().alphaValue = 0.2
+                self.jobsTableContainer.animator().alphaValue = 0.2
+                self.toggleActions.animator().alphaValue = 0.2
+                self.quickActions.animator().alphaValue = 0.2
             }, completionHandler: {
                 //Animation complete ¯\_(ツ)_/¯
             })
@@ -266,7 +290,6 @@ class JobsViewController: NSViewController {
             }
         }, failure: {(error)-> Void in
             DispatchQueue.main.async {
-                //self.mainIndicator.dismiss()
                 self.mainIndicator.setFont(NSFont.init(name: "SF Pro Display", size: 18.0) ?? NSFont.systemFont(ofSize: 18.0))
                 self.mainIndicator.showErrorWithStatus("There was a problem loading the data.")
             }
@@ -363,14 +386,62 @@ class JobsViewController: NSViewController {
         events.removeAll()
         for event in eventArray{
             guard let id = event["id"].int else { return }
+            guard let type = event["type"].string else{ return }
             guard let name = event["name"].string else { return }
             guard let startDate = event["startdate"].string else{ return }
             guard let endDate = event["enddate"].string else{ return }
+            guard let projectManager = event["projectmanager"].int else{ return }
+            guard let projectManagerID = event["projectmanager"].int else{ return }
             guard let notes = event["notes"].string else{ return }
-            let newEvent = Events(id: id, name: name, startDate: startDate, endDate: endDate, notes: notes)
+            let newEvent = Events(id: id, name: name, type: type, startDate: startDate, endDate: endDate, projectManager: String(projectManager), notes: notes, projectManagerID: projectManagerID)
             events.append(newEvent)
         }
         self.jobsTable.reloadData()
+        
+        for singleEvent in events{
+//            getProjectManager(id: singleEvent.projectManagerID, success: { (response)->Void in
+//                let projectManagerName = response
+//                singleEvent.projectManager = projectManagerName
+//                self.jobsTable.reloadData()
+//            }, failure: {(error)-> Void in
+//
+//            })
+        }
+    }
+    
+    func getProjectManager(id:Int, success: @escaping (_ response: String)-> Void, failure: @escaping (_ _error: String)-> Void){
+        let name=""
+        let downloadOperation = BlockOperation{
+            //When All operations complete, call success case.
+        }
+        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForResource = 5
+        self.manager = Alamofire.Session(configuration:configuration)
+        let headers:HTTPHeaders = [
+            "token": requestToken]
+        let requestURL = host + ":" + port + "/person/" + String(id)
+        downloadOperation.addExecutionBlock {
+            self.manager.request(requestURL, method: .get,headers: headers).responseJSON { response in
+            switch response.result {
+            case .failure( _):
+                failure("Failed")
+                return
+            case .success(let value):
+                let jsonData = JSON(value)
+                if jsonData["response-code"]==200 {
+                    let firstname = jsonData["firstname"].string
+                    let surname = jsonData["lastname"].string
+                    let name = (firstname ?? "") + " " + (surname ?? "")
+                    success(name)
+                } else{
+                    debugPrint("Server Error: Failed to Fetch Person Details")
+                    failure("Server Error: Failed to Fetch person Details")
+                    return
+                    }
+                }
+            }
+        }
+        apiQueue.addOperation(downloadOperation)
     }
     
     func refreshView(){
@@ -388,6 +459,39 @@ class JobsViewController: NSViewController {
                 self.mainIndicator.showErrorWithStatus("There was a problem loading the data.")
             }
         })
+    }
+    
+    func removeEvent(id:Int){
+        let downloadOperation = BlockOperation{
+            //When All operations complete, call success case.
+        }
+        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForResource = 5
+        self.manager = Alamofire.Session(configuration:configuration)
+        let headers:HTTPHeaders = [
+            "token": requestToken]
+        let parameters:Parameters = [
+            "request-type":"delete",
+            "eventID":id
+        ]
+        let requestURL = host + ":" + port + "/events/"
+        downloadOperation.addExecutionBlock {
+            self.manager.request(requestURL, method: .post, parameters: parameters,headers: headers).responseJSON { response in
+            switch response.result {
+            case .failure( _):
+                return
+            case .success(let value):
+                let jsonData = JSON(value)
+                if jsonData["response-code"]==200 {
+                    self.loadInitialWindowContents()
+                } else{
+                    debugPrint("Server Error: Failed to delete the event.")
+                    return
+                    }
+                }
+            }
+        }
+        apiQueue.addOperation(downloadOperation)
     }
 }
 
@@ -409,10 +513,14 @@ extension JobsViewController: NSTableViewDelegate{
         switch tableColumn?.identifier.rawValue{
         case "eventName":
             cell.textField?.stringValue = event.name
+        case "eventType":
+            cell.textField?.stringValue = event.type
         case "startDate":
             cell.textField?.stringValue = formatDate(date: event.startDate)
         case "endDate":
             cell.textField?.stringValue = formatDate(date: event.endDate)
+        case "projectManager":
+            cell.textField?.stringValue = event.projectManager
         case "id":
             cell.textField?.stringValue = String(event.id)
         default:
