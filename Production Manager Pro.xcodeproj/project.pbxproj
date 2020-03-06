@@ -45,6 +45,7 @@
 		7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */; };
 		7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */; };
 		7D97D344240FDCA30068DE22 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D97D343240FDCA30068DE22 /* MasterViewController.swift */; };
+		7DDD0BEC24127290003A2482 /* AddAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD0BEB24127290003A2482 /* AddAssetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7D97D343240FDCA30068DE22 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		7DDD0BEB24127290003A2482 /* AddAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetViewController.swift; sourceTree = "<group>"; };
 		B19978E295FE123B01171AFD /* Pods-AssetClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.debug.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				7D11DF8A240B4D7A0030850A /* AssetsViewController.swift */,
 				7D5DB1A32410700C0029A684 /* CreateEventViewController.swift */,
 				7D5DB1A524107B020029A684 /* EditEventViewController.swift */,
+				7DDD0BEB24127290003A2482 /* AddAssetViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				7D75AD9323FC12D4006F2FF2 /* CoreDataFuncs.swift in Sources */,
 				7D11DF84240B4D300030850A /* MaintenanceViewController.swift in Sources */,
 				7D09310523F9CAE90016390E /* ProgressHUD.swift in Sources */,
+				7DDD0BEC24127290003A2482 /* AddAssetViewController.swift in Sources */,
 				7D11DF81240B4D240030850A /* LogisticsViewController.swift in Sources */,
 				7D909F3523F085A7000AE10F /* AuthStore+CoreDataClass.swift in Sources */,
 				7D909F2023F07BB8000AE10F /* AssetClient.xcdatamodeld in Sources */,

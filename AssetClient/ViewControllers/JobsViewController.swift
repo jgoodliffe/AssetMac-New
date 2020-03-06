@@ -95,6 +95,7 @@ class JobsViewController: NSViewController {
         })
     }
     @IBAction func assetsClicked(_ sender: Any) {
+        performSegue(withIdentifier: "addAsset", sender: nil)
     }
     @IBAction func smartMatchClicked(_ sender: Any) {
     }

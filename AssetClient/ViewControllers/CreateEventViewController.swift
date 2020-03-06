@@ -17,6 +17,7 @@ extension Notification.Name {
 
 class CreateEventViewController: NSViewController {
 
+    @IBOutlet weak var comboEventType: NSComboBox!
     @IBOutlet weak var btnCreateEvent: NSButton!
     @IBOutlet weak var btnCancel: NSButton!
     @IBOutlet weak var txtEventName: NSTextField!
@@ -55,6 +56,7 @@ class CreateEventViewController: NSViewController {
         retrieveTokenAndHost()
         populateProjectManagers()
         populateClients()
+        populateEventTypes()
     }
     
     /**
@@ -106,6 +108,47 @@ class CreateEventViewController: NSViewController {
         txtStartTime.minDate = today()
         txtFinishTime.minDate = today()
         progressIndicator.isHidden = true
+        self.comboEventType.completes = true
+        self.comboEventType.removeAllItems()
+        self.comboClient.completes = true
+        self.comboClient.removeAllItems()
+        self.comboProjectManager.completes = true
+        self.comboProjectManager.removeAllItems()
+    }
+    
+    func populateEventTypes(){
+        let downloadOperation = BlockOperation{
+            //When All operations complete, call success case.
+        }
+        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForResource = 5
+        self.manager = Alamofire.Session(configuration:configuration)
+        let headers:HTTPHeaders = [
+            "token": requestToken]
+
+        let requestURL = host + ":" + port + "/utilities/eventTypes"
+        downloadOperation.addExecutionBlock {
+            self.manager.request(requestURL, method: .post,headers: headers).responseJSON { response in
+            switch response.result {
+            case .failure( _):
+                return
+            case .success(let value):
+                let jsonData = JSON(value)
+                if jsonData["response-code"]==200 {
+                    let eventTypes:[String] = jsonData["event-types"].arrayValue.map { $0.stringValue}
+                    DispatchQueue.main.async {
+                        self.comboEventType.addItems(withObjectValues: eventTypes ?? [])
+                        self.comboEventType.selectItem(at: 1)
+                    }
+                } else{
+                    debugPrint("Server Error: Failed to get Event Type Data")
+                    self.dismiss(self)
+                    return
+                    }
+                }
+            }
+        }
+        apiQueue.addOperation(downloadOperation)
     }
     
     func populateProjectManagers(){
@@ -147,6 +190,7 @@ class CreateEventViewController: NSViewController {
         let eventName = txtEventName.stringValue
         let startTime = txtStartTime.dateValue
         let finishTime = txtFinishTime.dateValue
+        let eventType = comboEventType.stringValue
         let notes = txtNotes.string
         let projectManager = String(userID)
         
@@ -161,6 +205,7 @@ class CreateEventViewController: NSViewController {
         let parameters:Parameters = [
             "request-type":"create",
             "eventName":eventName,
+            "eventType":eventType,
             "startTime":formatDate(date: startTime),
             "finishTime":formatDate(date: finishTime),
             "notes":notes,
