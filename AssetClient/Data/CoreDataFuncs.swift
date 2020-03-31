@@ -14,6 +14,8 @@ import AppKit
 let appDelegate = NSApp.delegate as? AppDelegate
 private let context = (NSApp.delegate as! AppDelegate).persistentContainer.viewContext
 private var tokenStore:[NSManagedObject] = []
+private var hostnameStore:[NSManagedObject] = []
+
 
 //Alamofire Information
 let port: String = "8080"
@@ -35,6 +37,28 @@ class CoreDataFuncs{
                     let host = token.host ?? "http://localhost" //1
                     let userID = token.userID ?? "0" //2
                     return [requestToken, host, userID]
+                }
+            }
+        } catch{
+            debugPrint("Failed to pull CoreData")
+            return []
+        }
+        return []
+    }
+    
+    
+    //TODO: Get a string list of hostnames from the CoreData object...
+    func retrievePastHostnames() -> [String]{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HostStore")
+        //request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        //request.fetchLimit = 1
+        do{
+            hostnameStore = try context.fetch(request) as! [NSManagedObject]
+            if let hostnames = hostnameStore as? [HostStore] {
+                //Get first array item
+                if let token = tokens.first {
+
+                    return [hostnames]
                 }
             }
         } catch{

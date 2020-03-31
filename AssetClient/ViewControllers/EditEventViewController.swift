@@ -15,4 +15,7 @@ class EditEventViewController: NSViewController {
         // Do view setup here.
     }
     
+    @IBAction func cancelClicked(_ sender: Any) {
+        self.dismiss(self)
+    }
 }

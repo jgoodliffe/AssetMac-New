@@ -73,7 +73,7 @@ class JobsViewController: NSViewController {
     private let context = (NSApp.delegate as! AppDelegate).persistentContainer.viewContext
     private var tokenStore:[NSManagedObject] = []
     private var requestToken = ""
-
+	
     //Button Handling
     @IBAction func newClicked(_ sender: Any) {
         performSegue(withIdentifier: "transitionToNewEvent", sender: nil)

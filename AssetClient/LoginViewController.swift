@@ -16,7 +16,7 @@ class LoginViewController: NSViewController {
     ///Always make sure IBOutlet Connections are valid!
     @IBOutlet weak var passwordField: NSSecureTextField!
     @IBOutlet weak var username: NSTextField!
-    @IBOutlet weak var host: NSTextField!
+    @IBOutlet weak var host: NSComboBox!
     @IBOutlet weak var labelError: NSTextField!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var btnLogin: NSButton!
