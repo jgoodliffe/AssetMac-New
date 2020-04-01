@@ -8,8 +8,9 @@
 
 import Foundation
 
-extension Collection {
-    internal subscript (safe index: Self.Index) -> Self.Iterator.Element? {
+internal extension Collection {
+
+    subscript (safe index: Self.Index) -> Self.Iterator.Element? {
         return index < endIndex ? self[index] : nil
     }
 }

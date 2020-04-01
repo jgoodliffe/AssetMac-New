@@ -69,7 +69,7 @@ class TabButtonCell: NSButtonCell {
     // MARK: - Properties & Rects
 
     static func popupImage() -> NSImage {
-        let path = Bundle(for: self).pathForImageResource("KPCPullDownTemplate")!
+        let path = Bundle(for: self).pathForImageResource(NSImage.Name(rawValue: "KPCPullDownTemplate"))!
         return NSImage(contentsOfFile: path)!.imageWithTint(NSColor.darkGray)
     }
 
@@ -156,7 +156,7 @@ class TabButtonCell: NSButtonCell {
 
         // Replace content so that resizing is triggered
         fieldEditor.string = ""
-        fieldEditor.insertText(self.title ?? "")
+        fieldEditor.insertText(self.title)
         fieldEditor.selectAll(self)
 
         self.title = ""

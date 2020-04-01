@@ -10,12 +10,12 @@ import Cocoa
 
 public enum TitleDefaults {
     static let alignment = NSTextAlignment.center
-    static let lineBreakMode = NSLineBreakMode.byTruncatingMiddle
+    static let lineBreakMode = NSParagraphStyle.LineBreakMode.byTruncatingMiddle
 }
 
 /// Default implementation of Themed Style
 
-extension ThemedStyle {
+public extension ThemedStyle {
     
     // MARK: - Tab Buttons
     
@@ -75,9 +75,9 @@ extension ThemedStyle {
         paragraphStyle.alignment = TitleDefaults.alignment
         paragraphStyle.lineBreakMode = TitleDefaults.lineBreakMode
         
-        let attributes = [NSAttributedString.Key.foregroundColor : activeTheme.titleColor,
-                          NSAttributedString.Key.font : activeTheme.titleFont,
-                          NSAttributedString.Key.paragraphStyle : paragraphStyle]
+        let attributes = [NSAttributedStringKey.foregroundColor : activeTheme.titleColor,
+                          NSAttributedStringKey.font : activeTheme.titleFont,
+                          NSAttributedStringKey.paragraphStyle : paragraphStyle]
         
         return NSAttributedString(string: content, attributes: attributes)
     }

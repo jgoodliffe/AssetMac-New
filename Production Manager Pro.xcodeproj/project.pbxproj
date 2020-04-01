@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A7C64D0442EDA34D6E60988 /* Pods_AssetClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */; };
-		7D030AC42432C646002D8994 /* HostNameStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D030AC22432C646002D8994 /* HostNameStore.xcdatamodeld */; };
+		3ABB0CF451235F6374C39937 /* Pods_Production_Manager_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58587CADB551A436A054EC9E /* Pods_Production_Manager_Pro.framework */; };
 		7D030ACA2432C72B002D8994 /* HostStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D030AC82432C72B002D8994 /* HostStore+CoreDataClass.swift */; };
 		7D030ACB2432C72B002D8994 /* HostStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D030AC92432C72B002D8994 /* HostStore+CoreDataProperties.swift */; };
 		7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */; };
@@ -69,8 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssetClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		62F6ECFF9EC54A73B009E69B /* Pods-AssetClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.release.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.release.xcconfig"; sourceTree = "<group>"; };
+		4853A93911A757EC269CDE6A /* Pods-Production Manager Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Production Manager Pro.release.xcconfig"; path = "Target Support Files/Pods-Production Manager Pro/Pods-Production Manager Pro.release.xcconfig"; sourceTree = "<group>"; };
+		58587CADB551A436A054EC9E /* Pods_Production_Manager_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Production_Manager_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D030AC32432C646002D8994 /* HostNameStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HostNameStore.xcdatamodel; sourceTree = "<group>"; };
 		7D030AC82432C72B002D8994 /* HostStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HostStore+CoreDataClass.swift"; path = "AssetClient/HostStore+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7D030AC92432C72B002D8994 /* HostStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HostStore+CoreDataProperties.swift"; path = "AssetClient/HostStore+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -119,7 +118,7 @@
 		7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7D97D343240FDCA30068DE22 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		7DDD0BEB24127290003A2482 /* AddAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetViewController.swift; sourceTree = "<group>"; };
-		B19978E295FE123B01171AFD /* Pods-AssetClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetClient.debug.xcconfig"; path = "Target Support Files/Pods-AssetClient/Pods-AssetClient.debug.xcconfig"; sourceTree = "<group>"; };
+		8B4F815E62FF2B14C351BD66 /* Pods-Production Manager Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Production Manager Pro.debug.xcconfig"; path = "Target Support Files/Pods-Production Manager Pro/Pods-Production Manager Pro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7C64D0442EDA34D6E60988 /* Pods_AssetClient.framework in Frameworks */,
+				3ABB0CF451235F6374C39937 /* Pods_Production_Manager_Pro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,14 +147,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A534FE71519806CB5FF5338 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4EF9AED71A7769BCE8090F79 /* Pods_AssetClient.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7D09310123F9CAE90016390E /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +219,7 @@
 				7D7A87EF23E9E02800B9B4B0 /* AssetClientUITests */,
 				7D7A87D023E9E02600B9B4B0 /* Products */,
 				FEC16D337F291E2F5A79C893 /* Pods */,
-				4A534FE71519806CB5FF5338 /* Frameworks */,
+				DE5CCD58AD95B97A3DE15F1E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -308,11 +299,19 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		DE5CCD58AD95B97A3DE15F1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58587CADB551A436A054EC9E /* Pods_Production_Manager_Pro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FEC16D337F291E2F5A79C893 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B19978E295FE123B01171AFD /* Pods-AssetClient.debug.xcconfig */,
-				62F6ECFF9EC54A73B009E69B /* Pods-AssetClient.release.xcconfig */,
+				8B4F815E62FF2B14C351BD66 /* Pods-Production Manager Pro.debug.xcconfig */,
+				4853A93911A757EC269CDE6A /* Pods-Production Manager Pro.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -324,11 +323,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D7A87F523E9E02800B9B4B0 /* Build configuration list for PBXNativeTarget "Production Manager Pro" */;
 			buildPhases = (
-				D2D2B99789EC8F1646E56EE6 /* [CP] Check Pods Manifest.lock */,
+				7D622B3C3AEED532B9B78474 /* [CP] Check Pods Manifest.lock */,
 				7D7A87CB23E9E02600B9B4B0 /* Sources */,
 				7D7A87CC23E9E02600B9B4B0 /* Frameworks */,
 				7D7A87CD23E9E02600B9B4B0 /* Resources */,
-				3E4EE22E8A1DB5AB40D67573 /* [CP] Embed Pods Frameworks */,
+				9B4A6BADF16878FCEE7109B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -453,24 +452,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3E4EE22E8A1DB5AB40D67573 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AssetClient/Pods-AssetClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AssetClient/Pods-AssetClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AssetClient/Pods-AssetClient-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2D2B99789EC8F1646E56EE6 /* [CP] Check Pods Manifest.lock */ = {
+		7D622B3C3AEED532B9B78474 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -485,11 +467,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AssetClient-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Production Manager Pro-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B4A6BADF16878FCEE7109B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Production Manager Pro/Pods-Production Manager Pro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Production Manager Pro/Pods-Production Manager Pro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Production Manager Pro/Pods-Production Manager Pro-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -510,7 +509,6 @@
 				7D11DF87240B4D3C0030850A /* PeopleViewController.swift in Sources */,
 				7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */,
 				7D75AD9323FC12D4006F2FF2 /* CoreDataFuncs.swift in Sources */,
-				7D030AC42432C646002D8994 /* HostNameStore.xcdatamodeld in Sources */,
 				7D11DF84240B4D300030850A /* MaintenanceViewController.swift in Sources */,
 				7D09310523F9CAE90016390E /* ProgressHUD.swift in Sources */,
 				7DDD0BEC24127290003A2482 /* AddAssetViewController.swift in Sources */,
@@ -689,7 +687,7 @@
 		};
 		7D7A87F623E9E02800B9B4B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B19978E295FE123B01171AFD /* Pods-AssetClient.debug.xcconfig */;
+			baseConfigurationReference = 8B4F815E62FF2B14C351BD66 /* Pods-Production Manager Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AssetClient/AssetClient.entitlements;
@@ -712,7 +710,7 @@
 		};
 		7D7A87F723E9E02800B9B4B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62F6ECFF9EC54A73B009E69B /* Pods-AssetClient.release.xcconfig */;
+			baseConfigurationReference = 4853A93911A757EC269CDE6A /* Pods-Production Manager Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AssetClient/AssetClient.entitlements;

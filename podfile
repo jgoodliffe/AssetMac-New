@@ -1,7 +1,7 @@
 platform :macos, '10.15'
 use_frameworks!
 
-target 'AssetClient' do
+target 'Production Manager Pro' do
 	pod 'SwiftyJSON', '~> 4.0'
 	pod 'Alamofire', '~> 5.0.0-rc.3'
 	pod 'KPCTabsControl'

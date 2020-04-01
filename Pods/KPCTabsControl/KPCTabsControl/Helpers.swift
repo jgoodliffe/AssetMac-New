@@ -10,17 +10,14 @@ import Foundation
 
 /// Offset is a simple NSPoint typealias to increase readability.
 public typealias Offset = NSPoint
-
-extension Offset {
+public extension Offset {
     
     public init(x: CGFloat) {
-        self.init()
         self.x = x
         self.y = 0
     }
     
     public init(y: CGFloat) {
-        self.init()
         self.x = 0
         self.y = y
     }
@@ -41,11 +38,11 @@ public func +(lhs: NSPoint, rhs: Offset) -> NSPoint {
 /**
  A convenience extension to easily shrink a NSRect
  */
-extension NSRect {
+public extension NSRect {
     
     /// Change width and height by `-dx` and `-dy`.
     
-    public func shrinkBy(dx: CGFloat, dy: CGFloat) -> NSRect {
+    func shrinkBy(dx: CGFloat, dy: CGFloat) -> NSRect {
         var result = self
         result.size = CGSize(width: result.size.width - dx, height: result.size.height - dy)
         return result

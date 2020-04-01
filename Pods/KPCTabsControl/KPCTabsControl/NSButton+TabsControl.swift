@@ -8,7 +8,7 @@
 
 import AppKit
 
-extension NSButton {
+internal extension NSButton {
     static internal func auxiliaryButton(withImageNamed imageName: String, target: AnyObject?, action: Selector?) -> NSButton {
         
         let cell = TabButtonCell(textCell: "")
@@ -23,7 +23,7 @@ extension NSButton {
         button.isEnabled = (target != nil && action != nil)
         button.isContinuous = true
         button.imagePosition = .imageOnly
-        button.image = NSImage(named: imageName)
+        button.image = NSImage(named: NSImage.Name(rawValue: imageName))
 
         if let img = button.image {
             var r: CGRect = CGRect.zero

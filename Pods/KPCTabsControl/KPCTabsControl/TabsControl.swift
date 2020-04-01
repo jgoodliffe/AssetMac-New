@@ -143,7 +143,7 @@ open class TabsControl: NSControl, NSTextDelegate {
             self.tabButtons.filter({ $0.index >= newItemsCount }).forEach({ $0.removeFromSuperview() })
         }
         
-        let tabButtons = self.tabButtons
+        var tabButtons = self.tabButtons
         for i in 0..<newItemsCount {
             let item = dataSource.tabsControl(self, itemAtIndex: i)
             
@@ -358,7 +358,7 @@ open class TabsControl: NSControl, NSTextDelegate {
             let movingLeft = (nextPoint.x < prevPoint.x)
             prevPoint = nextPoint
             
-            let primaryIndex = orderedTabs.firstIndex(of: tab)!
+            let primaryIndex = orderedTabs.index(of: tab)!
             var secondaryIndex : Int?
             
             if movingLeft == true && NSMidX(draggingTab.frame) < NSMinX(tab.frame) && tab !== orderedTabs.first! {
@@ -412,7 +412,7 @@ open class TabsControl: NSControl, NSTextDelegate {
 
             let mask: NSEvent.EventTypeMask = NSEvent.EventTypeMask.leftMouseUp.union(NSEvent.EventTypeMask.leftMouseDragged)
 
-            guard let event = self.window?.nextEvent(matching: NSEvent.EventTypeMask(rawValue: UInt64(Int(mask.rawValue))), until: Date.distantFuture, inMode: RunLoop.Mode.eventTracking, dequeue: false)
+            guard let event = self.window?.nextEvent(matching: NSEvent.EventTypeMask(rawValue: UInt64(Int(mask.rawValue))), until: Date.distantFuture, inMode: RunLoopMode.eventTrackingRunLoopMode, dequeue: false)
                 , event.type == NSEvent.EventType.leftMouseDragged
                 else { return }
 
@@ -573,6 +573,6 @@ open class TabsControl: NSControl, NSTextDelegate {
     
     fileprivate var tabButtons: [TabButton] {
         guard let tabsView = self.tabsView else { return [] }
-        return tabsView.subviews.compactMap({ $0 as? TabButton }).sorted(by: { $0.index < $1.index })
+        return tabsView.subviews.flatMap({ $0 as? TabButton }).sorted(by: { $0.index < $1.index })
     }
 }
