@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D030ACA2432C72B002D8994 /* HostStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D030AC82432C72B002D8994 /* HostStore+CoreDataClass.swift */; };
-		7D030ACB2432C72B002D8994 /* HostStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D030AC92432C72B002D8994 /* HostStore+CoreDataProperties.swift */; };
 		7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */; };
 		7D09310523F9CAE90016390E /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09310323F9CAE90016390E /* ProgressHUD.swift */; };
 		7D09B55923FB7853002697B6 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09B55823FB7853002697B6 /* PasswordChangeViewController.swift */; };
@@ -47,6 +45,9 @@
 		7D97D344240FDCA30068DE22 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D97D343240FDCA30068DE22 /* MasterViewController.swift */; };
 		7DACA3DB24341DE900C73868 /* AuthStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D909F1E23F07BB8000AE10F /* AuthStore.xcdatamodeld */; };
 		7DDD0BEC24127290003A2482 /* AddAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD0BEB24127290003A2482 /* AddAssetViewController.swift */; };
+		7DE4AE0824342045009982AF /* HostStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4AE0624342045009982AF /* HostStore+CoreDataClass.swift */; };
+		7DE4AE0924342045009982AF /* HostStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4AE0724342045009982AF /* HostStore+CoreDataProperties.swift */; };
+		7DE4AE0A24342133009982AF /* HostStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4ADFF24341F7B009982AF /* HostStore.xcdatamodeld */; };
 		F920C97B20E0CFC5BA1D2CED /* Pods_Production_Manager_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493B68DE96B643835525F086 /* Pods_Production_Manager_Pro.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +71,6 @@
 /* Begin PBXFileReference section */
 		493B68DE96B643835525F086 /* Pods_Production_Manager_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Production_Manager_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E17451FC1ABF4F42BE73C2 /* Pods-Production Manager Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Production Manager Pro.debug.xcconfig"; path = "Target Support Files/Pods-Production Manager Pro/Pods-Production Manager Pro.debug.xcconfig"; sourceTree = "<group>"; };
-		7D030AC82432C72B002D8994 /* HostStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HostStore+CoreDataClass.swift"; path = "AssetClient/HostStore+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7D030AC92432C72B002D8994 /* HostStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HostStore+CoreDataProperties.swift"; path = "AssetClient/HostStore+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7D09310223F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRKSpinningProgressIndicatorLayer.swift; sourceTree = "<group>"; };
 		7D09310323F9CAE90016390E /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		7D09B55823FB7853002697B6 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +116,9 @@
 		7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7D97D343240FDCA30068DE22 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		7DDD0BEB24127290003A2482 /* AddAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetViewController.swift; sourceTree = "<group>"; };
+		7DE4AE0024341F7B009982AF /* HostStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HostStore.xcdatamodel; sourceTree = "<group>"; };
+		7DE4AE0624342045009982AF /* HostStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HostStore+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7DE4AE0724342045009982AF /* HostStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HostStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A14D7932CD202B2E2D4A9354 /* Pods-Production Manager Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Production Manager Pro.release.xcconfig"; path = "Target Support Files/Pods-Production Manager Pro/Pods-Production Manager Pro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				7D909F1E23F07BB8000AE10F /* AuthStore.xcdatamodeld */,
+				7DE4ADFF24341F7B009982AF /* HostStore.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -296,8 +299,8 @@
 		7D909F2223F07C45000AE10F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				7D030AC82432C72B002D8994 /* HostStore+CoreDataClass.swift */,
-				7D030AC92432C72B002D8994 /* HostStore+CoreDataProperties.swift */,
+				7DE4AE0624342045009982AF /* HostStore+CoreDataClass.swift */,
+				7DE4AE0724342045009982AF /* HostStore+CoreDataProperties.swift */,
 				7D909F3323F085A7000AE10F /* AuthStore+CoreDataClass.swift */,
 				7D909F3423F085A7000AE10F /* AuthStore+CoreDataProperties.swift */,
 				7D75AD9223FC12D4006F2FF2 /* CoreDataFuncs.swift */,
@@ -396,7 +399,7 @@
 				};
 			};
 			buildConfigurationList = 7D7A87CA23E9E02600B9B4B0 /* Build configuration list for PBXProject "Production Manager Pro" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -504,6 +507,7 @@
 				7D11DF8B240B4D7A0030850A /* AssetsViewController.swift in Sources */,
 				7D742B2523EA2E3600D0B53E /* JSONFunctions.swift in Sources */,
 				7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */,
+				7DE4AE0A24342133009982AF /* HostStore.xcdatamodeld in Sources */,
 				7D11DF87240B4D3C0030850A /* PeopleViewController.swift in Sources */,
 				7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */,
 				7D75AD9323FC12D4006F2FF2 /* CoreDataFuncs.swift in Sources */,
@@ -520,10 +524,10 @@
 				7D09310423F9CAE90016390E /* YRKSpinningProgressIndicatorLayer.swift in Sources */,
 				7D742B2723EA384100D0B53E /* Authentication.swift in Sources */,
 				7D11DF89240B4D5F0030850A /* JobsViewController.swift in Sources */,
-				7D030ACB2432C72B002D8994 /* HostStore+CoreDataProperties.swift in Sources */,
+				7DE4AE0924342045009982AF /* HostStore+CoreDataProperties.swift in Sources */,
 				7D5DB1A42410700C0029A684 /* CreateEventViewController.swift in Sources */,
 				7D29880123F8305E004DE4F3 /* DashboardViewController.swift in Sources */,
-				7D030ACA2432C72B002D8994 /* HostStore+CoreDataClass.swift in Sources */,
+				7DE4AE0824342045009982AF /* HostStore+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +866,16 @@
 			);
 			currentVersion = 7D909F1F23F07BB8000AE10F /* AssetClient.xcdatamodel */;
 			path = AuthStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		7DE4ADFF24341F7B009982AF /* HostStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7DE4AE0024341F7B009982AF /* HostStore.xcdatamodel */,
+			);
+			currentVersion = 7DE4AE0024341F7B009982AF /* HostStore.xcdatamodel */;
+			path = HostStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
