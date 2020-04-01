@@ -17,6 +17,6 @@ extension HostStore {
         return NSFetchRequest<HostStore>(entityName: "HostStore")
     }
 
-    @NSManaged public var hostnameList: Float
+    @NSManaged public var hostname: String
 
 }

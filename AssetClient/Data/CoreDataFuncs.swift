@@ -48,23 +48,49 @@ class CoreDataFuncs{
     
     
     //TODO: Get a string list of hostnames from the CoreData object...
-    func retrievePastHostnames() -> [String]{
+    func retrieveAllHostnames() -> [String]{
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HostStore")
-        //request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        //request.fetchLimit = 1
+        var allHostnames:[String] = []
         do{
             hostnameStore = try context.fetch(request) as! [NSManagedObject]
             if let hostnames = hostnameStore as? [HostStore] {
-                //Get first array item
-                if let token = tokens.first {
-
-                    return [hostnames]
+                for entry in hostnames{
+                    allHostnames.append(entry.hostname)
                 }
+                return allHostnames
             }
         } catch{
             debugPrint("Failed to pull CoreData")
             return []
         }
         return []
+    }
+    
+    func storeHostname(newHostName: String){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HostStore")
+        let hostStoreIdentity = NSEntityDescription.entity(forEntityName: "HostStore",  in: context)
+        let new = NSManagedObject(entity: hostStoreIdentity!, insertInto: context)
+        new.setValue(newHostName, forKey: "hostname")
+        do{
+            try context.save()
+        } catch{
+            debugPrint("Failed to save hostname.")
+        }
+    }
+    
+    func clearHostnames(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HostStore")
+        do{
+            hostnameStore = try context.fetch(request) as! [NSManagedObject]
+            if hostnameStore.count>0{
+                for object in hostnameStore{
+                    context.delete(object) //Remove all invalid tokens.
+                    try context.save()
+                }
+            }
+        } catch{
+            debugPrint("Failed to pull CoreData")
+        }
+
     }
 }

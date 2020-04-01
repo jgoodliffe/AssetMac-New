@@ -8,7 +8,6 @@
 
 import Cocoa
 import AppKit
-import KPCTabsControl
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

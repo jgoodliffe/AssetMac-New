@@ -24,6 +24,7 @@ class LoginViewController: NSViewController {
     @IBOutlet weak var logo: NSImageView!
     //var dashboardWindowController = DashboardWindowController()
     let auth = Authentication()
+    let coredata = CoreDataFuncs()
     var loggingIn = false
     var resettingPassword = false
     lazy var loginInProgress: [IndexPath: Operation] = [:]
@@ -43,6 +44,7 @@ class LoginViewController: NSViewController {
         progressIndicator.isHidden = true
         appDelegate?.disableMainMenuButtons()
         loadImage()
+        loadHostnameSuggestions()
         /// Do any additional setup after loading the view.
     }
     
@@ -51,6 +53,14 @@ class LoginViewController: NSViewController {
             let imageResizer = ImageResizer()
             
             logo.image = imageResizer.resize(image: image, w: Int(logo.frame.size.width), h: Int(logo.frame.size.height))
+        }
+    }
+    
+    func loadHostnameSuggestions(){
+        host.removeAllItems()
+        var comboItems:[String] = coredata.retrieveAllHostnames()
+        for item in comboItems{
+            host.addItem(withObjectValue: item)
         }
     }
     
@@ -165,10 +175,9 @@ class LoginViewController: NSViewController {
                 host.stringValue = "http://" + host.stringValue
             }
             if(validateURLFormat(inputURL: host.stringValue)){
+                coredata.storeHostname(newHostName: host.stringValue)
                 progressIndicator.isHidden = false
                 progressIndicator.startAnimation(self)
-                //debugPrint("Attempting login -  Host: "+host.stringValue+" Username: "+username.stringValue+" Password: "+passwordField.stringValue)
-                ///Attempt Login - DispatchQueue
                 
                 let hostName = host.stringValue
                 let uName = username.stringValue

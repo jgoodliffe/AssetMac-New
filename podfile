@@ -2,7 +2,6 @@ platform :macos, '10.15'
 use_frameworks!
 
 target 'Production Manager Pro' do
-	pod 'SwiftyJSON', '~> 4.0'
-	pod 'Alamofire', '~> 5.0.0-rc.3'
-	pod 'KPCTabsControl'
+	pod 'SwiftyJSON', '~> 5.0.0'
+	pod 'Alamofire', '~> 5.0.5'
 end
