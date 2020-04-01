@@ -55,7 +55,7 @@ class CoreDataFuncs{
             hostnameStore = try context.fetch(request) as! [NSManagedObject]
             if let hostnames = hostnameStore as? [HostStore] {
                 for entry in hostnames{
-                    allHostnames.append(entry.hostname)
+                    allHostnames.append(entry.hostname!)
                 }
                 return allHostnames
             }
@@ -67,15 +67,27 @@ class CoreDataFuncs{
     }
     
     func storeHostname(newHostName: String){
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HostStore")
-        let hostStoreIdentity = NSEntityDescription.entity(forEntityName: "HostStore",  in: context)
-        let new = NSManagedObject(entity: hostStoreIdentity!, insertInto: context)
-        new.setValue(newHostName, forKey: "hostname")
-        do{
-            try context.save()
-        } catch{
-            debugPrint("Failed to save hostname.")
+        if(!checkIfExists(hostname: newHostName)){
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HostStore")
+            let hostStoreIdentity = NSEntityDescription.entity(forEntityName: "HostStore",  in: context)
+            let new = NSManagedObject(entity: hostStoreIdentity!, insertInto: context)
+            new.setValue(newHostName, forKey: "hostname")
+            do{
+                try context.save()
+            } catch{
+                debugPrint("Failed to save hostname.")
+            }
         }
+    }
+    
+    func checkIfExists(hostname:String) -> Bool{
+        var allHostnames:[String] = retrieveAllHostnames()
+        for entry in allHostnames{
+            if(entry==hostname){
+                return true;
+            }
+        }
+        return false;
     }
     
     func clearHostnames(){
