@@ -33,6 +33,8 @@ class MasterViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.container.autoresizesSubviews = true
+        
         dashboard = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "dashTab") as! DashboardViewController
         assets = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "assetsTab") as! AssetsViewController
         logistics = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "logisticsTab") as! LogisticsViewController
@@ -93,6 +95,7 @@ class MasterViewController: NSViewController {
     
     func switchViews(viewID: Int){
         
+        self.container.frame = self.container.bounds
         for sView in self.container.subviews {
             sView.removeFromSuperview()
         }
@@ -100,18 +103,25 @@ class MasterViewController: NSViewController {
         switch viewID{
         case 1:
             self.container.addSubview(dashboard.view)
+            dashboard.view.frame = self.container.bounds
         case 2:
             self.container.addSubview(assets.view)
+            assets.view.frame = self.container.bounds
         case 3:
             self.container.addSubview(logistics.view)
+            logistics.view.frame = self.container.bounds
         case 4:
             self.container.addSubview(jobs.view)
+            jobs.view.frame = self.container.bounds
         case 5:
             self.container.addSubview(maintenance.view)
+            maintenance.view.frame = self.container.bounds
         case 6:
             self.container.addSubview(people.view)
+            people.view.frame = self.container.bounds
         default:
             self.container.addSubview(dashboard.view)
+            dashboard.view.frame = self.container.bounds
         }
     }
 }

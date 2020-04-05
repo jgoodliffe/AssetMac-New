@@ -37,7 +37,6 @@ class JobsViewController: NSViewController {
         //viewDidAppear()
         hideAll()
         loadInitialWindowContents()
-        
     }
     
     //Progress Indicator

@@ -362,6 +362,7 @@ class DashboardViewController: NSViewController {
             }, completionHandler:{
                 self.btnAssets.animator().alphaValue = 1
 //                self.windowFunctions.showAssets()
+                NotificationCenter.default.post(Notification(name: .assetsTab))
             })
         }
     }

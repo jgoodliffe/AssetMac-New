@@ -28,6 +28,8 @@
 		7D38140723FB318200602954 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D3813FF23FB318200602954 /* settings.png */; };
 		7D38140823FB318200602954 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D38140023FB318200602954 /* back.png */; };
 		7D38140923FB318200602954 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D38140123FB318200602954 /* key.png */; };
+		7D51B22B2438FAEB00D51A29 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51B22A2438FAEB00D51A29 /* Assets.swift */; };
+		7D51B22F2438FD2C00D51A29 /* AssetsTD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51B22E2438FD2C00D51A29 /* AssetsTD.swift */; };
 		7D5DB1A42410700C0029A684 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DB1A32410700C0029A684 /* CreateEventViewController.swift */; };
 		7D5DB1A624107B020029A684 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DB1A524107B020029A684 /* EditEventViewController.swift */; };
 		7D5DB1A924112F740029A684 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DB1A824112F740029A684 /* Events.swift */; };
@@ -91,6 +93,8 @@
 		7D3813FF23FB318200602954 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		7D38140023FB318200602954 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		7D38140123FB318200602954 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
+		7D51B22A2438FAEB00D51A29 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		7D51B22E2438FD2C00D51A29 /* AssetsTD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTD.swift; sourceTree = "<group>"; };
 		7D5DB1A32410700C0029A684 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		7D5DB1A524107B020029A684 /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		7D5DB1A824112F740029A684 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
@@ -166,11 +170,12 @@
 		7D11DF7F240B4D050030850A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D51B22D2438FD1200D51A29 /* TableDelegates */,
+				7D11DF8A240B4D7A0030850A /* AssetsViewController.swift */,
 				7D11DF80240B4D240030850A /* LogisticsViewController.swift */,
 				7D11DF82240B4D300030850A /* MaintenanceViewController.swift */,
 				7D11DF86240B4D3C0030850A /* PeopleViewController.swift */,
 				7D11DF88240B4D5F0030850A /* JobsViewController.swift */,
-				7D11DF8A240B4D7A0030850A /* AssetsViewController.swift */,
 				7D5DB1A32410700C0029A684 /* CreateEventViewController.swift */,
 				7D5DB1A524107B020029A684 /* EditEventViewController.swift */,
 				7DDD0BEB24127290003A2482 /* AddAssetViewController.swift */,
@@ -210,10 +215,19 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		7D51B22D2438FD1200D51A29 /* TableDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7D51B22E2438FD2C00D51A29 /* AssetsTD.swift */,
+			);
+			path = TableDelegates;
+			sourceTree = "<group>";
+		};
 		7D5DB1A724112F590029A684 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7D5DB1A824112F740029A684 /* Events.swift */,
+				7D51B22A2438FAEB00D51A29 /* Assets.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,7 +520,9 @@
 				7D909F3623F085A7000AE10F /* AuthStore+CoreDataProperties.swift in Sources */,
 				7D11DF87240B4D3C0030850A /* PeopleViewController.swift in Sources */,
 				7D7A87D323E9E02600B9B4B0 /* AppDelegate.swift in Sources */,
+				7D51B22F2438FD2C00D51A29 /* AssetsTD.swift in Sources */,
 				7D75AD9323FC12D4006F2FF2 /* CoreDataFuncs.swift in Sources */,
+				7D51B22B2438FAEB00D51A29 /* Assets.swift in Sources */,
 				7DE4AE10243423AD009982AF /* HostStore+CoreDataProperties.swift in Sources */,
 				7DACA3DB24341DE900C73868 /* AssetClient.xcdatamodeld in Sources */,
 				7D11DF84240B4D300030850A /* MaintenanceViewController.swift in Sources */,
